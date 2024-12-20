@@ -17,13 +17,15 @@ function MainEditorFooter({ ref }: MainEditorFooterProps) {
       initial={{ display: "none", opacity: 0 }}
       className={cn(firaCode.className, "border-t border-muted-foreground flex")}
     >
-      <ContainerWithBorder variant="right" className="px-4 lg:px-5.5 py-4 text-muted-foreground" as="p">
+      <ContainerWithBorder variant="right" className="px-3 lg:px-5.5 py-3 text-muted-foreground" as="p">
         Encontrame en:
       </ContainerWithBorder>
       <MainEditorSocials />
-      <ContainerWithBorder variant="left" className="px-4 lg:px-5.5 py-4 text-muted-foreground ml-auto flex items-center gap-2 -motion-translate-x-in-25" as="p">
-        @horaciogutierrez
-          <LucideGithub className="size-4"/>
+      <ContainerWithBorder variant="left" className="px-3 lg:px-5.5 py-3 text-muted-foreground ml-auto flex items-center gap-2 -motion-translate-x-in-25 transition-[width]" as="p">
+        <span className="hidden lg:inline motion-preset-slide-up-lg">
+          @horaciogutierrez
+        </span>
+        <LucideGithub className="size-4" />
       </ContainerWithBorder>
     </motion.footer>
   )

@@ -25,7 +25,7 @@ function MainEditorSocialLink({ icon, id }: MainEditorSocialLinkProps) {
       as="span"
       ref={scope}
       variant="right"
-      className="px-4 lg:px-5.5 py-4 text-muted-foreground grid place-content-center"
+      className="px-3 lg:px-5.5 py-3 text-muted-foreground grid place-content-center"
     >
       {icon}
     </ContainerWithBorder>
