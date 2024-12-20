@@ -1,16 +1,18 @@
 "use client"
 
-import { AnimatePresence, useAnimate } from "motion/react";
+import { useAnimate } from "motion/react";
 import { useEffect } from "react";
 import ContainerWithBorder from "./ContainerWithBorder";
 import MainEditorHeader from "./MainEditorHeader";
 import MainEditorContent from "./MainEditorContent";
+import MainEditorFooter from "./MainEditorFooter";
 
 function MainEditor({ children }: Readonly<{ children: React.ReactNode }>) {
 
   const [editor, animateEditor] = useAnimate();
   const [editorHeader, animateEditorHeader] = useAnimate();
   const [editorContent, animateEditorContent] = useAnimate();
+  const [editorFooter, animateEditorFooter] = useAnimate();
 
   useEffect(() => {
     initialAnimation()
@@ -20,6 +22,7 @@ function MainEditor({ children }: Readonly<{ children: React.ReactNode }>) {
     await animateEditor(editor.current, { flexGrow: 1 })
     await animateEditor(editor.current, { width: "100%" })
     await animateEditorHeader(editorHeader.current, { opacity: 1, display: "flex" })
+    await animateEditorFooter(editorFooter.current, { opacity: 1, display: "flex" })
     await animateEditorContent(editorContent.current, { opacity: 1 })
   }
 
@@ -27,14 +30,13 @@ function MainEditor({ children }: Readonly<{ children: React.ReactNode }>) {
     <ContainerWithBorder
       ref={editor}
       initial={{ height: 0, width: "10px", flexGrow: 0 }}
-      className="mx-auto rounded-md overflow-hidden"
+      className="mx-auto rounded-md overflow-hidden flex flex-col"
     >
       <MainEditorHeader ref={editorHeader} />
       <MainEditorContent ref={editorContent}>
-        <AnimatePresence>
-          {children}
-        </AnimatePresence>
+        {children}
       </MainEditorContent>
+      <MainEditorFooter ref={editorFooter}/>
     </ContainerWithBorder>
   )
 }

@@ -10,13 +10,13 @@ type MainEditorContentProps = {
 
 function MainEditorContent({ children, ref }: Readonly<MainEditorContentProps>) {
   return (
-    <motion.div
+    <motion.main
       ref={ref}
       initial={{ opacity: 0 }}
-      exit={{ opacity: 0 }}
+      className="p-4 lg:p-17 flex-grow"
     >
       {children}
-    </motion.div>
+    </motion.main>
   )
 }
 export default MainEditorContent

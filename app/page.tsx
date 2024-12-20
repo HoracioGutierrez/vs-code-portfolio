@@ -1,6 +1,6 @@
 function HomePage() {
   return (
-    <div>
+    <div className="motion-preset-fade-md">
       Home Page
     </div>
   )
