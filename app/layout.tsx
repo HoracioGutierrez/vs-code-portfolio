@@ -3,7 +3,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 import MainEditor from "@/features/laytout/components/MainEditor";
-import MainEditorContent from "@/features/laytout/components/MainEditorContent";
 
 export const metadata: Metadata = {
   title: "Create Next App",

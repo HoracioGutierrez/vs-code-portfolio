@@ -6,6 +6,7 @@ import ContainerWithBorder from "./ContainerWithBorder";
 import MainEditorHeader from "./MainEditorHeader";
 import MainEditorContent from "./MainEditorContent";
 import MainEditorFooter from "./MainEditorFooter";
+import MainEditorDrawer from "./MainEditorDrawer";
 
 function MainEditor({ children }: Readonly<{ children: React.ReactNode }>) {
 
@@ -30,12 +31,13 @@ function MainEditor({ children }: Readonly<{ children: React.ReactNode }>) {
     <ContainerWithBorder
       ref={editor}
       initial={{ height: 0, width: "10px", flexGrow: 0 }}
-      className="mx-auto rounded-md overflow-hidden flex flex-col"
+      className="mx-auto rounded-md overflow-hidden grid grid-rows-[min-content_1fr_min-content]"
     >
       <MainEditorHeader ref={editorHeader} />
       <MainEditorContent ref={editorContent}>
         {children}
       </MainEditorContent>
+      <MainEditorDrawer/>
       <MainEditorFooter ref={editorFooter}/>
     </ContainerWithBorder>
   )
