@@ -20,6 +20,11 @@ function MainEditorNavigationLink({ link }: MainEditorNavigationLinkProps) {
   const path = usePathname()
   const [scope, animate] = useAnimate();
 
+  const currentPathStart = path.split("/")[1]
+  const linkPathStart = link.href.split("/")[1]
+
+
+
   useEffect(() => {
     initialAnimation()
   }, [])
@@ -39,7 +44,7 @@ function MainEditorNavigationLink({ link }: MainEditorNavigationLinkProps) {
         href={link.href}
         className={cn(
           "px-8 grid place-content-center text-muted-foreground transition-all hover:text-white",
-          path === link.href && "text-foreground border-b-3 border-b-accent"
+          currentPathStart === linkPathStart && "text-foreground border-b-3 border-b-accent"
         )}>
         {link.label}
       </Link>

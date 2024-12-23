@@ -1,3 +1,4 @@
+"use client"
 import { cn } from "@/lib/utils"
 import { motion } from "motion/react"
 import React, { ComponentClass, FunctionComponent } from "react"
