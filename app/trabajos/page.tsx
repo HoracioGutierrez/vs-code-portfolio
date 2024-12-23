@@ -1,6 +1,6 @@
 function TrabajosPage() {
   return (
-    <div>TrabajosPage</div>
+    <div className="motion-preset-fade-md">TrabajosPage</div>
   )
 }
 export default TrabajosPage

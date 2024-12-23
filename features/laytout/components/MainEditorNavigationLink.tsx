@@ -38,7 +38,7 @@ function MainEditorNavigationLink({ link }: MainEditorNavigationLinkProps) {
       <Link
         href={link.href}
         className={cn(
-          "px-8 grid place-content-center text-muted-foreground transition-all",
+          "px-8 grid place-content-center text-muted-foreground transition-all hover:text-white",
           path === link.href && "text-foreground border-b-3 border-b-accent"
         )}>
         {link.label}
