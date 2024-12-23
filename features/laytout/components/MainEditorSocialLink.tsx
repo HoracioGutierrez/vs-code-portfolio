@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import ContainerWithBorder from "./ContainerWithBorder"
 import { useAnimate } from "motion/react";
+import Link from "next/link";
 
 type MainEditorSocialLinkProps = {
   icon: React.ReactNode
   id: Number
+  href: string
 }
 
-function MainEditorSocialLink({ icon, id }: MainEditorSocialLinkProps) {
+function MainEditorSocialLink({ icon, id, href }: MainEditorSocialLinkProps) {
 
   const [scope, animate] = useAnimate();
 
@@ -27,7 +29,9 @@ function MainEditorSocialLink({ icon, id }: MainEditorSocialLinkProps) {
       variant="right"
       className="px-3 lg:px-5.5 py-3 text-muted-foreground grid place-content-center"
     >
-      {icon}
+      <Link href={href} target="_blank">
+        {icon}
+      </Link>
     </ContainerWithBorder>
   )
 }
