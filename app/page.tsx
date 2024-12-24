@@ -14,8 +14,8 @@ function HomePage() {
           <p className="text-xl lg:text-3xl text-accent-1 font-bold transition-all">{`> Full-stack Developer`}</p>
         </div>
         <div>
-          <p className="text-muted-foreground text-sm lg:text-base">// complete el juego para continuar</p>
-          <p className="text-muted-foreground text-sm lg:text-base">// también podes ir a ver el código</p>
+          <p className="text-muted-foreground text-sm lg:text-base">{`// complete el juego para continuar`}</p>
+          <p className="text-muted-foreground text-sm lg:text-base">{`// también podes ir a ver el código`}</p>
           <p className="flex gap-2 flex-wrap text-sm lg:text-base">
             <span className="text-accent-1">const</span>
             <span className="text-accent-2">githubLink</span>

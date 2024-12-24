@@ -117,7 +117,7 @@ export default async function SobreMiLayout({
               <ContainerWithBorder variant="bottom" className="p-4">
                 {accordionItemsFiltered.folders.map(folder => {
                   return (
-                    <Accordion.Root type="single" className="AccordionRoot">
+                    <Accordion.Root type="single" className="AccordionRoot" key={folder.folderTitle}>
                       <Accordion.Item value={folder.folderTitle} className="AccordionItem">
                         <Accordion.Header>
                           <Accordion.Trigger className="AccordionTrigger group/root " asChild>
