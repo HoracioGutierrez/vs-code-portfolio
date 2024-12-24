@@ -10,13 +10,13 @@ export default function SobreMiLayout({
   return (
     <div className="motion-preset-fade-md flex grow">
       <ContainerWithBorder variant="right" className="flex flex-col">
-        <Link href="/sobre-mi/profesional" className="p-4 text-muted-foreground hover:text-white">
+        <Link href="/sobre-mi/profesional/experiencia/experiencia" className="p-4 text-muted-foreground hover:text-white">
           <SquareTerminal />
         </Link>
-        <Link href="/sobre-mi/personal" className="p-4 text-muted-foreground hover:text-white">
+        <Link href="/sobre-mi/personal/bio/bio" className="p-4 text-muted-foreground hover:text-white">
           <User />
         </Link>
-        <Link href="/sobre-mi/hobbies" className="p-4 text-muted-foreground hover:text-white">
+        <Link href="/sobre-mi/hobbies/juegos/video-juegos" className="p-4 text-muted-foreground hover:text-white">
           <Gamepad />
         </Link>
       </ContainerWithBorder>

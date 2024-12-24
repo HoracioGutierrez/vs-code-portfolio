@@ -29,22 +29,22 @@ export default async function SobreMiLayout({
           folderTitle: "bio",
           folderColor: "text-accent-1 fill-accent-1",
           files: [
-            { title: "bio.md" }
+            { title: "bio.md", href: "/sobre-mi/personal/bio/bio" }
           ]
         },
         {
           folderTitle: "intereses",
           folderColor: "text-accent-2 fill-accent-2",
           files: [
-            { title: "intereses.md" }
+            { title: "intereses.md", href: "/sobre-mi/personal/intereses/intereses" }
           ]
         },
         {
           folderTitle: "educacion",
           folderColor: "text-accent-3 fill-accent-3",
           files: [
-            { title: "secundaria.md" },
-            { title: "programacion.md" }
+            { title: "secundaria.md", href: "/sobre-mi/personal/educacion/secundaria" },
+            { title: "programacion.md", href: "/sobre-mi/personal/educacion/programacion" },
           ]
         }
       ]
@@ -57,21 +57,21 @@ export default async function SobreMiLayout({
           folderTitle: "experiencia",
           folderColor: "text-accent-1 fill-accent-1",
           files: [
-            { title: "experiencia.md" }
+            { title: "experiencia.md", href: "/sobre-mi/profesional/experiencia/experiencia" }
           ]
         },
         {
           folderTitle: "habilidades",
           folderColor: "text-accent-2 fill-accent-2",
           files: [
-            { title: "habilidades.md" }
+            { title: "habilidades.md", href: "/sobre-mi/profesional/habilidades/habilidades" }
           ]
         },
         {
           folderTitle: "proyectos",
           folderColor: "text-accent-3 fill-accent-3",
           files: [
-            { title: "proyectos.md" }
+            { title: "proyectos.md", href: "/sobre-mi/profesional/proyectos/proyectos" }
           ]
         }
       ]
@@ -84,14 +84,14 @@ export default async function SobreMiLayout({
           folderTitle: "juegos",
           folderColor: "text-accent-1 fill-accent-1",
           files: [
-            { title: "video-juegos.md" }
+            { title: "video-juegos.md", href: "/sobre-mi/hobbies/juegos/video-juegos" },
           ]
         },
         {
           folderTitle: "viajes",
           folderColor: "text-accent-2 fill-accent-2",
           files: [
-            { title: "viajes.md" }
+            { title: "viajes.md", href: "/sobre-mi/hobbies/viajes/viajes" }
           ]
         }
       ]
@@ -107,7 +107,7 @@ export default async function SobreMiLayout({
           <Accordion.Item value={accordionItemsFiltered.triggerTitle} className="AccordionItem">
             <Accordion.Header>
               <Accordion.Trigger className="AccordionTrigger" asChild>
-                <ContainerWithBorder variant="bottom" className="justify-start gap-2 text-muted-foreground hover:text-white">
+                <ContainerWithBorder variant="bottom" className="justify-start gap-2 text-muted-foreground hover:text-white p-3">
                   <Triangle className="AccordionChevron transition-all rotate-180 size-2 fill-muted-foreground hover:text-white" />
                   <span>{accordionItemsFiltered.triggerTitle}</span>
                 </ContainerWithBorder>
@@ -121,8 +121,8 @@ export default async function SobreMiLayout({
                       <Accordion.Item value={folder.folderTitle} className="AccordionItem">
                         <Accordion.Header>
                           <Accordion.Trigger className="AccordionTrigger group/root " asChild>
-                            <div className="gap-2 text-muted-foreground hover:text-white">
-                              <ChevronRight className="size-6 group-data-[state=open]/root:rotate-90 transition-all"/>
+                            <div className="gap-2 text-muted-foreground hover:text-white p-3">
+                              <ChevronRight className="size-6 group-data-[state=open]/root:rotate-90 transition-all" />
                               <Folder className={cn("transition-all size-4", folder.folderColor)} />
                               <span>{folder.folderTitle}</span>
                             </div>
@@ -131,10 +131,10 @@ export default async function SobreMiLayout({
                         <Accordion.Content className="AccordionContent">
                           {folder.files.map(file => {
                             return (
-                              <p className="pl-10 text-muted-foreground hover:text-white flex items-center gap-2" key={file.title}>
-                                <File className="size-4"/>
+                              <Link href={file.href} className="pl-10 text-muted-foreground hover:text-white flex items-center gap-2" key={file.title}>
+                                <File className="size-4" />
                                 {file.title}
-                              </p>
+                              </Link>
                             )
                           })}
                         </Accordion.Content>
@@ -148,7 +148,7 @@ export default async function SobreMiLayout({
           <Accordion.Item value={"contacto"} className="AccordionItem">
             <Accordion.Header>
               <Accordion.Trigger className="AccordionTrigger" asChild>
-                <ContainerWithBorder variant="bottom" className="justify-start gap-2 text-muted-foreground hover:text-white">
+                <ContainerWithBorder variant="bottom" className="justify-start gap-2 text-muted-foreground hover:text-white p-3">
                   <Triangle className="AccordionChevron transition-all rotate-180 size-2 fill-muted-foreground hover:text-white" />
                   <span>contacto</span>
                 </ContainerWithBorder>
@@ -168,6 +168,6 @@ export default async function SobreMiLayout({
         </Accordion.Root>
       </ContainerWithBorder>
       {children}
-    </div>
+    </div >
   )
 }
