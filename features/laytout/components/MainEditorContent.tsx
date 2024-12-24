@@ -12,7 +12,7 @@ function MainEditorContent({ children, ref }: Readonly<MainEditorContentProps>) 
   return (
     <motion.main
       ref={ref}
-      initial={{ opacity: 0 }}
+      /* initial={{ opacity: 0 }} */
       className="flex-grow row-start-2 row-end-3 col-start-1 col-end-2 flex flex-col"
     >
       {children}

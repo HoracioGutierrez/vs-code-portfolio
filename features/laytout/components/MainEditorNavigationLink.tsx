@@ -30,8 +30,8 @@ function MainEditorNavigationLink({ link }: MainEditorNavigationLinkProps) {
   }, [])
 
   const initialAnimation = async () => {
-    await animate(scope.current, { x: -100, opacity: 0 })
-    await animate(scope.current, { x: 0, opacity: 1 }, { delay: link.id * 0.1 })
+    /* await animate(scope.current, { x: -100, opacity: 0 })
+    await animate(scope.current, { x: 0, opacity: 1 }, { delay: link.id * 0.1 }) */
   }
 
   const MotionNextLink = forwardRef<HTMLAnchorElement, React.ComponentPropsWithoutRef<typeof Link>>((props, ref) => {

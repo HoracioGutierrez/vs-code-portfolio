@@ -20,18 +20,18 @@ function MainEditor({ children }: Readonly<{ children: React.ReactNode }>) {
   }, [])
 
   const initialAnimation = async () => {
-    await animateEditor(editor.current, { flexGrow: 1 })
+    /* await animateEditor(editor.current, { flexGrow: 1 })
     await animateEditor(editor.current, { width: "100%" })
     await animateEditorHeader(editorHeader.current, { opacity: 1, display: "flex" })
     await animateEditorFooter(editorFooter.current, { opacity: 1, display: "flex" })
-    await animateEditorContent(editorContent.current, { opacity: 1 })
+    await animateEditorContent(editorContent.current, { opacity: 1 }) */
   }
 
   return (
     <ContainerWithBorder
-      ref={editor}
-      initial={{ height: 0, width: "10px", flexGrow: 0 }}
-      className="mx-auto rounded-md overflow-hidden grid grid-rows-[min-content_1fr_min-content]"
+      /* ref={editor} */
+      /* initial={{ height: 0, width: "10px", flexGrow: 0 }} */
+      className="mx-auto rounded-md overflow-hidden grid grid-rows-[min-content_1fr_min-content] flex-grow w-full"
     >
       <MainEditorHeader ref={editorHeader} />
       <MainEditorContent ref={editorContent}>

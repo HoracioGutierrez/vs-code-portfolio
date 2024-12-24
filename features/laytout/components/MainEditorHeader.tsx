@@ -15,8 +15,8 @@ type MainEditorHeaderProps = {
 function MainEditorHeader({ ref }: MainEditorHeaderProps) {
   return (
     <motion.header
-      ref={ref}
-      initial={{ display: "none", opacity: 0 }}
+      /* ref={ref} */
+      /* initial={{ display: "none", opacity: 0 }} */
       className={cn(firaCode.className, "border-b border-muted-foreground flex")}
     >
       <h1 className="text-muted-foreground pl-4 lg:pl-5.5 py-4 transition-all lg:border-r border-muted-foreground lg:pr-39">horacio-gutierrez</h1>
