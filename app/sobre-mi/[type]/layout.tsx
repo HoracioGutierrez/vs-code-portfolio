@@ -13,12 +13,10 @@ export default async function SobreMiLayout({
   params
 }: {
   children: React.ReactNode;
-  params: {
-    type: Promise<string>
-  };
+  params: Promise<{ type: string }>
 }) {
 
-  const type = await params.type
+  const type = (await params).type
 
   const accordionItems = [
     {
