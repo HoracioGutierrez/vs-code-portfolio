@@ -2,7 +2,7 @@ import MainEditorCodeTab from "@/features/laytout/components/MainEditorCodeTab"
 
 type SobreMiPageProps = {
   params: {
-    file: Promise<string>
+    file: any
   }
 }
 
