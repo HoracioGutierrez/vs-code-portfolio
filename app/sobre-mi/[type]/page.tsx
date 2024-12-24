@@ -1,7 +1,5 @@
 type SobreMiPageProps = {
-  params: {
-    type: Promise<string>
-  }
+  params: Promise<{ type: string }>
 }
 
 async function SobreMiPage({ params }: SobreMiPageProps) {
