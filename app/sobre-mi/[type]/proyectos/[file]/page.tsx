@@ -1,9 +1,9 @@
 import MainEditorCodeTab from "@/features/laytout/components/MainEditorCodeTab"
 
 type SobreMiPageProps = {
-  params: {
-    file: any
-  }
+  params: Promise<{
+    file: string
+  }>
 }
 
 async function page({ params }: SobreMiPageProps) {
