@@ -4,9 +4,9 @@ import Link from "next/link";
 
 export default function SobreMiLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <div className="motion-preset-fade-md flex grow">
       <ContainerWithBorder variant="right" className="flex flex-col">

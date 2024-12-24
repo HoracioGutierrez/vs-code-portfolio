@@ -11,12 +11,12 @@ const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] })
 export default async function SobreMiLayout({
   children,
   params
-}: Readonly<{
+}: {
   children: React.ReactNode;
   params: {
     type: Promise<string>
   };
-}>) {
+}) {
 
   const type = await params.type
 
