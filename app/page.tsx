@@ -25,10 +25,10 @@ function HomePage() {
               target="_blank"
               className="text-accent-3 break-words"
             >
-              <span className="sm:hidden">"https://github.com/</span>
+              <span className="sm:hidden">&quot;https://github.com/</span>
               <br className="sm:hidden"/>
-              <span className="sm:hidden">HoracioGutierrez"</span>
-              <span className="hidden sm:inline">"https://github.com/HoracioGutierrez"</span>
+              <span className="sm:hidden">HoracioGutierrez&quot;</span>
+              <span className="hidden sm:inline">&quot;https://github.com/HoracioGutierrez&quot;</span>
             </Link>
           </p>
         </div>
