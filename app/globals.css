@@ -203,3 +203,15 @@ h3 {
 		height: 0;
 	}
 }
+
+.ͼ1.cm-focused {
+  outline: none;
+}
+
+.ͼ1 .cm-scroller {
+  font-family: "Fira Code", monospace;
+}
+
+.ͼ1b .cm-activeLineGutter {
+  background-color: var(--primary);
+}

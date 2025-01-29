@@ -1,4 +1,5 @@
 import ContainerWithBorder from "@/features/laytout/components/ContainerWithBorder";
+import MainCategoryLink from "@/features/sobre-mi/components/MainCategoryLink";
 import { Gamepad, SquareTerminal, User } from "lucide-react";
 import Link from "next/link";
 
@@ -10,15 +11,15 @@ export default function SobreMiLayout({
   return (
     <div className="motion-preset-fade-md flex grow">
       <ContainerWithBorder variant="right" className="flex flex-col">
-        <Link href="/sobre-mi/profesional/experiencia/experiencia" className="p-4 text-muted-foreground hover:text-white">
+        <MainCategoryLink href="/sobre-mi/profesional/experiencia/experiencia">
           <SquareTerminal />
-        </Link>
-        <Link href="/sobre-mi/personal/bio/bio" className="p-4 text-muted-foreground hover:text-white">
+        </MainCategoryLink>
+        <MainCategoryLink href="/sobre-mi/personal/bio/bio">
           <User />
-        </Link>
-        <Link href="/sobre-mi/hobbies/juegos/video-juegos" className="p-4 text-muted-foreground hover:text-white">
+        </MainCategoryLink>
+        <MainCategoryLink href="/sobre-mi/hobbies/juegos/video-juegos">
           <Gamepad />
-        </Link>
+        </MainCategoryLink>
       </ContainerWithBorder>
       {children}
     </div>

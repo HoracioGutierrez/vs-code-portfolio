@@ -2,10 +2,13 @@
 
 import { motion } from "motion/react"
 
+
+import { ForwardedRef, ReactNode } from "react";
+
 type MainEditorContentProps = {
-  children?: React.ReactNode
-  ref?: any
-}
+  children: ReactNode;
+  ref: ForwardedRef<HTMLElement>;
+};
 
 
 function MainEditorContent({ children, ref }: Readonly<MainEditorContentProps>) {

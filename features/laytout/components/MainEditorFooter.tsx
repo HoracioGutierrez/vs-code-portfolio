@@ -15,7 +15,6 @@ function MainEditorFooter({ ref }: MainEditorFooterProps) {
   return (
     <motion.footer
       ref={ref}
-      initial={{ display: "none", opacity: 0 }}
       className={cn(firaCode.className, "border-t border-muted-foreground flex")}
     >
       <ContainerWithBorder variant="right" className="px-3 lg:px-5.5 py-3 text-muted-foreground" as="p">

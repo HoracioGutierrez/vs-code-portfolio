@@ -18,8 +18,8 @@ function MainEditorSocialLink({ icon, id, href }: MainEditorSocialLinkProps) {
   }, [])
 
   const initialAnimation = async () => {
-    await animate(scope.current, { x: -400, opacity: 0 })
-    await animate(scope.current, { x: 0, opacity: 1 }, { delay: Number(id) * 0.1 })
+    //await animate(scope.current, { x: -400, opacity: 0 })
+    //await animate(scope.current, { x: 0, opacity: 1 }, { delay: Number(id) * 0.1 })
   }
 
   return (

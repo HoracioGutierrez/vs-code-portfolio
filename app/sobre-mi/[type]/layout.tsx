@@ -96,12 +96,14 @@ export default async function SobreMiLayout({
     }
   ]
 
-  const accordionItemsFiltered = accordionItems.filter(item => item.pathKey === type) ? accordionItems.filter(item => item.pathKey === type)[0] : accordionItems[0]
+  const accordionItemsFiltered = accordionItems.filter(item => item.pathKey === type)
+    ? accordionItems.filter(item => item.pathKey === type)[0]
+    : accordionItems[0]
 
   return (
     <div className={cn(firaCode.className, "motion-preset-fade-md flex grow text-muted-foreground")}>
-      <ContainerWithBorder>
-        <Accordion.Root type="single" className="AccordionRoot" defaultValue={accordionItemsFiltered.triggerTitle}>
+      <ContainerWithBorder className="shrink-0 w-full max-w-3xs">
+        <Accordion.Root type="single" className="AccordionRoot" defaultValue={accordionItemsFiltered.triggerTitle} collapsible>
           <Accordion.Item value={accordionItemsFiltered.triggerTitle} className="AccordionItem">
             <Accordion.Header>
               <Accordion.Trigger className="AccordionTrigger" asChild>
@@ -126,7 +128,7 @@ export default async function SobreMiLayout({
                             </div>
                           </Accordion.Trigger>
                         </Accordion.Header>
-                        <Accordion.Content className="AccordionContent">
+                        <Accordion.Content className="AccordionContent flex flex-col gap-2">
                           {folder.files.map(file => {
                             return (
                               <Link href={file.href} className="pl-10 text-muted-foreground hover:text-white flex items-center gap-2" key={file.title}>
