@@ -4,6 +4,7 @@ import { ChevronRight, File, Folder, Mail, Phone, Triangle } from "lucide-react"
 import Link from "next/link";
 import { Fira_Code } from "next/font/google"
 import { cn } from "@/lib/utils";
+import FolderAccordion from "@/features/sobre-mi/components/FolderAccordion";
 
 const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] })
 
@@ -27,22 +28,22 @@ export default async function SobreMiLayout({
           folderTitle: "bio",
           folderColor: "text-accent-1 fill-accent-1",
           files: [
-            { title: "bio.md", href: "/sobre-mi/personal/bio/bio" }
+            { title: "bio.js", href: "/sobre-mi/personal/bio/bio" }
           ]
         },
         {
           folderTitle: "intereses",
           folderColor: "text-accent-2 fill-accent-2",
           files: [
-            { title: "intereses.md", href: "/sobre-mi/personal/intereses/intereses" }
+            { title: "intereses.js", href: "/sobre-mi/personal/intereses/intereses" }
           ]
         },
         {
           folderTitle: "educacion",
           folderColor: "text-accent-3 fill-accent-3",
           files: [
-            { title: "secundaria.md", href: "/sobre-mi/personal/educacion/secundaria" },
-            { title: "programacion.md", href: "/sobre-mi/personal/educacion/programacion" },
+            { title: "secundaria.js", href: "/sobre-mi/personal/educacion/secundaria" },
+            { title: "programacion.js", href: "/sobre-mi/personal/educacion/programacion" },
           ]
         }
       ]
@@ -55,21 +56,21 @@ export default async function SobreMiLayout({
           folderTitle: "experiencia",
           folderColor: "text-accent-1 fill-accent-1",
           files: [
-            { title: "experiencia.md", href: "/sobre-mi/profesional/experiencia/experiencia" }
+            { title: "experiencia.js", href: "/sobre-mi/profesional/experiencia/experiencia" }
           ]
         },
         {
           folderTitle: "habilidades",
           folderColor: "text-accent-2 fill-accent-2",
           files: [
-            { title: "habilidades.md", href: "/sobre-mi/profesional/habilidades/habilidades" }
+            { title: "habilidades.js", href: "/sobre-mi/profesional/habilidades/habilidades" }
           ]
         },
         {
           folderTitle: "proyectos",
           folderColor: "text-accent-3 fill-accent-3",
           files: [
-            { title: "proyectos.md", href: "/sobre-mi/profesional/proyectos/proyectos" }
+            { title: "proyectos.js", href: "/sobre-mi/profesional/proyectos/proyectos" }
           ]
         }
       ]
@@ -82,14 +83,14 @@ export default async function SobreMiLayout({
           folderTitle: "juegos",
           folderColor: "text-accent-1 fill-accent-1",
           files: [
-            { title: "video-juegos.md", href: "/sobre-mi/hobbies/juegos/video-juegos" },
+            { title: "video-juegos.js", href: "/sobre-mi/hobbies/juegos/video-juegos" },
           ]
         },
         {
           folderTitle: "viajes",
           folderColor: "text-accent-2 fill-accent-2",
           files: [
-            { title: "viajes.md", href: "/sobre-mi/hobbies/viajes/viajes" }
+            { title: "viajes.js", href: "/sobre-mi/hobbies/viajes/viajes" }
           ]
         }
       ]
@@ -117,29 +118,7 @@ export default async function SobreMiLayout({
               <ContainerWithBorder variant="bottom" className="p-4">
                 {accordionItemsFiltered.folders.map(folder => {
                   return (
-                    <Accordion.Root type="single" className="AccordionRoot" key={folder.folderTitle}>
-                      <Accordion.Item value={folder.folderTitle} className="AccordionItem">
-                        <Accordion.Header>
-                          <Accordion.Trigger className="AccordionTrigger group/root " asChild>
-                            <div className="gap-2 text-muted-foreground hover:text-white p-3">
-                              <ChevronRight className="size-6 group-data-[state=open]/root:rotate-90 transition-all" />
-                              <Folder className={cn("transition-all size-4", folder.folderColor)} />
-                              <span>{folder.folderTitle}</span>
-                            </div>
-                          </Accordion.Trigger>
-                        </Accordion.Header>
-                        <Accordion.Content className="AccordionContent flex flex-col gap-2">
-                          {folder.files.map(file => {
-                            return (
-                              <Link href={file.href} className="pl-10 text-muted-foreground hover:text-white flex items-center gap-2" key={file.title}>
-                                <File className="size-4" />
-                                {file.title}
-                              </Link>
-                            )
-                          })}
-                        </Accordion.Content>
-                      </Accordion.Item>
-                    </Accordion.Root>
+                    <FolderAccordion folder={folder} key={folder.folderTitle}/>
                   )
                 })}
               </ContainerWithBorder>

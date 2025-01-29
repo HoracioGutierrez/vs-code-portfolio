@@ -19,7 +19,7 @@ async function page({ params }: SobreMiPageProps) {
   )
 
   return (
-    <MainEditorCodeTab tabTitle={`${file}.md`}>
+    <MainEditorCodeTab tabTitle={`${file}.js`}>
       <DynamicComponent />
     </MainEditorCodeTab>
   )
