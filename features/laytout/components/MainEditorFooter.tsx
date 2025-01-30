@@ -15,7 +15,8 @@ function MainEditorFooter({ ref }: MainEditorFooterProps) {
   return (
     <motion.footer
       ref={ref}
-      className={cn(firaCode.className, "border-t border-muted-foreground flex")}
+      className={cn(firaCode.className, "border-t border-muted-foreground/50 flex")}
+      style={{ gridColumn : "1/-1"}}
     >
       <ContainerWithBorder variant="right" className="px-3 lg:px-5.5 py-3 text-muted-foreground" as="p">
         Encontrame en:

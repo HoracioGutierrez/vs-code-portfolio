@@ -9,8 +9,8 @@ export default function SobreMiLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="motion-preset-fade-md flex grow">
-      <ContainerWithBorder variant="right" className="flex flex-col">
+    <div className="motion-preset-fade-md grow contents">
+      <ContainerWithBorder variant="right" className="flex flex-col" style={{ gridColumn: "1/2" , gridRow: "2/3"}}>
         <MainCategoryLink href="/sobre-mi/profesional/experiencia/experiencia">
           <SquareTerminal />
         </MainCategoryLink>

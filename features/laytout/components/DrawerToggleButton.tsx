@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react"
 import { useLayout } from "../stores/useLayout"
 import { cn } from "@/lib/utils"
 import { useAnimate } from "motion/react"
+import ContainerWithBorder from "./ContainerWithBorder"
 
 function DrawerToggleButton() {
 
@@ -26,7 +27,11 @@ function DrawerToggleButton() {
   }
 
   return (
-    <div className="relative ml-auto grid place-content-center cursor-pointer">
+    <ContainerWithBorder
+      className="relative lg:hidden grid place-items-center justify-items-end cursor-pointer"
+      style={{ gridColumn: "3/4" }}
+      variant="bottom"
+    >
       <Menu
         ref={menu}
         onClick={toggleDrawer}
@@ -37,7 +42,7 @@ function DrawerToggleButton() {
         onClick={toggleDrawer}
         className={cn("self-center ml-auto mr-4 text-muted-foreground lg:hidden absolute opacity-0")}
       />
-    </div>
+    </ContainerWithBorder>
   )
 }
 export default DrawerToggleButton

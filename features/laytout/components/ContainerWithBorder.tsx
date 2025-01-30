@@ -24,7 +24,7 @@ function ContainerWithBorder({ as = "div", children, className, variant = "defau
       "border-r": variant === "right",
       "border-tl": variant === "top-left",
       "border-tr": variant === "top-right",
-      "border-bl": variant === "bottom-left",
+      "border-b border-l": variant === "bottom-left" ,
       "border-br": variant === "bottom-right",
     },
     className

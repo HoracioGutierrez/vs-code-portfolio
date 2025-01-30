@@ -1,6 +1,6 @@
 import ContainerWithBorder from "@/features/laytout/components/ContainerWithBorder";
 import * as Accordion from "@radix-ui/react-accordion";
-import { ChevronRight, File, Folder, Mail, Phone, Triangle } from "lucide-react";
+import { Mail, Phone, Triangle } from "lucide-react";
 import Link from "next/link";
 import { Fira_Code } from "next/font/google"
 import { cn } from "@/lib/utils";
@@ -98,12 +98,14 @@ export default async function SobreMiLayout({
   ]
 
   const accordionItemsFiltered = accordionItems.filter(item => item.pathKey === type)
-    ? accordionItems.filter(item => item.pathKey === type)[0]
-    : accordionItems[0]
+  ? accordionItems.filter(item => item.pathKey === type)[0]
+  : accordionItems[0]
+  
+  console.log("🚀 ~ accordionItemsFiltered:", accordionItemsFiltered)
 
   return (
-    <div className={cn(firaCode.className, "motion-preset-fade-md flex grow text-muted-foreground")}>
-      <ContainerWithBorder className="shrink-0 w-full max-w-3xs">
+    <div className={cn(firaCode.className, "motion-preset-fade-md grow text-muted-foreground contents")}>
+      <ContainerWithBorder className="shrink-0 w-full" style={{ gridColumn: "2/3" , gridRow: "2/3"}} variant="right">
         <Accordion.Root type="single" className="AccordionRoot" defaultValue={accordionItemsFiltered.triggerTitle} collapsible>
           <Accordion.Item value={accordionItemsFiltered.triggerTitle} className="AccordionItem">
             <Accordion.Header>

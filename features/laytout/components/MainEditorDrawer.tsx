@@ -13,11 +13,14 @@ function MainEditorDrawer() {
   const { drawerOpen }: any = useLayout()
 
   return (
-    <nav className={cn(firaCode.className, "overflow-hidden row-start-2 row-end-3 col-start-1 col-end-2 bg-primary", drawerOpen && "backdrop-blur-3xl")}>
+    <nav
+      className={cn(firaCode.className, "overflow-hidden opacity-0 bg-primary pointer-events-none", drawerOpen && "backdrop-blur-3xl opacity-100 pointer-events-auto")}
+      style={{
+        gridColumn: "1/-1",
+        gridRow: "2/4",
+      }}
+    >
       <AnimatePresence>
-        {drawerOpen && (
-          <div></div>
-        )}
         {drawerOpen && (
           links.map((link) => {
             return (
