@@ -18,7 +18,7 @@ function MainEditorContent({ children, ref }: Readonly<MainEditorContentProps>) 
       /* initial={{ opacity: 0 }} */
       style={{ gridColumn: "1/-1" }}
       /* className="flex-grow row-start-2 row-end-3 col-start-1 col-end-2 flex flex-col" */
-      className="flex-grow row-start-2 row-end-3 col-start-1 col-end-2 flex-col contents"
+      className="flex-grow row-start-2 row-end-3 col-start-1 col-end-5 flex-col contents"
     >
       {children}
     </motion.main>

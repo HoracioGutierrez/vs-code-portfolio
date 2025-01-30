@@ -6,7 +6,7 @@ const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] })
 
 function HomePage() {
   return (
-    <div className={cn(firaCode.className, "motion-preset-fade-md grow grid place-content-center")}>
+    <div className={cn(firaCode.className, "motion-preset-fade-md grow grid place-content-center")} style={{ gridColumn: "1/-1" , gridRow: "2/-2" }}>
       <div className="flex flex-col gap-20 px-4">
         <div>
           <p className="text-sm lg:text-base transition-all">Hola, soy</p>
