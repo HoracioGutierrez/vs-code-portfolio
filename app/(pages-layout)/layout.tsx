@@ -3,7 +3,6 @@ import ContainerWithBorder from "@/features/laytout/components/ContainerWithBord
 import MainCategoryLink from "@/features/sobre-mi/components/MainCategoryLink";
 import * as Accordion from "@radix-ui/react-accordion";
 import { Gamepad, SquareTerminal, Triangle, User } from "lucide-react";
-import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { lazy, Suspense } from "react";
 
