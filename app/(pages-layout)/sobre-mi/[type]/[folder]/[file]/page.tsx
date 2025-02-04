@@ -13,9 +13,7 @@ async function page({ params }: SobreMiPageProps) {
 
   const DynamicComponent = dynamic(
     () => import(`@/features/sobre-mi/components/${file}`),
-    {
-      loading: () => <div>Loading...</div>,
-    }
+    { loading: () => <div>Loading...</div> }
   )
 
   return (

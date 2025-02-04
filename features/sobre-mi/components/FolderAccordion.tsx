@@ -11,11 +11,11 @@ export default function FolderAccordion({ folder }: any) {
             <Accordion.Item value={folder.folderTitle} className="AccordionItem">
                 <Accordion.Header>
                     <Accordion.Trigger className="AccordionTrigger group/root " asChild>
-                        <div className="gap-2 text-muted-foreground hover:text-white p-3">
+                        <Link href={`/sobre-mi/${folder.parentPath}/${folder.folderTitle}`} className="gap-2 text-muted-foreground hover:text-white p-3">
                             <ChevronRight className="size-6 group-data-[state=open]/root:rotate-90 transition-all" />
                             <Folder className={cn("transition-all size-4", folder.folderColor)} />
                             <span>{folder.folderTitle}</span>
-                        </div>
+                        </Link>
                     </Accordion.Trigger>
                 </Accordion.Header>
                 <Accordion.Content className="AccordionContent flex flex-col gap-2">

@@ -9,7 +9,7 @@ type MainEditorCodeTabProps = {
 function MainEditorCodeTab({ tabTitle = "tab-title.md", children }: MainEditorCodeTabProps) {
   return (
     <div className="w-full" style={{ gridColumn: "3/-1" , gridRow: "2/4"}}>
-      <ContainerWithBorder variant="right" className="p-3 w-fit text-muted-foreground flex gap-12 items-center h-[49px]">
+      <ContainerWithBorder variant="right" className="p-3 w-fit text-muted-foreground flex gap-12 items-center h-[48px]">
         <span>
           {tabTitle}
         </span>
