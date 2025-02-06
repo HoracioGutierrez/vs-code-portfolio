@@ -22,7 +22,7 @@ const message = {
 	name: "${name}",
 	email: "${email}",
 	message: "${message}",
-	date: "Thu 21 Apr"
+	date: "${new Date().toLocaleDateString()}",
 }
 
 button.addEventListener('click', () => {

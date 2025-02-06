@@ -36,7 +36,7 @@ export default function ContactForm() {
                 <label htmlFor="message" className="block mb-2 text-sm font-medium text-muted-foreground">_mensaje:</label>
                 <textarea id="message" name="message" className="block w-full rounded-md border-0 px-3 py-1.5 text-white shadow-sm ring-1 ring-inset ring-muted-foreground/20 placeholder:text-gray-400 focus:ring-0 focus-visible:ring-0 focus:border-0 focus-visible:border-0 sm:text-sm sm:leading-6 resize-none min-h-[140px] bg-background/50" placeholder="johndoe@gmail.com" onChange={handleChange} />
             </div>
-            <button className={cn("!bg-muted-foreground/30 !py-2.5 !px-3 !rounded-lg !w-fit cursor-pointer", isDisabled && "!text-muted-foreground !cursor-not-allowed")} disabled={isDisabled}>{isPending ? "enviando..." : "enviar-mensaje"}</button>
+            <button className={cn("!bg-muted-foreground/30 !py-2.5 !px-3 !rounded-lg !w-fit !cursor-pointer", isDisabled && "!text-muted-foreground !cursor-not-allowed")} disabled={isDisabled}>{isPending ? "enviando..." : "enviar-mensaje"}</button>
         </form>
     )
 }
