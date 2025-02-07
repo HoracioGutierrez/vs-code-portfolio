@@ -222,5 +222,14 @@ h3 {
 }
 
 .editor-grid {
-  grid-template-areas: "title title navbar header-cta" "sidebar sidebar content content" "footer-social footer-social footer footer"; 
+
+  grid-template-areas:
+    "title title navbar header-cta"
+    "sidebar sidebar sidebar sidebar"
+    "content content content content"
+    "footer-social footer-social footer footer";
+
+  @media screen and (min-width: 768px) {
+    grid-template-areas: "title title navbar header-cta" "sidebar sidebar content content" "footer-social footer-social footer footer";
+  }
 }

@@ -49,7 +49,7 @@ export default function PagesLayout({ children }: { children: React.ReactNode })
                     </MainCategoryLink>
                 </ContainerWithBorder>
             )}
-            <ContainerWithBorder className="shrink-0 w-full" style={{ gridColumn: pathname.includes("sobre-mi") ? "2/3" : "1/3", gridRow: "2/3" }} variant="right">
+            <ContainerWithBorder className="shrink-0 w-full" style={{ gridColumn: pathname.includes("sobre-mi") ? "2/3" : "1/3", gridRow: "2/3" , gridArea : "sidebar" }} variant="right">
                 <Accordion.Root type="single" className="AccordionRootLayout" defaultValue={mainPath} collapsible id="accordion-root">
                     {selectedSidebarItem.map((item: SidebarItem) => {
                         return (
@@ -72,7 +72,7 @@ export default function PagesLayout({ children }: { children: React.ReactNode })
                     })}
                 </Accordion.Root>
             </ContainerWithBorder>
-            <div className="motion-preset-fade-md flex grow" style={{ gridColumn: "3/-1", gridRow: "2/-2" }}>
+            <div className="motion-preset-fade-md flex grow" style={{ gridColumn: "3/-1", gridRow: "2/-2" , gridArea : "content" }}>
                 {children}
             </div>
         </>
