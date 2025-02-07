@@ -8,13 +8,13 @@ export const getProjectsByFilter = async (filters: string[]) => {
 
         const supabase = await createClient()
         const filterString = filters.map((f) => `tags.cs.{${f}}`).join(",")
-        const result = await supabase.from("projects").select("*").or(filterString)
-        console.log("🚀 ~ getProjectsByFilter ~ result:", result)
+        const result = filters[0] === "all" ? await supabase.from("projects").select("*") : await supabase.from("projects").select("*").or(filterString)
+
 
         return {
             error: false,
             message: "Proyectos obtenidos correctamente",
-            payload: result
+            payload: result.data
         }
 
     } catch (error) {

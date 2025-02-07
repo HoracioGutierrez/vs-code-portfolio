@@ -1,12 +1,13 @@
 "use client"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { getProjectsByFilter } from "../actions/getProjectsByFilter"
+import useProjectsStore from "../stores/useProjectsStore"
 
 export default function Trabajos() {
 
     const defaultFilters = [
-        { label: "Todos", value: "all", checked: false },
+        { label: "Todos", value: "all", checked: true },
         { label: "React", value: "react", icon: "/images/react.svg", checked: false },
         { label: "HTML", value: "html", icon: "/images/html.svg", checked: false },
         { label: "CSS", value: "css", icon: "/images/css.svg", checked: false },
@@ -22,7 +23,21 @@ export default function Trabajos() {
 
     const [filters, setFilters] = useState(defaultFilters)
     const [selectedFilters, setSelectedFilters] = useState<any[]>([])
-    const [projects, setProjects] = useState<any[]>([])
+    const { setProjects } = useProjectsStore()
+
+    useEffect(() => {
+        const getProjectsInitial = async () => {
+            const { error, payload } = await getProjectsByFilter(["all"])
+
+            if (error) {
+                console.log("🚀 ~ Trabajos ~ error:", error)
+                return
+            }
+
+            setProjects(payload as any[])
+        }
+        getProjectsInitial()
+    }, [])
 
     const handleChange = async (e: any) => {
         let newFilters = [...filters]
