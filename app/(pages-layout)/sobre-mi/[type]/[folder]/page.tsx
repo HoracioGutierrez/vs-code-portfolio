@@ -6,12 +6,6 @@ import { tags as t } from '@lezer/highlight';
 import { javascript } from '@codemirror/lang-javascript';
 import { useParams } from "next/navigation";
 
-type SobreMiPageProps = {
-    params: Promise<{
-        folder: string
-    }>
-}
-
 export default function Page() {
 
 
@@ -35,7 +29,7 @@ export default function Page() {
     })
 
 
-    const readmes: any = {
+    const readmes: Record<string, string> = {
         "bio": `/*
 * Un poco sobre mi vida en general. 
 *

@@ -15,12 +15,17 @@ const DynamicComponent = ({ file }: { file: string }) => {
     );
 };
 
+type SidebarItem = {
+    title: string,
+    itemsFile: string
+}
+
 export default function PagesLayout({ children }: { children: React.ReactNode }) {
 
     const pathname = usePathname()
     const mainPath = pathname.split("/")[1] //"trabajos", "contacto" , "sobre-mi"
 
-    const sidebarItems: any = {
+    const sidebarItems: { [key: string]: SidebarItem[] } = {
         "trabajos": [{ title: "trabajos", itemsFile: "trabajos" }],
         "contacto": [{ title: "contacto", itemsFile: "contacto" }, { title: "encontrame-tambien-en", itemsFile: "encontrame-tambien-en" }],
         "sobre-mi": [{ title: "sobre-mi", itemsFile: "sobre-mi" }, { title: "contacto", itemsFile: "contacto" }],
@@ -46,7 +51,7 @@ export default function PagesLayout({ children }: { children: React.ReactNode })
             )}
             <ContainerWithBorder className="shrink-0 w-full" style={{ gridColumn: pathname.includes("sobre-mi") ? "2/3" : "1/3", gridRow: "2/3" }} variant="right">
                 <Accordion.Root type="single" className="AccordionRootLayout" defaultValue={mainPath} collapsible id="accordion-root">
-                    {selectedSidebarItem.map((item: any) => {
+                    {selectedSidebarItem.map((item: SidebarItem) => {
                         return (
                             <Accordion.Item value={item.title} className="AccordionItem" key={item.title}>
                                 <Accordion.Header>

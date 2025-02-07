@@ -18,7 +18,7 @@ function TrabajosPage() {
           <div key={project.id}>
             <h2 className="mb-4">
               <span className="text-accent-1">Proyecto {i + 1}</span>
-              <span className="text-muted-foreground"> //_{project.title}</span>
+              <span className="text-muted-foreground"> {"//"}_{project.title}</span>
             </h2>
             <article className="w-full max-w-[370px] border border-secondary rounded-2xl">
               <Image
