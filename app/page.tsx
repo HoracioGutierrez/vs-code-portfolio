@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils"
 import { Fira_Code } from "next/font/google"
 import Link from "next/link"
 
-const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] })
+const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] });
 
 function HomePage() {
   return (

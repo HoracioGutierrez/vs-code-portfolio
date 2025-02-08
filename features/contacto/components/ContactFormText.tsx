@@ -58,7 +58,7 @@ button.addEventListener('click', () => {
             basicSetup={{ autocompletion: true }}
             value={value}
             height="100%"
-            extensions={[javascript({ jsx: true , typescript: true })]} onChange={onChange}
+            extensions={[javascript({ jsx: true, typescript: true })]} onChange={onChange}
             readOnly={true}
         />
     )
