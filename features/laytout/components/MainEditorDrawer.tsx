@@ -28,6 +28,7 @@ function MainEditorDrawer() {
             )
           })
         )}
+        <MainEditorDrawerLink link={{ id: 4, label: "_contacto", href: "/contacto" }} />
       </AnimatePresence>
     </nav>
   )

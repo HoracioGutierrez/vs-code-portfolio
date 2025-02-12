@@ -31,7 +31,7 @@ function MainEditor({ children }: Readonly<{ children: React.ReactNode }>) {
     <ContainerWithBorder
       /* ref={editor} */
       /* initial={{ height: 0, width: "10px", flexGrow: 0 }} */
-      className="mx-auto rounded-md overflow-hidden grid grid-rows-[min-content_auto_1fr_min-content] md:grid-rows-[min-content_1fr_min-content] flex-grow w-full grid-cols-[57px_max-content_1fr_min-content] editor-grid"
+      className="mx-auto rounded-md overflow-hidden grid grid-rows-[min-content_auto_auto_1fr_min-content] md:grid-rows-[min-content_1fr_min-content] flex-grow w-full grid-cols-[57px_auto_1fr_min-content] editor-grid"
     >
       <MainEditorHeader ref={editorHeader} />
       <MainEditorContent ref={editorContent}>

@@ -1,9 +1,9 @@
-import { useAnimate } from "motion/react"
+"use client"
+
 import ContainerWithBorder from "./ContainerWithBorder"
-import { useEffect } from "react"
-import { delay, stagger } from "motion"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { useLayout } from "../stores/useLayout"
 
 type MainEditorDrawerLinkProps = {
   link: {
@@ -14,6 +14,12 @@ type MainEditorDrawerLinkProps = {
 }
 
 function MainEditorDrawerLink({ link }: MainEditorDrawerLinkProps) {
+
+  const { setDrawerOpen }: any = useLayout()
+
+  const handleClick = () => {
+    setDrawerOpen(false)
+  }
 
   return (
     <ContainerWithBorder
@@ -26,6 +32,7 @@ function MainEditorDrawerLink({ link }: MainEditorDrawerLinkProps) {
     >
       <Link
         href={link.href}
+        onClick={handleClick}
         className={cn(
           "text-muted-foreground transition-all py-4 px-4 block hover:text-white",
         )}>
