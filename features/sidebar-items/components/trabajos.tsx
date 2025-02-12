@@ -1,16 +1,19 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { getProjectsByFilter } from "../actions/getProjectsByFilter";
-import useProjectsStore from "../stores/useProjectsStore";
 import { defaultFilters } from "../lib/utils";
-import Form from "next/form";
-import { useSearchParam } from "react-use";
 import { useRouter, useSearchParams } from "next/navigation";
+import Form from "next/form";
 
 export default function Trabajos() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
+
+  useEffect(() => {
+    const currentFilters = searchParams.get("filter")?.split(",") || [];
+    setCheckedFilters(currentFilters);
+  }, [searchParams]);
 
   const handleChange = async (e: any) => {
     const newSearchParams = new URLSearchParams(searchParams.toString());
@@ -51,6 +54,7 @@ export default function Trabajos() {
               name={filter.value}
               className="size-4 accent-accent-2"
               onChange={handleChange}
+              checked={checkedFilters.includes(filter.value)}
             />
             <label htmlFor={filter.value} className="flex items-center gap-4">
               {filter.icon && (
