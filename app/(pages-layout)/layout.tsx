@@ -1,6 +1,7 @@
 "use client";
 import ContainerWithBorder from "@/features/laytout/components/ContainerWithBorder";
 import MainCategoryLink from "@/features/sobre-mi/components/MainCategoryLink";
+import { cn } from "@/lib/utils";
 import * as Accordion from "@radix-ui/react-accordion";
 import { Gamepad, SquareTerminal, Triangle, User } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -28,8 +29,8 @@ export default function PagesLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const mainPath = pathname.split("/")[1]; //"trabajos", "contacto" , "sobre-mi"
-  const folderPath = pathname.split("/")[2]; //"profesional", "personal", "hobbies"
+  const mainPath = pathname.split("/")[1];
+  const folderPath = pathname.split("/")[2];
 
   const sidebarItems: { [key: string]: SidebarItem[] } = {
     trabajos: [{ title: "trabajos", itemsFile: "trabajos" }],
@@ -43,7 +44,7 @@ export default function PagesLayout({
     ],
   };
 
-  const selectedSidebarItem = sidebarItems[mainPath]; //sidebarItems.trabajos || sidebarItems.contacto
+  const selectedSidebarItem = sidebarItems[mainPath];
 
   return (
     <>
@@ -65,11 +66,12 @@ export default function PagesLayout({
         </ContainerWithBorder>
       )}
       <ContainerWithBorder
-        className="shrink-0 w-full"
-        style={{
-          gridColumn: pathname.includes("sobre-mi") ? "2/3" : "1/3",
-          gridRow: "2/3",
-        }}
+        className={cn(
+          "w-full row-start-2 row-end-3",
+          pathname.includes("sobre-mi")
+            ? "col-start-1 md:col-start-2 col-end-4 row-start-3 row-end-4 md:row-start-2 md:row-end-3"
+            : "col-start-1 col-end-4 md:col-end-3 "
+        )}
         variant="right"
       >
         <Accordion.Root

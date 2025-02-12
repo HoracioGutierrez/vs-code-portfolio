@@ -237,3 +237,9 @@ h3 {
     "footer-social footer-social footer footer";
   }
 }
+
+/* .tinysidebar {
+  @media screen and (width <= 768px) {
+    grid-area: sidebar;
+  }
+} */
