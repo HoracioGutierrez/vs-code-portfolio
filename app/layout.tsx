@@ -16,16 +16,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background font-sans text-foreground p-4 lg:p-17 flex flex-col justify-center items-center transition-all")}>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans text-foreground p-4 lg:p-17 flex flex-col justify-center items-center transition-all"
+        )}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <MainEditor>
-            {children}
-          </MainEditor>
+          <MainEditor>{children}</MainEditor>
         </ThemeProvider>
       </body>
     </html>

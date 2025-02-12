@@ -1,11 +1,5 @@
-import { motion } from "motion/react";
 import ContainerWithBorder from "./ContainerWithBorder";
-import {
-  GithubIcon,
-  InstagramIcon,
-  LucideGithub,
-  TwitterIcon,
-} from "lucide-react";
+import { LucideGithub } from "lucide-react";
 import { Fira_Code } from "next/font/google";
 import { cn } from "@/lib/utils";
 import MainEditorSocials from "./MainEditorSocials";
@@ -13,13 +7,9 @@ import Link from "next/link";
 
 const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] });
 
-type MainEditorFooterProps = {
-  ref: any;
-};
-function MainEditorFooter({ ref }: MainEditorFooterProps) {
+function MainEditorFooter() {
   return (
-    <motion.footer
-      ref={ref}
+    <footer
       className={cn(
         firaCode.className,
         "border-t border-muted-foreground/50 flex"
@@ -48,7 +38,7 @@ function MainEditorFooter({ ref }: MainEditorFooterProps) {
           <LucideGithub className="size-4" />
         </Link>
       </ContainerWithBorder>
-    </motion.footer>
+    </footer>
   );
 }
 export default MainEditorFooter;

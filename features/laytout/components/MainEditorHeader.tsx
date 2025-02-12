@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/lib/utils";
 import { Fira_Code } from "next/font/google";
 import MainEditorNavigation from "./MainEditorNavigation";
@@ -8,16 +9,9 @@ import Link from "next/link";
 
 const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] });
 
-type MainEditorHeaderProps = {
-  ref: any;
-};
-
-function MainEditorHeader({ ref }: MainEditorHeaderProps) {
+function MainEditorHeader() {
   return (
-    <motion.header
-      /* ref={ref} */
-      /* initial={{ display: "none", opacity: 0 }} */
-      /* className={cn(firaCode.className, "border-b border-muted-foreground flex ")} */
+    <header
       className={cn(
         firaCode.className,
         "border-b border-muted-foreground/50 contents"
@@ -40,7 +34,7 @@ function MainEditorHeader({ ref }: MainEditorHeaderProps) {
           _contacto
         </Link>
       </ContainerWithBorder>
-    </motion.header>
+    </header>
   );
 }
 export default MainEditorHeader;

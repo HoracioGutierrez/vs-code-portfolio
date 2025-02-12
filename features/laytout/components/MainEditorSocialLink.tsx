@@ -1,26 +1,26 @@
+"use client";
 import { useEffect } from "react";
-import ContainerWithBorder from "./ContainerWithBorder"
+import ContainerWithBorder from "./ContainerWithBorder";
 import { useAnimate } from "motion/react";
 import Link from "next/link";
 
 type MainEditorSocialLinkProps = {
-  icon: React.ReactNode
-  id: Number
-  href: string
-}
+  icon: React.ReactNode;
+  id: Number;
+  href: string;
+};
 
 function MainEditorSocialLink({ icon, id, href }: MainEditorSocialLinkProps) {
-
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
-    initialAnimation()
-  }, [])
+    initialAnimation();
+  }, []);
 
   const initialAnimation = async () => {
     //await animate(scope.current, { x: -400, opacity: 0 })
     //await animate(scope.current, { x: 0, opacity: 1 }, { delay: Number(id) * 0.1 })
-  }
+  };
 
   return (
     <ContainerWithBorder
@@ -33,6 +33,6 @@ function MainEditorSocialLink({ icon, id, href }: MainEditorSocialLinkProps) {
         {icon}
       </Link>
     </ContainerWithBorder>
-  )
+  );
 }
-export default MainEditorSocialLink
+export default MainEditorSocialLink;

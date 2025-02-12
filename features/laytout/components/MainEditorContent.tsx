@@ -1,17 +1,18 @@
-"use client"
+"use client";
 
-import { motion } from "motion/react"
-
+import { motion } from "motion/react";
 
 import { ForwardedRef, ReactNode } from "react";
 
 type MainEditorContentProps = {
   children: ReactNode;
-  ref: ForwardedRef<HTMLElement>;
+  ref?: ForwardedRef<HTMLElement>;
 };
 
-
-function MainEditorContent({ children, ref }: Readonly<MainEditorContentProps>) {
+function MainEditorContent({
+  children,
+  ref,
+}: Readonly<MainEditorContentProps>) {
   return (
     <motion.main
       ref={ref}
@@ -22,6 +23,6 @@ function MainEditorContent({ children, ref }: Readonly<MainEditorContentProps>) 
     >
       {children}
     </motion.main>
-  )
+  );
 }
-export default MainEditorContent
+export default MainEditorContent;
