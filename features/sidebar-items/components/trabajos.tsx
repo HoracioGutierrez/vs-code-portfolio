@@ -1,9 +1,9 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { defaultFilters } from "../lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 import Form from "next/form";
+import { FilterItem } from "./filter-item";
 
 export default function Trabajos() {
   const searchParams = useSearchParams();
@@ -44,31 +44,17 @@ export default function Trabajos() {
 
   return (
     <div>
-      <Form action="" className="flex flex-col gap-4">
+      <Form
+        action=""
+        className="flex flex-row flex-wrap gap-2 md:flex-col md:gap-3"
+      >
         {defaultFilters.map((filter) => (
-          <div key={filter.value} className="flex items-center gap-4">
-            <input
-              type="checkbox"
-              value={filter.value}
-              id={filter.value}
-              name={filter.value}
-              className="size-4 accent-accent-2"
-              onChange={handleChange}
-              checked={checkedFilters.includes(filter.value)}
-            />
-            <label htmlFor={filter.value} className="flex items-center gap-4">
-              {filter.icon && (
-                <Image
-                  src={filter.icon}
-                  alt={filter.label}
-                  width={20}
-                  height={20}
-                  className="aspect-square"
-                />
-              )}
-              {filter.label}
-            </label>
-          </div>
+          <FilterItem
+            key={filter.value}
+            filter={filter}
+            checked={checkedFilters.includes(filter.value)}
+            onChange={handleChange}
+          />
         ))}
       </Form>
     </div>
