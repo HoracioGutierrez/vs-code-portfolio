@@ -1,3 +1,7 @@
+import MainEditorCodeTab from "@/features/laytout/components/MainEditorCodeTab";
+
 export default function Loading() {
-  return <div>Loading...</div>;
+  return (
+    <MainEditorCodeTab tabTitle="loading file...">loading...</MainEditorCodeTab>
+  );
 }
