@@ -11,7 +11,7 @@ const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] });
 
 function MainEditorDrawer() {
   const { drawerOpen }: any = useLayout();
-  const isDrawerVisible = useMedia("(max-width: 768px)", false) && drawerOpen;
+  const isDrawerVisible = useMedia("(max-width: 1024px)", false) && drawerOpen;
 
   if (!isDrawerVisible) return null;
 

@@ -12,10 +12,7 @@ function MainEditor({ children }: Readonly<{ children: React.ReactNode }>) {
     >
       <MainEditorHeader />
       <MainEditorContent>{children}</MainEditorContent>
-      {/* 
-      
       <MainEditorDrawer />
-       */}
       <MainEditorFooter />
     </ContainerWithBorder>
   );

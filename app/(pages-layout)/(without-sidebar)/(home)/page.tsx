@@ -3,7 +3,11 @@ import Link from "next/link";
 
 function HomePage() {
   return (
-    <div className={cn("grid place-content-center col-start-1 -col-end-1")}>
+    <div
+      className={cn(
+        "grid place-content-center col-start-1 -col-end-1 row-start-2 row-end-4"
+      )}
+    >
       <div className="flex flex-col gap-20 px-4">
         <div>
           <p className="text-sm lg:text-base transition-all">Hola, soy</p>
