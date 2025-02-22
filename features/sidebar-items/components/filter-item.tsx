@@ -24,11 +24,11 @@ export function FilterItem({ filter, checked, onChange }: FilterItemProps) {
 
   return (
     <div
-      className={`flex items-center rounded-full px-3 py-1.5 md:p-0 transition-colors duration-200 gap-4
+      className={`flex items-center rounded-full px-3 py-1.5 lg:p-0 transition-colors duration-200 gap-4
         ${
           checked
-            ? "bg-accent-2/10 md:bg-transparent hover:bg-accent-2/20"
-            : "hover:bg-accent-1/10 md:hover:bg-transparent"
+            ? "bg-accent-2/10 lg:bg-transparent hover:bg-accent-2/20"
+            : "hover:bg-accent-1/10 lg:hover:bg-transparent"
         }`}
     >
       <input
@@ -36,13 +36,13 @@ export function FilterItem({ filter, checked, onChange }: FilterItemProps) {
         value={filter.value}
         id={filter.value}
         name={filter.value}
-        className="hidden md:block md:size-4 md:accent-accent-2"
+        className="hidden lg:block lg:size-4 lg:accent-accent-2"
         onChange={handleChange}
         checked={checked}
       />
       <label
         htmlFor={filter.value}
-        className="flex cursor-pointer items-center gap-2 md:gap-4"
+        className="flex cursor-pointer items-center gap-2 lg:gap-4"
       >
         {filter.icon && !isPending && (
           <Image
@@ -54,7 +54,7 @@ export function FilterItem({ filter, checked, onChange }: FilterItemProps) {
           />
         )}
         {isPending && <Loader className="animate-spin size-5" />}
-        <span className="text-sm md:text-base">{filter.label}</span>
+        <span className="text-sm lg:text-base">{filter.label}</span>
       </label>
     </div>
   );

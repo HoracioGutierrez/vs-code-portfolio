@@ -46,7 +46,7 @@ export default function Trabajos() {
     <div>
       <Form
         action=""
-        className="flex flex-row flex-wrap gap-2 md:flex-col md:gap-3"
+        className="flex flex-row flex-wrap gap-2 lg:flex-col lg:gap-3"
       >
         {defaultFilters.map((filter) => (
           <FilterItem
