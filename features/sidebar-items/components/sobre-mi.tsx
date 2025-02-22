@@ -100,6 +100,7 @@ export default function SobreMi() {
                       ? "text-white"
                       : ""
                   )}
+                  prefetch
                 >
                   <ChevronRight className="size-6 group-data-[state=open]/root:rotate-90 transition-all" />
                   <Folder
@@ -118,6 +119,7 @@ export default function SobreMi() {
                     ? "text-white"
                     : ""
                 )}
+                prefetch
               >
                 <File className="size-4" />
                 <span>readme.md</span>
@@ -134,6 +136,7 @@ export default function SobreMi() {
                         : ""
                     )}
                     key={file.title}
+                    prefetch
                   >
                     <File className="size-4" />
                     {file.title}
