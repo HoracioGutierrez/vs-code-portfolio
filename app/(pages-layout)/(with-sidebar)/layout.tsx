@@ -1,5 +1,6 @@
 "use client";
 import ContainerWithBorder from "@/features/laytout/components/ContainerWithBorder";
+import SobreMi from "@/features/sidebar-items/components/sobre-mi";
 import { cn } from "@/lib/utils";
 import * as Accordion from "@radix-ui/react-accordion";
 import { Triangle } from "lucide-react";
@@ -12,7 +13,7 @@ const DynamicComponent = ({ file }: { file: string }) => {
     () => import(`@/features/sidebar-items/components/${file}`)
   );
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<SobreMi />}>
       <Component />
     </Suspense>
   );
