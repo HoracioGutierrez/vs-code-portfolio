@@ -18,7 +18,7 @@ async function TrabajosPage({ searchParams }: TrabajosPageProps) {
     <div
       className={cn(
         firaCode.className,
-        "motion-preset-fade-md flex items-start gap-4 p-4 xl:p-20 w-full"
+        "motion-preset-fade-md items-start gap-4 p-4 xl:p-20 w-full sm:grid sm:grid-cols-2 2xl:grid-cols-[repeat(auto-fill,_minmax(min(100%,300px),_1fr))]"
       )}
     >
       <Suspense fallback={<div>Loading...</div>}>

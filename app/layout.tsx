@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 import MainEditor from "@/features/laytout/components/MainEditor";
+import { Fira_Code } from "next/font/google";
 import "./globals.css";
+
+const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +21,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans text-foreground p-4 lg:p-17 flex flex-col justify-center items-center transition-all"
+          firaCode.className,
+          "min-h-dvh bg-background p-2 md:p-8 lg:p-17 transition-[padding] flex"
         )}
       >
         <ThemeProvider

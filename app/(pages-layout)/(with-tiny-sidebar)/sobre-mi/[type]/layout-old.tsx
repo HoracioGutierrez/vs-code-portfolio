@@ -4,9 +4,10 @@ export default function SobreMiLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="motion-preset-fade-md grow contents">
+    <div
+      className={"motion-preset-fade-md grow text-muted-foreground contents"}
+    >
       {children}
     </div>
-  )
-
+  );
 }

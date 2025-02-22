@@ -26,8 +26,8 @@ function MainEditorSocialLink({ icon, id, href }: MainEditorSocialLinkProps) {
     <ContainerWithBorder
       as="span"
       ref={scope}
-      variant="right"
-      className="px-3 lg:px-5.5 py-3 text-muted-foreground grid place-content-center"
+      variant="top-right"
+      className="px-3 lg:px-5.5 py-3 text-muted-foreground grid place-content-center h-full"
     >
       <Link href={href} target="_blank">
         {icon}

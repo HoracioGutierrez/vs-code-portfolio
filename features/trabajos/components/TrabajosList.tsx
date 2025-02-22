@@ -8,7 +8,7 @@ type TrabajosListProps = {
 };
 
 export default function TrabajosList({ projectPromise }: TrabajosListProps) {
-  const { payload: projects } = use(projectPromise);
+  const { payload: projects, error } = use(projectPromise);
 
   return (
     <>
@@ -22,13 +22,13 @@ export default function TrabajosList({ projectPromise }: TrabajosListProps) {
                 {"//"}_{project.title}
               </span>
             </h2>
-            <article className="w-full max-w-[370px] border border-secondary rounded-2xl">
+            <article className="w-full border border-secondary rounded-2xl">
               <Image
                 src={project.thumbnail || "/images/thumbnail.png"}
                 alt={project.title}
                 width={370}
                 height={370}
-                className="rounded-md"
+                className="rounded-md object-cover w-full max-h-[150px]"
               />
               <div className="p-7 pt-4">
                 <p className="line-clamp-3 text-sm text-muted-foreground mb-4">

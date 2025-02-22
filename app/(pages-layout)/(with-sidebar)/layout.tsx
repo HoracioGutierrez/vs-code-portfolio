@@ -1,11 +1,11 @@
 "use client";
 import ContainerWithBorder from "@/features/laytout/components/ContainerWithBorder";
-import MainCategoryLink from "@/features/sobre-mi/components/MainCategoryLink";
 import { cn } from "@/lib/utils";
 import * as Accordion from "@radix-ui/react-accordion";
-import { Gamepad, SquareTerminal, Triangle, User } from "lucide-react";
+import { Triangle } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { lazy, Suspense } from "react";
+import { useMedia } from "react-use";
 
 const DynamicComponent = ({ file }: { file: string }) => {
   const Component = lazy(
@@ -23,7 +23,7 @@ type SidebarItem = {
   itemsFile: string;
 };
 
-export default function PagesLayout({
+export default function WithSidebarLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -31,6 +31,8 @@ export default function PagesLayout({
   const pathname = usePathname();
   const mainPath = pathname.split("/")[1];
   const folderPath = pathname.split("/")[2];
+  const isSmallScreen = useMedia("(max-width: 1024px)", false);
+  const isAboutPage = pathname.includes("sobre-mi");
 
   const sidebarItems: { [key: string]: SidebarItem[] } = {
     trabajos: [{ title: "trabajos", itemsFile: "trabajos" }],
@@ -39,8 +41,8 @@ export default function PagesLayout({
       { title: "encontrame-tambien-en", itemsFile: "encontrame-tambien-en" },
     ],
     "sobre-mi": [
-      { title: "sobre-mi", itemsFile: "sobre-mi" },
       { title: "contacto", itemsFile: "contacto" },
+      { title: "sobre-mi", itemsFile: "sobre-mi" },
     ],
   };
 
@@ -48,29 +50,13 @@ export default function PagesLayout({
 
   return (
     <>
-      {pathname.includes("sobre-mi") && (
-        <ContainerWithBorder
-          variant="right"
-          className="flex md:flex-col"
-          style={{ gridColumn: "1/2", gridRow: "2/3", gridArea: "tinysidebar" }}
-        >
-          <MainCategoryLink href="/sobre-mi/profesional">
-            <SquareTerminal />
-          </MainCategoryLink>
-          <MainCategoryLink href="/sobre-mi/personal">
-            <User />
-          </MainCategoryLink>
-          <MainCategoryLink href="/sobre-mi/hobbies">
-            <Gamepad />
-          </MainCategoryLink>
-        </ContainerWithBorder>
-      )}
       <ContainerWithBorder
         className={cn(
-          "w-full row-start-2 row-end-3",
-          pathname.includes("sobre-mi")
-            ? "col-start-1 md:col-start-2 col-end-4 row-start-3 row-end-4 md:row-start-2 md:row-end-3"
-            : "col-start-1 col-end-4 md:col-end-3 "
+          "w-full",
+          isSmallScreen && isAboutPage && "col-start-1 -col-end-1",
+          isSmallScreen && !isAboutPage && "col-start-1 -col-end-1",
+          !isSmallScreen && isAboutPage && "col-start-2 -col-end-3",
+          !isSmallScreen && !isAboutPage && "col-start-1 col-end-2"
         )}
         variant="right"
       >
@@ -117,8 +103,12 @@ export default function PagesLayout({
         </Accordion.Root>
       </ContainerWithBorder>
       <div
-        className="motion-preset-fade-md flex grow"
-        style={{ gridColumn: "3/-1", gridRow: "2/-2", gridArea: "content" }}
+        className={cn(
+          "motion-preset-fade-md flex grow",
+          isSmallScreen && "col-start-1 -col-end-1",
+          !isSmallScreen && !isAboutPage && "col-start-2 -col-end-1",
+          !isSmallScreen && isAboutPage && "col-start-3 -col-end-1"
+        )}
       >
         {children}
       </div>
