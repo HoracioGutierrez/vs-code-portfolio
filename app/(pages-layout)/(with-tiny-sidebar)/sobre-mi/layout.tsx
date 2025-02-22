@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useRef } from "react";
 import ContainerWithBorder from "@/features/laytout/components/ContainerWithBorder";
 import MainCategoryLink from "@/features/sobre-mi/components/MainCategoryLink";
 import { Gamepad, SquareTerminal, User } from "lucide-react";
