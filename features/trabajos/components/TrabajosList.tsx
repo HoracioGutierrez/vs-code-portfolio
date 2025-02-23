@@ -23,13 +23,15 @@ export default function TrabajosList({ projectPromise }: TrabajosListProps) {
               </span>
             </h2>
             <article className="w-full border border-secondary rounded-2xl">
-              <Image
-                src={project.thumbnail || "/images/thumbnail.png"}
-                alt={project.title}
-                width={370}
-                height={370}
-                className="rounded-md object-cover w-full max-h-[150px]"
-              />
+              <div className="rounded-t-2xl overflow-hidden">
+                <Image
+                  src={project.thumbnail || "/images/thumbnail.png"}
+                  alt={project.title}
+                  width={370}
+                  height={370}
+                  className="rounded-md object-cover w-full max-h-[150px]"
+                />
+              </div>
               <div className="p-7 pt-4">
                 <p className="line-clamp-3 text-sm text-muted-foreground mb-4">
                   {project.description}

@@ -227,7 +227,6 @@ h3 {
 
 #main-editor {
   display: grid;
-
   grid-template-columns: var(--grid-cols-def);
   grid-template-rows: var(--grid-rows-def);
 }

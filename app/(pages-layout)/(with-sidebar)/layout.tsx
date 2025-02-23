@@ -53,7 +53,7 @@ export default function WithSidebarLayout({
     <>
       <ContainerWithBorder
         className={cn(
-          "w-full",
+          "w-full row-start-2",
           isSmallScreen && isAboutPage && "col-start-1 -col-end-1",
           isSmallScreen && !isAboutPage && "col-start-1 -col-end-1",
           !isSmallScreen && isAboutPage && "col-start-2 -col-end-3",
@@ -105,7 +105,7 @@ export default function WithSidebarLayout({
       </ContainerWithBorder>
       <div
         className={cn(
-          "motion-preset-fade-md flex grow",
+          "motion-preset-fade-md flex grow row-start-3 md:row-start-2",
           isSmallScreen && "col-start-1 -col-end-1",
           !isSmallScreen && !isAboutPage && "col-start-2 -col-end-1",
           !isSmallScreen && isAboutPage && "col-start-3 -col-end-1"

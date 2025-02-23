@@ -11,8 +11,8 @@ function MainEditorDrawer() {
   return (
     <nav
       className={cn(
-        "overflow-hidden opacity-0 bg-primary pointer-events-none fixed top-17 md:top-23 left-2 md:left-8 w-[calc(100%_-_1rem)] md:w-[calc(100%_-_4rem)] h-full z-50 transition-all duration-300",
-        drawerOpen && "backdrop-blur-3xl opacity-100 pointer-events-auto",
+        "overflow-hidden opacity-0 bg-primary pointer-events-none z-50 transition-all duration-300 col-start-1 -col-end-1 row-start-2 -row-end-1",
+        drawerOpen && "backdrop-blur-3xl opacity-100 pointer-events-auto ",
         "lg:opacity-0 lg:pointer-events-none"
       )}
     >
