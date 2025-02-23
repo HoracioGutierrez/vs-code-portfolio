@@ -14,7 +14,7 @@ async function TrabajosPage({ searchParams }: TrabajosPageProps) {
   return (
     <div
       className={cn(
-        "items-start gap-6 p-4 xl:p-20 w-full flex flex-col sm:grid sm:grid-cols-2 2xl:grid-cols-[repeat(auto-fill,_minmax(min(100%,300px),_1fr))]"
+        "items-start gap-6 p-4 xl:p-20 w-full flex flex-col sm:grid sm:grid-cols-2 2xl:grid-cols-[repeat(auto-fill,_minmax(min(100%,300px),_1fr))] grid-rows-[min-content]"
       )}
     >
       <Suspense fallback={<div>Loading...</div>}>

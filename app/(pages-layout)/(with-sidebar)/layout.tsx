@@ -105,7 +105,7 @@ export default function WithSidebarLayout({
       </ContainerWithBorder>
       <div
         className={cn(
-          "motion-preset-fade-md flex grow row-start-3 md:row-start-2",
+          "motion-preset-fade-md flex grow row-start-3 lg:row-start-2",
           isSmallScreen && "col-start-1 -col-end-1",
           !isSmallScreen && !isAboutPage && "col-start-2 -col-end-1",
           !isSmallScreen && isAboutPage && "col-start-3 -col-end-1"
