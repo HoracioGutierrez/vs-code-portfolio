@@ -5,6 +5,7 @@ import { javascript } from '@codemirror/lang-javascript';
 import { useCallback, useEffect, useState } from 'react';
 import { tags as t } from '@lezer/highlight';
 import useContactFormStore from '../stores/useContactFormStore';
+import { EditorView } from '@codemirror/view';
 
 function ContactFormText() {
 
@@ -58,7 +59,8 @@ button.addEventListener('click', () => {
             basicSetup={{ autocompletion: true }}
             value={value}
             height="100%"
-            extensions={[javascript({ jsx: true, typescript: true })]} onChange={onChange}
+            extensions={[javascript({ jsx: true }), EditorView.lineWrapping]}
+            onChange={onChange}
             readOnly={true}
         />
     )

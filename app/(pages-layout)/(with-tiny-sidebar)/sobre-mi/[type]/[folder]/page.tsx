@@ -3,8 +3,10 @@ import MainEditorCodeTab from "@/features/laytout/components/MainEditorCodeTab";
 import createTheme from "@uiw/codemirror-themes";
 import CodeMirror from "@uiw/react-codemirror";
 import { tags as t } from "@lezer/highlight";
-import { javascript } from "@codemirror/lang-javascript";
 import { useParams } from "next/navigation";
+import { EditorView } from "@codemirror/view";
+import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
+import { languages } from '@codemirror/language-data';
 
 export default function Page() {
   const { folder } = useParams();
@@ -23,64 +25,69 @@ export default function Page() {
       { tag: t.variableName, color: "var(--accent-2)" },
       { tag: t.string, color: "var(--accent-3)" },
       { tag: t.keyword, color: "var(--accent-1)" },
+      { tag : t.heading, color: "var(--accent-2)" },
+      { tag : t.list, color: "var(--accent-3)" },
+      { tag : t.tagName, color: "var(--accent-1)" },
     ],
   });
 
   const readmes: Record<string, string> = {
-    bio: `/*
-* Un poco sobre mi vida en general. 
-*
-* tldr: soy un desarrollador web y me gusta Valorant
-*/`,
-    intereses: `/*
-* Por si no fui lo suficientemente autoreferencial, 
-* aca te digo que me interesa (?). 
-*
-* tldr: soy un desarrollador web y me gusta Valorant
-*/`,
-    educacion: `/*
-* Te cuento algo sobre mi educacion; si no te gusta no te preocupes, 
-* tampoco estudié demasiado.
-*
-* tldr: fui abanderado pero me hago el humilde
-*/`,
-    experiencia: `/*
-* Algo sobre mi experiencia laboral como programador
-* y otros rubros.
-* 
-* tldr: Si me hablas por privado te digo cual fue el peor
-* trabajo que he hecho.
-*/`,
-    habilidades: `/*
-* Te cuento un poco sobre mi stack de programacion y algunos
-* que otros skills ocultos que tengo.
-* 
-* tldr: Nada que ver una cosa con la otra mis gustos
-*
-*/`,
-    proyectos: `/*
-* Muestro algunos de mis proyectos, pero me da mucha 
-* vergüenza asi que no sean tan haters.
-* 
-* tldr: Siendo un niño de cristal con mi trabajo
-*
-*/`,
-    juegos: `/*
-* Como me gusta jugar videojuegos, te lo cuento porque 
-* ya fue todo; quien te dice armamos un team (ah re, nunca
-* programar un juego)
-* 
-* tldr: Siendo un niño de cristal con mi trabajo
-*
-*/`,
-    viajes: `/*
-* No se me ocurria otra cosa que me gusta hacer,
-* asi que aca les dejo un poco sobre viajes random que 
-* hice 
-* 
-* tldr: Atlantida <3
-*
-*/`,
+    bio: `# Sobre Mi
+
+Un poco sobre mi vida en general.
+
+## TLDR:
+tldr: soy un desarrollador web y me gusta Valorant
+`,
+    intereses: `# Intereses
+
+Por si no fui lo suficientemente autoreferencial, aca te digo que me interesa (?).
+
+## TLDR:
+tldr: soy un desarrollador web y me gusta Valorant
+`,
+    educacion: `# Educación
+
+Te cuento algo sobre mi educacion; si no te gusta no te preocupes, tampoco estudié demasiado.
+
+## TLDR:
+tldr: fui abanderado pero me hago el humilde
+`,
+    experiencia: `# Experiencia
+
+Algo sobre mi experiencia laboral como programador y otros rubros.
+
+## TLDR:
+tldr: Si me hablas por privado te digo cual fue el peor trabajo que he hecho.
+`,
+    habilidades: `# Skills
+
+Te cuento un poco sobre mi stack de programacion y algunos que otros skills ocultos que tengo.
+
+## TLDR:
+tldr: Nada que ver una cosa con la otra mis gustos
+`,
+    proyectos: `# Proyectos
+
+Muestro algunos de mis proyectos, pero me da mucha vergüenza asi que no sean tan haters.
+
+## TLDR:
+tldr: Siendo un niño de cristal con mi trabajo
+`,
+    juegos: `# Gaming
+
+Como me gusta jugar videojuegos, te lo cuento porque ya fue todo; quien te dice armamos un team (ah re, nunca programar un juego).
+
+## TLDR:
+tldr: Siendo un niño de cristal con mi trabajo
+`,
+    viajes: `# Viajes
+
+No se me ocurria otra cosa que me gusta hacer, asi que aca les dejo un poco sobre viajes random que hice.
+
+## TLDR:
+tldr: Atlantida <3
+`,
   };
 
   return (
@@ -93,7 +100,7 @@ export default function Page() {
         }}
         value={readmes[folder as string]}
         height="100%"
-        extensions={[javascript({ jsx: true })]}
+        extensions={[markdown({ base: markdownLanguage, codeLanguages: languages , completeHTMLTags : true }), EditorView.lineWrapping]}
       />
     </MainEditorCodeTab>
   );

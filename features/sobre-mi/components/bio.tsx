@@ -4,26 +4,31 @@ import { javascript } from '@codemirror/lang-javascript';
 import { useCallback, useState } from 'react';
 import { createTheme } from "@uiw/codemirror-themes";
 import { tags as t } from '@lezer/highlight';
+import { EditorView } from '@codemirror/view';
 
 
 export default function Bio() {
 
     const [value, setValue] = useState(`/**
- * About me
- * I have 5 years of еxperience in web
- * development lorem ipsum dolor sit amet, 
- * consectetur adipiscing elit, sed do eiusmod
- * tempor incididunt ut labore et dolore
- * magna aliqua. Ut enim ad minim veniam,
- * quis nostrud exercitation ullamco laboris
- * nisi ut aliquip ex ea commodo consequat.
- * Duis aute irure dolor in reprehenderit in
- * voluptate velit esse cillum dolore eu fugiat 
- * nulla pariatur. Excepteur sint occaecat 
- * officia deserunt mollit anim id est laborum.
-*/
+ * Sobre mi
+ *
+ * 
+ * Mi nombre es Horacio Gutierrez, tengo 35 años y soy de Buenos Aires, Argentina. 
+ * 
+ * Venía trabajando 5 años seguidos en un call center y originalmente proyecté para ser Biotecnologo pero por circunstancias de la vida una cosa llevó a la otra y terminé anotandome en un curso de Desarrollo Web en PHP. 
+ * 
+ * Un año más tarde me veo con la ventaja de saber una habilidad nueva y que encima me gustaba muchísimo (sobre todo mucho mas que el call center), por lo que decido hacer un giro laboral en mi vida y comenzar el arduo camino de la programación. 
+ * 
+ * 12 años mas tarde, un día como hoy, me doy cuenta que fue una de las mejores decisiones que tomé en mi vida y que me permitió y permitirá crecer tanto como he podido hasta ahora.
+ * 
+ * Nada que ver pero también soy fan de aprender idiomas nuevos, no se porque; me gusta muchisimo mirar series y peliculas, sobre todo las de ciencia ficcion, disfruto escuchar música de cualquier parte del mundo, sobre todo si habla alguno de los idiomas que conozco, obviamente como soy programador tomo mucho, mucho café y en mi tiempo libre me juego alguna partida de algo para desestresar.
+ * 
+ * 
+**/
 
-const githubLink = "https://github.com/HoracioGutierrez"`);
+const githubLink = "https://github.com/HoracioGutierrez"
+
+`);
 
     const onChange = useCallback((val: any, viewUpdate: any) => {
         console.log('val:', val);
@@ -48,16 +53,16 @@ const githubLink = "https://github.com/HoracioGutierrez"`);
     })
 
     return (
-        <div className="flex">
+        <div className="flex grow">
             <CodeMirror
                 theme={customTheme}
-                className='w-full outline-none border-none'
+                className='w-full outline-none border-none h-full'
                 basicSetup={{
-                    autocompletion: true
+                    autocompletion: true,
                 }}
                 value={value}
-                height="100%"
-                extensions={[javascript({ jsx: true })]} onChange={onChange}
+                extensions={[javascript({ jsx: true }),EditorView.lineWrapping]} 
+                onChange={onChange}
             />
         </div>
     )
