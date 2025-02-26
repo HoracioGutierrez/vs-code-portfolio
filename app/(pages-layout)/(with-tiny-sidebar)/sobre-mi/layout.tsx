@@ -16,13 +16,13 @@ export default function SobreMiLayout({
         className="flex lg:flex-col row-start-1 row-end-2 col-start-2 col-end-3 lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3"
       >
         <MainCategoryLink href="/sobre-mi/profesional">
-          <SquareTerminal />
+          <SquareTerminal className="size-5 sm:size-6"/>
         </MainCategoryLink>
         <MainCategoryLink href="/sobre-mi/personal">
-          <User />
+          <User className="size-5 sm:size-6"/>
         </MainCategoryLink>
         <MainCategoryLink href="/sobre-mi/hobbies">
-          <Gamepad />
+          <Gamepad className="size-5 sm:size-6"/>
         </MainCategoryLink>
       </ContainerWithBorder>
       <WithSidebarLayout>{children}</WithSidebarLayout>

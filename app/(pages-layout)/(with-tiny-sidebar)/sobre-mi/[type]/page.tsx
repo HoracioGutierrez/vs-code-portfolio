@@ -1,12 +1,7 @@
 import Link from "next/link";
 import { Folder } from "lucide-react";
 
-type SobreMiPageProps = {
-  params: Promise<{ type: string }>;
-};
-
-async function SobreMiPage({ params }: SobreMiPageProps) {
-  const type = (await params).type;
+async function SobreMiPage() {
 
   return (
     <div className="flex grow items-center justify-center p-8">
