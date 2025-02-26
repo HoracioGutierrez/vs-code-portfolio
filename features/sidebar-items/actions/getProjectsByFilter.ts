@@ -22,6 +22,8 @@ export const getProjectsByFilter = async (filters: string[]) => {
       payload: result.data || []
     };
   } catch (error) {
+    console.log("🚀 ~ getProjectsByFilter ~ error:", error)
+    
     return {
       error: true,
       message: "Error al obtener proyectos",

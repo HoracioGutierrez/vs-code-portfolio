@@ -25,7 +25,7 @@ function MainEditorTitle() {
     if (isAboutPage && !isSmallScreen) {
       document.documentElement.style.setProperty(
         "--grid-cols-def",
-        "60px 240px 1fr max-content"
+        "60px max-content 1fr max-content"
       );
     }
 
