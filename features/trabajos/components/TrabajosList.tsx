@@ -1,8 +1,11 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { use } from "react";
+import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { animate, motion } from "motion/react"
 
 type TrabajosListProps = {
   projectPromise: Promise<{ error: boolean; message: string; payload: any[] }>;
@@ -12,20 +15,43 @@ export default function TrabajosList({ projectPromise }: TrabajosListProps) {
   const { payload: projects, error } = use(projectPromise);
   console.log("🚀 ~ TrabajosList ~ error:", error)
   console.log("🚀 ~ TrabajosList ~ projects:", projects)
+  const [parent] = useAutoAnimate()
 
+  const variants = {
+    hidden: { opacity: 0, y: 50 },
+    show: { opacity: 1, y: 0 },
+  }
+
+  const title = {
+    hidden: { opacity: 0, y: -50 },
+    show: { opacity: 1, y: 0 },
+  }
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.15 } }
+  }
   return (
-    <>
+    <motion.div
+      ref={parent}
+      initial="hidden" 
+      animate="show" 
+      variants={container}
+      className={cn(
+        "items-start gap-6 p-4 xl:p-20 w-full flex flex-col sm:grid sm:grid-cols-2 2xl:grid-cols-[repeat(auto-fill,_minmax(min(100%,300px),_1fr))] grid-rows-[min-content]"
+      )}
+    >
       {projects.map((project, i) => {
         return (
-          <div key={project.id} className="self-stretch flex flex-col gap-4">
-            <h2 className="">
+          <motion.div key={project.id} className="self-stretch flex flex-col gap-4" >
+            <motion.h2 className="" variants={title}>
               <span className="text-accent-1">Proyecto {i + 1}</span>
               <span className="text-muted-foreground">
                 {" "}
                 {"//"}_{project.title}
               </span>
-            </h2>
-            <article className="w-full border border-secondary rounded-2xl grow flex flex-col">
+            </motion.h2>
+            <motion.article className="w-full border border-secondary rounded-2xl grow flex flex-col" variants={variants}>
               <div className="rounded-t-2xl overflow-hidden group">
                 <Image
                   src={
@@ -49,10 +75,10 @@ export default function TrabajosList({ projectPromise }: TrabajosListProps) {
                   ver-proyecto
                 </Link>
               </div>
-            </article>
-          </div>
+            </motion.article>
+          </motion.div>
         );
       })}
-    </>
+    </motion.div>
   );
 }

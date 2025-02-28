@@ -1,13 +1,47 @@
 "use client"
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { createTheme } from "@uiw/codemirror-themes";
 import { tags as t } from '@lezer/highlight';
 import { EditorView } from '@codemirror/view';
+import { useMedia } from 'react-use';
 
 export default function Intereses() {
-    const [value, setValue] = useState(`/**
+    const isSmallScreen = useMedia("(max-width: 700px)", false);
+    const [value, setValue] = useState("");
+
+    useEffect(()=>{
+
+        if(isSmallScreen){
+            setValue(`/**
+Mis Intereses
+
+Como desarrollador web, paso gran parte de mi tiempo explorando nuevas tecnologías
+y frameworks. La programación web no es solo mi trabajo, es una de mis pasiones
+principales y disfruto manteniéndome al día con las últimas tendencias.
+
+Cuando no estoy codeando, probablemente me encuentres en Valorant intentando
+mejorar mi aim o quejándome del matchmaking. Es mi juego competitivo principal
+y una excelente forma de desestresarme (o estresarme más, depende del día). Soy Sova main (?).
+
+También soy un gran fan de los roguelikes, especialmente Hades. Hay algo adictivo
+en intentar una y otra vez superar tus propias marcas mientras descubrís nueva
+historia y mejoras tu personaje.
+
+La ciencia ficción es mi género favorito para series y películas. Me fascina
+explorar futuros posibles y conceptos que desafían nuestra comprensión actual
+de la realidad.
+
+Y por supuesto, como todo buen dev, mantengo un nivel constante de cafeína
+en sangre, alternando entre café y Monster para mantener el código fluyendo.
+
+**/
+
+const githubLink = "https://github.com/HoracioGutierrez"
+`)
+        } else {
+            setValue(`/**
  * Mis Intereses
  * 
  * Como desarrollador web, paso gran parte de mi tiempo explorando nuevas tecnologías
@@ -32,7 +66,10 @@ export default function Intereses() {
 **/
 
 const githubLink = "https://github.com/HoracioGutierrez"
-`);
+`)
+        }
+
+    },[isSmallScreen])
 
     const onChange = useCallback((val: any, viewUpdate: any) => {
         console.log('val:', val);

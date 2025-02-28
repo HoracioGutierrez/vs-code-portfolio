@@ -12,6 +12,11 @@ async function TrabajosPage({ searchParams }: TrabajosPageProps) {
   const projectPromise = getProjectsByFilter(filter ? filter.split(",") : []);
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <TrabajosList projectPromise={projectPromise} />
+    </Suspense>
+  )
+  return (
     <div
       className={cn(
         "items-start gap-6 p-4 xl:p-20 w-full flex flex-col sm:grid sm:grid-cols-2 2xl:grid-cols-[repeat(auto-fill,_minmax(min(100%,300px),_1fr))] grid-rows-[min-content]"
