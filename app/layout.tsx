@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
-import MainEditor from "@/features/laytout/components/MainEditor";
+/* import MainEditor from "@/features/laytout/components/MainEditor"; */
 import { Fira_Code } from "next/font/google";
 import "./globals.css";
+import MainEditor from "@/components/layout/main-editor";
+import MainEditorHeader from "@/components/layout/main-editor-header";
 
 const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] });
 
@@ -23,7 +25,7 @@ export default function RootLayout({
       <body
         className={cn(
           firaCode.className,
-          "min-h-dvh bg-background p-2 md:p-8 lg:p-17 transition-[padding] flex flex-col justify-center items-center"
+          "min-h-dvh bg-background p-2 md:p-8 lg:p-17 transition-[padding] flex flex-col justify-center items-center overflow-hidden"
         )}
       >
         <ThemeProvider
@@ -32,7 +34,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <MainEditor>{children}</MainEditor>
+          <MainEditor>
+            <MainEditorHeader />
+            {children}
+          </MainEditor>
         </ThemeProvider>
       </body>
     </html>

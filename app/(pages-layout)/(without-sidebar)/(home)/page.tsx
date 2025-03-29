@@ -1,20 +1,38 @@
+"use client";
 import { cn } from "@/lib/utils";
+import { motion, Variants } from "motion/react";
 import Link from "next/link";
 
 function HomePage() {
+
+
+  const containerVariants = {
+    hide: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.1 } },
+  };
+
+  const childVariants = {
+    hide: { opacity: 0, y: 50 },
+    show: { opacity: 1, y: 0, transition: { type: "spring" , bounce: 0.85, stiffness: 400, damping: 14 } },
+  }
+
   return (
-    <div
+    <motion.div
+      key="home"
+      initial="hide"
+      animate="show"
+      variants={containerVariants}
       className={cn(
         "grid place-content-center col-start-1 -col-end-1 row-start-2 row-end-5"
       )}
     >
       <div className="flex flex-col gap-20 px-4">
         <div>
-          <p className="text-sm lg:text-base transition-all">Hola, soy</p>
-          <h1 className="text-4xl lg:text-6xl transition-all">
+          <motion.p variants={childVariants} className="text-sm lg:text-base transition-[font-size]">Hola, soy</motion.p>
+          <motion.h1 variants={childVariants} className="text-4xl lg:text-6xl transition-[font-size]">
             Horacio Gutierrez
-          </h1>
-          <p className="text-xl lg:text-3xl text-accent-1 font-bold transition-all">{`> Full-stack Developer`}</p>
+          </motion.h1>
+          <motion.p variants={childVariants} className="text-xl lg:text-3xl text-accent-1 font-bold transition-[font-size]">{`> Full-stack Developer`}</motion.p>
         </div>
         <div>
           <p className="text-muted-foreground text-sm lg:text-base">{`// complete el juego para continuar`}</p>
@@ -38,7 +56,7 @@ function HomePage() {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 export default HomePage;
