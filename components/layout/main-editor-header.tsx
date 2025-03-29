@@ -1,5 +1,3 @@
-"use client"
-
 import * as motion from "motion/react-client"
 import Link from "next/link"
 import { forwardRef } from "react"
