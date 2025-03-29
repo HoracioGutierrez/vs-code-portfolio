@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "motion/react"
+import * as motion from "motion/react-client"
 import Link from "next/link"
 import { forwardRef } from "react"
 
@@ -23,7 +23,7 @@ function MainEditorHeader() {
         )
     })
 
-    const MotionLink = motion(MotionNextLink)
+    const MotionLink = motion.create(MotionNextLink)
 
     return (
         <motion.div
