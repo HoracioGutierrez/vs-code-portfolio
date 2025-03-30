@@ -1,5 +1,7 @@
+import DrawerToggleButton from "@/features/laytout/components/DrawerToggleButton"
 import * as motion from "motion/react-client"
 import Link from "next/link"
+import DrawerButton from "./main-editor-drawer-button"
 
 
 function MainEditorHeader() {
@@ -27,7 +29,7 @@ function MainEditorHeader() {
                     horacio-gutierrez
                 </Link>
             </motion.h1>
-            <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
+            <motion.div variants={linkVariants} className="items-center border-r border-muted-foreground/50 px-4 hidden md:flex">
                 <Link
                     href="/trabajos"
                     className="text-muted-foreground text-sm lg:text-base"
@@ -35,7 +37,7 @@ function MainEditorHeader() {
                     _trabajos
                 </Link>
             </motion.div>
-            <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
+            <motion.div variants={linkVariants} className="hidden md:flex items-center border-r border-muted-foreground/50 px-4">
                 <Link
                     href="/sobre-mi"
                     className="text-muted-foreground text-sm lg:text-base"
@@ -43,7 +45,7 @@ function MainEditorHeader() {
                     _sobre-mi
                 </Link>
             </motion.div>
-            <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
+            <motion.div variants={linkVariants} className="hidden md:flex items-center border-r border-muted-foreground/50 px-4">
                 <Link
                     href="/contacto"
                     className="text-muted-foreground text-sm lg:text-base"
@@ -51,6 +53,7 @@ function MainEditorHeader() {
                     _contacto
                 </Link>
             </motion.div>
+            <DrawerButton/>
         </motion.div>
     )
 }

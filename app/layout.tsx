@@ -5,6 +5,7 @@ import { Fira_Code } from "next/font/google";
 import MainEditor from "@/components/layout/main-editor";
 import * as motion from "motion/react-client"
 import "./globals.css";
+import MainEditorDrawer from "@/features/laytout/components/MainEditorDrawer";
 
 const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] });
 

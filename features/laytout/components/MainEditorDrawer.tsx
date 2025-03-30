@@ -21,11 +21,6 @@ function MainEditorDrawer() {
           links.map((link) => {
             return <MainEditorDrawerLink key={link.id} link={link} />;
           })}
-        {drawerOpen && (
-          <MainEditorDrawerLink
-            link={{ id: 4, label: "_contacto", href: "/contacto" }}
-          />
-        )}
       </AnimatePresence>
     </nav>
   );

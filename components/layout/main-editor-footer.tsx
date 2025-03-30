@@ -35,7 +35,7 @@ function MainEditorFooter() {
                     <InstagramIcon className="size-4" />
                 </Link>
             </motion.div>
-            <motion.div variants={linkVariants} className="flex items-center justify-center px-4 ml-auto border-l border-muted-foreground/50">
+            <motion.div variants={linkVariants} className="flex items-center justify-center px-5 ml-auto border-l border-muted-foreground/50">
                 <Link
                     href="https://github.com/HoracioGutierrez"
                     target="_blank"
