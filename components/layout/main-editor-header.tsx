@@ -22,7 +22,7 @@ function MainEditorHeader() {
             variants={childVariants}
             className="border-b h-[60px] flex overflow-hidden items-stretch border-muted-foreground/50"
         >
-            <motion.h1 className="text-muted-foreground border-r border-muted-foreground/50 flex items-center px-4" variants={linkVariants}>
+            <motion.h1 className="text-muted-foreground border-r border-muted-foreground/50 flex items-center px-4 w-[200px]" variants={linkVariants}>
                 horacio-gutierrez
             </motion.h1>
             <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">

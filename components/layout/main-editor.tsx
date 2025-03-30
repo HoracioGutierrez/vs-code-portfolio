@@ -43,15 +43,8 @@ function MainEditor({ children }: MainEditorProps) {
 
                 <div className="flex grow">
                     <AnimatePresence mode="wait">
-                        {pathname === "/trabajos" && finished && (
-                            <motion.div initial="hide" animate="show" exit="exit" className="flex">
-                                <MainEditorMainSidebar />
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                    <AnimatePresence mode="wait">
-                        {pathname === "/sobre-mi" && finished && (
-                            <motion.div initial="hide" animate="show" exit="exit" className="flex">
+                        {(pathname === "/trabajos" || pathname === "/sobre-mi") && finished && (
+                            <motion.div initial="hide" animate="show" exit="exit" className="flex" key={pathname}>
                                 <MainEditorMainSidebar />
                             </motion.div>
                         )}
