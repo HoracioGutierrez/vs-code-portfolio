@@ -1,4 +1,4 @@
-import { LucideGithub } from "lucide-react"
+import { InstagramIcon, LucideGithub, TwitterIcon } from "lucide-react"
 import * as motion from "motion/react-client"
 import Link from "next/link"
 
@@ -22,6 +22,19 @@ function MainEditorFooter() {
             variants={childVariants}
             className="border-t h-[60px] flex overflow-hidden items-stretch border-muted-foreground/50"
         >
+            <motion.p variants={linkVariants} className="w-[200px] border-r border-muted-foreground/50 flex items-center justify-center">
+                Encontrame en :
+            </motion.p>
+            <motion.div variants={linkVariants} className="px-5 flex items-center border-r border-muted-foreground/50 hover:bg-accent transition-colors">
+                <Link href="https://twitter.com/horagutierrez" target="_blank">
+                    <TwitterIcon className="size-4" />
+                </Link>
+            </motion.div>
+            <motion.div variants={linkVariants} className="px-5 flex items-center border-r border-muted-foreground/50 hover:bg-accent transition-colors">
+                <Link href="https://instagram.com/horagutierrez" target="_blank">
+                    <InstagramIcon className="size-4" />
+                </Link>
+            </motion.div>
             <motion.div variants={linkVariants} className="flex items-center justify-center px-4 ml-auto border-l border-muted-foreground/50">
                 <Link
                     href="https://github.com/HoracioGutierrez"
