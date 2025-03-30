@@ -3,12 +3,23 @@ import { useLayout } from "@/features/laytout/stores/useLayout"
 import { Menu, X } from "lucide-react"
 import { useAnimate } from "motion/react"
 import * as motion from "motion/react-client"
+import { useEffect } from "react"
 
 function DrawerButton() {
 
     const [menuRef, animateMenu] = useAnimate()
     const [xRef, animateX] = useAnimate()
-    const { setDrawerOpen } = useLayout()
+    const { setDrawerOpen, drawerOpen } = useLayout()
+
+    useEffect(() => {
+        if (drawerOpen) {
+            animateMenu(menuRef.current, { rotate: 45, opacity: 0 })
+            animateX(xRef.current, { rotate: 45, opacity: 1, pointerEvents: "all" }, { delay: 0.15 })
+        } else {
+            animateX(xRef.current, { rotate: 0, opacity: 0, pointerEvents: "none" })
+            animateMenu(menuRef.current, { rotate: 0, opacity: 1 }, { delay: 0.15 })
+        }
+    }, [drawerOpen])
 
     const handleOpen = async () => {
         animateMenu(menuRef.current, { rotate: 45, opacity: 0 })
