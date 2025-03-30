@@ -3,12 +3,11 @@ import * as motion from "motion/react-client"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion"
 import { useMedia } from "react-use"
 
-function MainEditorMainSidebar() {
+function MainEditorAboutSidebar() {
 
     const isBigEnough = useMedia("(min-width: 768px)")
 
     let sidebarVariants
-
 
     if (isBigEnough) {
         sidebarVariants = {
@@ -64,4 +63,4 @@ function MainEditorMainSidebar() {
     )
 }
 
-export default MainEditorMainSidebar
+export default MainEditorAboutSidebar

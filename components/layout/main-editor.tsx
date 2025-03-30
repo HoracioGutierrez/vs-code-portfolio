@@ -3,11 +3,12 @@
 import { useAnimate, motion, AnimatePresence } from "motion/react"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
-import MainEditorMainSidebar from "./main-editor-main-sidebar"
 import MainEditorHeader from "./main-editor-header"
 import MainEditorFooter from "./main-editor-footer"
 import MainEditorDrawer from "./main-editor-drawer"
 import { useLayout } from "@/features/laytout/stores/useLayout"
+import MainEditorAboutSidebar from "./main-editor-about-sidebar"
+import MainEditorWorksSidebar from "./main-editor-works-sidebar"
 
 type MainEditorProps = {
     children: React.ReactNode
@@ -47,9 +48,17 @@ function MainEditor({ children }: MainEditorProps) {
 
                 <div className="flex grow relative overflow-hidden flex-col md:flex-row">
                     <AnimatePresence mode="wait">
-                        {(pathname === "/trabajos" || pathname === "/sobre-mi") && finished && (
+                        {(pathname === "/sobre-mi") && finished && (
                             <motion.div initial="hide" animate="show" exit="exit" className="flex" key={pathname}>
-                                <MainEditorMainSidebar />
+                                <MainEditorAboutSidebar />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
+                    <AnimatePresence mode="wait">
+                        {(pathname === "/trabajos") && finished && (
+                            <motion.div initial="hide" animate="show" exit="exit" className="flex" key={pathname}>
+                                <MainEditorWorksSidebar />
                             </motion.div>
                         )}
                     </AnimatePresence>
