@@ -8,7 +8,7 @@ import { parseAsArrayOf, parseAsString, useQueryState } from 'nuqs'
 function MainEditorWorksSidebar() {
 
     const isBigEnough = useMedia("(min-width: 768px)")
-    const [stack, setStack] = useQueryState('stack', parseAsArrayOf(parseAsString))
+    const [stack, setStack] = useQueryState('stack', { ...parseAsArrayOf(parseAsString), shallow: false })
 
     let sidebarVariants
 
@@ -39,19 +39,19 @@ function MainEditorWorksSidebar() {
     const handleToggleStack = (e: React.MouseEvent<HTMLDivElement>) => {
         const target = e.currentTarget.dataset.target || ''
 
-        if(!stack) {
+        if (!stack) {
             return setStack([target])
         }
 
-        if(stack.includes(target)) {
+        if (stack.includes(target)) {
             const filteredStack = stack.filter((item) => item !== target)
-            if(filteredStack.length > 0) {
+            if (filteredStack.length > 0) {
                 return setStack(filteredStack)
             } else {
-                return setStack(null) 
+                return setStack(null)
             }
         } else {
-            return setStack([...stack, target]) 
+            return setStack([...stack, target])
         }
     }
 

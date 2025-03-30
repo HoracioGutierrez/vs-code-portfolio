@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { Fira_Code } from "next/font/google";
 import MainEditor from "@/components/layout/main-editor";
 import * as motion from "motion/react-client"
-import { NuqsAdapter } from 'nuqs/adapters/next/app'
+import { NuqsAdapter } from 'nuqs/adapters/next'
 import "./globals.css";
 
 const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] });
@@ -26,20 +26,20 @@ export default function RootLayout({ children }: RootLayoutProps) {
           "min-h-dvh bg-background p-2 md:p-8 lg:p-17 transition-[padding] flex flex-col justify-center items-center overflow-hidden"
         )}
       >
-        <NuqsAdapter>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NuqsAdapter>
             <MainEditor>
               <motion.div initial="hide" animate="show" exit="exit" className="flex flex-col grow">
                 {children}
               </motion.div>
             </MainEditor>
-          </ThemeProvider>
-        </NuqsAdapter>
+          </NuqsAdapter>
+        </ThemeProvider>
       </body>
     </html>
   );

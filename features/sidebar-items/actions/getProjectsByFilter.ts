@@ -3,6 +3,7 @@
 import { createClient } from "@/supabase/server"
 
 export const getProjectsByFilter = async (filters: string[]) => {
+  console.log("🚀 ~ getProjectsByFilter ~ filters:", filters)
   try {
     const supabase = await createClient();
     if (!filters.length || filters.includes("all")) {
