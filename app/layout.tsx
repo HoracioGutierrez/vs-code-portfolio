@@ -3,10 +3,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 import { Fira_Code } from "next/font/google";
 import MainEditor from "@/components/layout/main-editor";
-import MainEditorHeader from "@/components/layout/main-editor-header";
 import * as motion from "motion/react-client"
 import "./globals.css";
-import MainEditorMainSidebar from "@/components/layout/main-editor-main-sidebar";
 
 const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] });
 
@@ -34,9 +32,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           disableTransitionOnChange
         >
           <MainEditor>
-            {/* <MainEditorHeader /> */}
             <motion.div initial="hide" animate="show" exit="exit" className="flex flex-col grow">
-              {/* <MainEditorMainSidebar /> */}
               {children}
             </motion.div>
           </MainEditor>

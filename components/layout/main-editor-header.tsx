@@ -1,6 +1,5 @@
 import * as motion from "motion/react-client"
 import Link from "next/link"
-import MainEditorNavigationLinks from "./main-editor-navigation-links"
 
 
 function MainEditorHeader() {
@@ -26,7 +25,6 @@ function MainEditorHeader() {
             <motion.h1 className="text-muted-foreground border-r border-muted-foreground/50 flex items-center px-4" variants={linkVariants}>
                 horacio-gutierrez
             </motion.h1>
-            {/* <MainEditorNavigationLinks /> */}
             <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
                 <Link
                     href="/"
