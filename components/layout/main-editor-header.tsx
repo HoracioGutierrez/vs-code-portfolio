@@ -23,22 +23,16 @@ function MainEditorHeader() {
             className="border-b h-[60px] flex overflow-hidden items-stretch border-muted-foreground/50"
         >
             <motion.h1 className="text-muted-foreground border-r border-muted-foreground/50 flex items-center px-4 w-[200px]" variants={linkVariants}>
-                horacio-gutierrez
-            </motion.h1>
-            <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
-                <Link
-                    href="/"
-                    className="text-muted-foreground text-sm  lg:text-base"
-                >
-                    home
+                <Link href="/">
+                    horacio-gutierrez
                 </Link>
-            </motion.div>
+            </motion.h1>
             <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
                 <Link
                     href="/trabajos"
                     className="text-muted-foreground text-sm lg:text-base"
                 >
-                    trabajos
+                    _trabajos
                 </Link>
             </motion.div>
             <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
@@ -46,7 +40,7 @@ function MainEditorHeader() {
                     href="/sobre-mi"
                     className="text-muted-foreground text-sm lg:text-base"
                 >
-                    sobre-mi
+                    _sobre-mi
                 </Link>
             </motion.div>
             <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
@@ -54,7 +48,7 @@ function MainEditorHeader() {
                     href="/contacto"
                     className="text-muted-foreground text-sm lg:text-base"
                 >
-                    contacto
+                    _contacto
                 </Link>
             </motion.div>
         </motion.div>
