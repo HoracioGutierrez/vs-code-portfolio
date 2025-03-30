@@ -23,8 +23,8 @@ function HomePage() {
                     <motion.p variants={childVariants} className="text-xl lg:text-3xl text-accent-1 font-bold transition-[font-size]">{`> Full-stack Developer`}</motion.p>
                 </div>
                 <div>
-                    <motion.p className="text-muted-foreground text-sm lg:text-base" variants={childVariants}>{`// complete el juego para continuar`}</motion.p>
-                    <motion.p className="text-muted-foreground text-sm lg:text-base" variants={childVariants}>{`// también podes ir a ver el código`}</motion.p>
+                    {/* <motion.p className="text-muted-foreground text-sm lg:text-base" variants={childVariants}>{`// complete el juego para continuar`}</motion.p> */}
+                    <motion.p className="text-muted-foreground text-sm lg:text-base" variants={childVariants}>{`// podes ir a ver el código a`}</motion.p>
                     <motion.p className="flex gap-2 flex-wrap text-sm lg:text-base" variants={childVariants}>
                         <span className="text-accent-1">const</span>
                         <span className="text-accent-2">githubLink</span>
