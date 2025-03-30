@@ -1,43 +1,31 @@
-import * as motion from "motion/react-client"
+"use client"
 import Link from "next/link"
-import MainEditorNavigationLinks from "./main-editor-navigation-links"
+import { useRouter } from "next/navigation"
+import { startTransition } from "react"
+import * as motion from "motion/react-client"
 
+function MainEditorNavigationLinks() {
 
-function MainEditorHeader() {
-
-    const childVariants = {
-        hide: { opacity: 0, height: "0px" },
-        show: { opacity: 1, height: "60px", transition: { type: "spring", bounce: 0.85, stiffness: 400, damping: 14, delay: 0.2, staggerChildren: 0.1, delayChildren: 0.4 } },
-    }
+    const router = useRouter()
 
     const linkVariants = {
         hide: { opacity: 0, y: -50 },
         show: { opacity: 1, y: 0, transition: { type: "spring", bounce: 0.85, stiffness: 400, damping: 16 } },
     }
 
+    const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        startTransition(() => {
+            return router.push(e.currentTarget.getAttribute("data-path") || "/")
+        })
+    }
+
     return (
-        <motion.div
-            initial="hide"
-            animate="show"
-            exit="exit"
-            variants={childVariants}
-            className="border-b h-[60px] flex overflow-hidden items-stretch border-muted-foreground/50"
-        >
-            <motion.h1 className="text-muted-foreground border-r border-muted-foreground/50 flex items-center px-4" variants={linkVariants}>
-                horacio-gutierrez
-            </motion.h1>
-            {/* <MainEditorNavigationLinks /> */}
+        <>
             <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
                 <Link
-                    href="/"
-                    className="text-muted-foreground text-sm  lg:text-base"
-                >
-                    home
-                </Link>
-            </motion.div>
-            <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
-                <Link
+                    onClick={handleNavigation}
                     href="/trabajos"
+                    data-path="/trabajos"
                     className="text-muted-foreground text-sm lg:text-base"
                 >
                     trabajos
@@ -45,7 +33,17 @@ function MainEditorHeader() {
             </motion.div>
             <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
                 <Link
+                    href="/"
+                    data-path="/"
+                    className="text-muted-foreground text-sm  lg:text-base"
+                >
+                    home
+                </Link>
+            </motion.div>
+            <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
+                <Link
                     href="/sobre-mi"
+                    data-path="/sobre-mi"
                     className="text-muted-foreground text-sm lg:text-base"
                 >
                     sobre-mi
@@ -54,12 +52,14 @@ function MainEditorHeader() {
             <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
                 <Link
                     href="/contacto"
+                    data-path="/contacto"
                     className="text-muted-foreground text-sm lg:text-base"
                 >
                     contacto
                 </Link>
             </motion.div>
-        </motion.div>
+        </>
     )
 }
-export default MainEditorHeader
+
+export default MainEditorNavigationLinks

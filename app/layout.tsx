@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
-/* import MainEditor from "@/features/laytout/components/MainEditor"; */
 import { Fira_Code } from "next/font/google";
-import "./globals.css";
 import MainEditor from "@/components/layout/main-editor";
 import MainEditorHeader from "@/components/layout/main-editor-header";
+import * as motion from "motion/react-client"
+import "./globals.css";
+import MainEditorMainSidebar from "@/components/layout/main-editor-main-sidebar";
 
 const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] });
 
@@ -15,11 +16,9 @@ export const metadata: Metadata = {
     "Portfolio de Horacio Gutierrez, Desarrollador Web Full-Stack en Javascript y Freelancer",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+type RootLayoutProps = Readonly<{ children: React.ReactNode }>;
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -35,8 +34,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <MainEditor>
-            <MainEditorHeader />
-            {children}
+            {/* <MainEditorHeader /> */}
+            <motion.div initial="hide" animate="show" exit="exit" className="flex flex-col grow">
+              {/* <MainEditorMainSidebar /> */}
+              {children}
+            </motion.div>
           </MainEditor>
         </ThemeProvider>
       </body>
