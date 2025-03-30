@@ -1,16 +1,31 @@
+"use client"
 import * as motion from "motion/react-client"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion"
+import { useMedia } from "react-use"
 
 function MainEditorMainSidebar() {
 
-    const sidebarVariants = {
-        hide: { opacity: 0, width: "0px" },
-        show: { opacity: 1, width: "200px" },
-        exit: { opacity: 0, width: "0px" },
+    const isBigEnough = useMedia("(min-width: 768px)")
+
+    let sidebarVariants
+
+
+    if (isBigEnough) {
+        sidebarVariants = {
+            hide: { opacity: 0, width: "0px" },
+            show: { opacity: 1, width: "200px", height: "auto" },
+            exit: { opacity: 0, width: "0px" },
+        }
+    } else {
+        sidebarVariants = {
+            hide: { opacity: 0, height: "0px" },
+            show: { opacity: 1, height: "auto", width: "100%" },
+            exit: { opacity: 0, height: "0px" },
+        }
     }
 
-    const sidebarItemVariants = { 
-        animate: { transition: { staggerChildren: 0.15, delayChildren: 0.3 } } 
+    const sidebarItemVariants = {
+        animate: { transition: { staggerChildren: 0.15, delayChildren: 0.3 } }
     }
 
     const itemVariants = {
@@ -20,7 +35,7 @@ function MainEditorMainSidebar() {
     }
 
     return (
-        <motion.div initial="hide" exit="exit" animate="show" className="border-r border-muted-foreground/50 flex flex-col items-stretch overflow-hidden" variants={sidebarVariants}>
+        <motion.div initial="hide" exit="exit" animate="show" className="md:border-r border-muted-foreground/50 flex flex-col items-stretch overflow-hidden w-full" variants={sidebarVariants}>
             <Accordion type="single" className="w-full" collapsible asChild>
                 <motion.div initial="initial" animate="animate" exit="exit" variants={sidebarItemVariants}>
                     <AccordionItem value="personal" className="w-full border-muted-foreground/50" asChild>

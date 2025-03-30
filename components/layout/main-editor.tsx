@@ -45,7 +45,7 @@ function MainEditor({ children }: MainEditorProps) {
                     )}
                 </AnimatePresence>
 
-                <div className="flex grow relative overflow-hidden">
+                <div className="flex grow relative overflow-hidden flex-col md:flex-row">
                     <AnimatePresence mode="wait">
                         {(pathname === "/trabajos" || pathname === "/sobre-mi") && finished && (
                             <motion.div initial="hide" animate="show" exit="exit" className="flex" key={pathname}>
