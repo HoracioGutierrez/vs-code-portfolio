@@ -1,6 +1,5 @@
 import * as motion from "motion/react-client"
 import Link from "next/link"
-/* import { forwardRef } from "react" */
 
 
 function MainEditorHeader() {
@@ -15,31 +14,26 @@ function MainEditorHeader() {
         show: { opacity: 1, y: 0, transition: { type: "spring", bounce: 0.85, stiffness: 400, damping: 16 } },
     }
 
-    /* const MotionNextLink = forwardRef<HTMLAnchorElement, React.ComponentPropsWithoutRef<typeof Link>>((props, ref) => {
-        return (
-            <Link {...props} ref={ref} />
-        )
-    })
-
-    const MotionLink = motion.create(MotionNextLink)
- */
     return (
         <motion.div
             key="main-editor-header"
             initial="hide"
             animate="show"
             variants={childVariants}
-            className="border-b h-[60px] flex overflow-hidden items-center px-4 gap-4"
+            className="border-b h-[60px] flex overflow-hidden items-stretch border-muted-foreground/50"
         >
-            <motion.div variants={linkVariants}>
+            <motion.h1 className="text-muted-foreground border-r border-muted-foreground/50 flex items-center px-4" variants={linkVariants}>
+                horacio-gutierrez
+            </motion.h1>
+            <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
                 <Link
                     href="/"
-                    className="text-muted-foreground text-sm lg:text-base"
+                    className="text-muted-foreground text-sm  lg:text-base"
                 >
                     home
                 </Link>
             </motion.div>
-            <motion.div variants={linkVariants}>
+            <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
                 <Link
                     href="/trabajos"
                     className="text-muted-foreground text-sm lg:text-base"
@@ -47,7 +41,7 @@ function MainEditorHeader() {
                     trabajos
                 </Link>
             </motion.div>
-            <motion.div variants={linkVariants}>
+            <motion.div variants={linkVariants} className="flex items-center border-r border-muted-foreground/50 px-4">
                 <Link
                     href="/contacto"
                     className="text-muted-foreground text-sm lg:text-base"
