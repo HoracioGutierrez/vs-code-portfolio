@@ -6,6 +6,8 @@ import { useEffect, useState } from "react"
 import MainEditorMainSidebar from "./main-editor-main-sidebar"
 import MainEditorHeader from "./main-editor-header"
 import MainEditorFooter from "./main-editor-footer"
+import MainEditorDrawer from "./main-editor-drawer"
+import { useLayout } from "@/features/laytout/stores/useLayout"
 
 type MainEditorProps = {
     children: React.ReactNode
@@ -16,6 +18,7 @@ function MainEditor({ children }: MainEditorProps) {
     const [scope, animate] = useAnimate()
     const [finished, setFinished] = useState(false)
     const pathname = usePathname()
+    const { drawerOpen } = useLayout()
 
     useEffect(() => {
         initialAnimation()
@@ -42,7 +45,7 @@ function MainEditor({ children }: MainEditorProps) {
                     )}
                 </AnimatePresence>
 
-                <div className="flex grow">
+                <div className="flex grow relative overflow-hidden">
                     <AnimatePresence mode="wait">
                         {(pathname === "/trabajos" || pathname === "/sobre-mi") && finished && (
                             <motion.div initial="hide" animate="show" exit="exit" className="flex" key={pathname}>
@@ -55,6 +58,14 @@ function MainEditor({ children }: MainEditorProps) {
                         {finished && (
                             <motion.div initial="hide" animate="show" exit="exit" className="grow flex flex-col">
                                 {children}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
+                    <AnimatePresence mode="wait">
+                        {drawerOpen && finished && (
+                            <motion.div initial="hide" animate="show" exit="exit" variants={{ show: { opacity: 1 }, hide: { opacity: 0 }, exit: { opacity: 0 } }} className="grow flex flex-col absolute w-full h-full backdrop-blur-md">
+                                <MainEditorDrawer />
                             </motion.div>
                         )}
                     </AnimatePresence>
