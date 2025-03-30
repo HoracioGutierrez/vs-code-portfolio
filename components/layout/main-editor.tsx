@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import MainEditorMainSidebar from "./main-editor-main-sidebar"
 import MainEditorHeader from "./main-editor-header"
+import MainEditorFooter from "./main-editor-footer"
 
 type MainEditorProps = {
     children: React.ReactNode
@@ -58,6 +59,12 @@ function MainEditor({ children }: MainEditorProps) {
                         )}
                     </AnimatePresence>
                 </div>
+
+                <AnimatePresence>
+                    {finished && (
+                        <MainEditorFooter />
+                    )}
+                </AnimatePresence>
             </motion.div>
         </div>
     )
