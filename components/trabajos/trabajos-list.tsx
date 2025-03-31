@@ -31,10 +31,10 @@ async function TrabajosList({ stack }: TrabajosListProps) {
     }
 
     return (
-        <motion.div initial="hide" animate="show" exit="exit" variants={containerVariants} className="grid grid-cols-1 md:grid-cols-[repeat(auto-fill,minmax(min(300px,_100%),_1fr))] gap-8 lg:gap-10 w-full 2xl:max-w-2/3 lg:grid-cols-3">
+        <motion.div initial="hide" animate="show" exit="exit" variants={containerVariants} className="w-full h-full grid grid-cols-[repeat(auto-fill,minmax(min(300px,100%),1fr))] gap-5 lg:gap-10 grid-rows-[repeat(auto-fill,min(400px,100%))]">
             <AnimatePresence>
                 {payload?.map((project, index) => (
-                    <motion.div key={index} variants={itemVariants} className="border border-muted-foreground/50 rounded-md box-border overflow-hidden flex flex-col">
+                    <motion.div key={index} variants={itemVariants} whileHover={{ scale: 1.05, transition: { type: "spring", bounce: 0.85, stiffness: 400, damping: 16 } }} className="border border-muted-foreground/50 rounded-md box-border overflow-hidden flex flex-col">
                         <Image
                             src={project.thumbnail ? `/images/trabajos/${project.thumbnail}` : "/images/thumbnail.png"}
                             alt={project.title}

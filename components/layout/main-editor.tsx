@@ -48,8 +48,8 @@ function MainEditor({ children }: MainEditorProps) {
 
                 <div className="flex grow relative overflow-hidden flex-col md:flex-row">
                     <AnimatePresence mode="wait">
-                        {(pathname === "/sobre-mi") && finished && (
-                            <motion.div initial="hide" animate="show" exit="exit" className="flex" key={pathname}>
+                        {(pathname.includes("/sobre-mi")) && finished && (
+                            <motion.div initial="hide" animate="show" exit="exit" className="flex" key={"sobre-mi"}>
                                 <MainEditorAboutSidebar />
                             </motion.div>
                         )}
