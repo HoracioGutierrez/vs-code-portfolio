@@ -15,7 +15,7 @@ async function TrabajosPage({ searchParams }: TrabajosPageProps) {
     const { stack } = await loadStackParams(searchParams)
 
     return (
-        <motion.div initial="hide" animate="show" exit="exit" className="flex grow lg:p-5 p-8 flex-col justify-center items-center">
+        <motion.div initial="hide" animate="show" exit="exit" className="flex grow p-8 flex-col justify-center items-center">
             <Suspense key={stack ? stack.join(',') : ""} fallback={<Loading/>}>
                 <TrabajosList stack={stack} />
             </Suspense>
