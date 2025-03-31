@@ -16,7 +16,7 @@ function MainEditorWorksSidebar() {
     if (isBigEnough) {
         sidebarVariants = {
             hide: { opacity: 0, width: "0px" },
-            show: { opacity: 1, width: "200px", height: "auto" },
+            show: { opacity: 1, width: "300px", height: "auto" },
             exit: { opacity: 0, width: "0px" },
         }
     } else {

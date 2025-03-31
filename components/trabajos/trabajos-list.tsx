@@ -2,6 +2,8 @@ import { getProjectsByFilter } from "@/features/sidebar-items/actions/getProject
 import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client"
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "../ui/button";
 
 type TrabajosListProps = {
     stack?: string[] | null;
@@ -29,10 +31,10 @@ async function TrabajosList({ stack }: TrabajosListProps) {
     }
 
     return (
-        <motion.div initial="hide" animate="show" exit="exit" variants={containerVariants} className="grid grid-cols-1 md:grid-cols-[repeat(auto-fill,minmax(min(300px,_100%),_1fr))] gap-8 lg:gap-4 w-full 2xl:max-w-2/3">
+        <motion.div initial="hide" animate="show" exit="exit" variants={containerVariants} className="grid grid-cols-1 md:grid-cols-[repeat(auto-fill,minmax(min(300px,_100%),_1fr))] gap-8 lg:gap-10 w-full 2xl:max-w-2/3 lg:grid-cols-3">
             <AnimatePresence>
                 {payload?.map((project, index) => (
-                    <motion.div key={index} variants={itemVariants} className="border border-muted-foreground/50 rounded-md box-border overflow-hidden">
+                    <motion.div key={index} variants={itemVariants} className="border border-muted-foreground/50 rounded-md box-border overflow-hidden flex flex-col">
                         <Image
                             src={project.thumbnail ? `/images/trabajos/${project.thumbnail}` : "/images/thumbnail.png"}
                             alt={project.title}
@@ -40,9 +42,12 @@ async function TrabajosList({ stack }: TrabajosListProps) {
                             height={300}
                             className="w-full object-cover aspect-video"
                         />
-                        <div className="p-5 flex flex-col gap-2">
+                        <div className="p-5 flex flex-col gap-3 grow">
                             <h3>{project.title}</h3>
                             <p className="text-muted-foreground text-sm">{project.subtitle}</p>
+                            <Button asChild className="bg-transparent border border-muted-foreground/50 mt-auto hover:bg-accent-2 hover:!text-primary">
+                                <Link href={`/trabajos/${project.slug}`} className="text-sm !text-muted-foreground">Ver proyecto</Link>
+                            </Button>
                         </div>
                     </motion.div>
                 ))}

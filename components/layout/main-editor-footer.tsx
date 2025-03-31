@@ -22,7 +22,7 @@ function MainEditorFooter() {
             variants={childVariants}
             className="border-t h-[60px] flex overflow-hidden items-stretch border-muted-foreground/50"
         >
-            <motion.p variants={linkVariants} className="w-[200px] border-r border-muted-foreground/50 flex items-center justify-center">
+            <motion.p variants={linkVariants} className="w-[300px] border-r border-muted-foreground/50 flex items-center justify-center">
                 Encontrame en :
             </motion.p>
             <motion.div variants={linkVariants} className="px-5 flex items-center border-r border-muted-foreground/50 hover:bg-accent transition-colors">
