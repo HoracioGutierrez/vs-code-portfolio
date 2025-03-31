@@ -43,12 +43,17 @@ function MainEditorAboutSidebar() {
                         <motion.div variants={itemVariants}>
                             <AccordionTrigger className="!w-full !flex !gap-2 !p-3 !cursor-pointer !box-border !text-muted-foreground">
                                 <span>
-                                    <Folder className="fill-accent-1 stroke-0"/>
+                                    <Folder className="fill-accent-1 stroke-0" />
                                 </span>
                                 _experiencia
                             </AccordionTrigger>
-                            <AccordionContent className="px-3">
-                                Experiencia content
+                            <AccordionContent className="pb-0">
+                                <Link href="/sobre-mi/experiencia-readme" className="p-3 w-full block hover:bg-accent-1 text-muted-foreground">
+                                    readme.md
+                                </Link>
+                                <Link href="/sobre-mi/experiencia" className="p-3 w-full block hover:bg-accent-1 text-muted-foreground">
+                                    experiencia.js
+                                </Link>
                             </AccordionContent>
                         </motion.div>
                     </AccordionItem>
@@ -56,7 +61,7 @@ function MainEditorAboutSidebar() {
                         <motion.div variants={itemVariants}>
                             <AccordionTrigger className="!w-full !flex !gap-2 !p-3 !cursor-pointer !box-border !text-muted-foreground">
                                 <span>
-                                    <Folder className="fill-accent-2 stroke-0"/>
+                                    <Folder className="fill-accent-2 stroke-0" />
                                 </span>
                                 _educacion
                             </AccordionTrigger>
@@ -74,12 +79,17 @@ function MainEditorAboutSidebar() {
                         <motion.div variants={itemVariants}>
                             <AccordionTrigger className="!w-full !flex !gap-2 !p-3 !cursor-pointer !box-border !text-muted-foreground">
                                 <span>
-                                    <Folder className="fill-accent-3 stroke-0"/>
+                                    <Folder className="fill-accent-3 stroke-0" />
                                 </span>
                                 _hobbies
                             </AccordionTrigger>
-                            <AccordionContent className="px-3">
-                                Hobbies content
+                            <AccordionContent className="pb-0">
+                                <Link href="/sobre-mi/hobbies-readme" className="p-3 w-full block hover:bg-accent-1 text-muted-foreground">
+                                    readme.md
+                                </Link>
+                                <Link href="/sobre-mi/hobbies" className="p-3 w-full block hover:bg-accent-1 text-muted-foreground">
+                                    hobbies.js
+                                </Link>
                             </AccordionContent>
                         </motion.div>
                     </AccordionItem>
