@@ -11,6 +11,7 @@ type TrabajosListProps = {
 
 async function TrabajosList({ stack }: TrabajosListProps) {
 
+    await new Promise((resolve) => setTimeout(resolve, 1000))
     const { error, payload } = await getProjectsByFilter(stack ? stack : []);
 
     const containerVariants = {

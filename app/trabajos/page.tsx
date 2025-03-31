@@ -1,4 +1,3 @@
-import MainEditorPageTitle from "@/components/layout/main-editor-page-title"
 import * as motion from "motion/react-client"
 import { loadStackParams } from "./stackParams"
 import { SearchParams } from "nuqs/server";
