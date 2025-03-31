@@ -4,6 +4,7 @@ import * as motion from "motion/react-client"
 import { defaultFilters } from "@/features/sidebar-items/lib/utils"
 import Image from "next/image"
 import { parseAsArrayOf, parseAsString, useQueryState } from 'nuqs'
+import { cn } from "@/lib/utils"
 
 function MainEditorWorksSidebar() {
 
@@ -60,7 +61,7 @@ function MainEditorWorksSidebar() {
             <motion.div initial="initial" animate="animate" exit="exit" variants={sidebarItemVariants} className="py-3 flex flex-wrap md:flex-col gap-3 md:gap-0 justify-center">
                 {defaultFilters.map((filter, index) => {
                     return (
-                        <motion.div key={index} variants={itemVariants} className="px-5 py-2 flex gap-3 rounded-full md:rounded-none border border-muted-foreground/50 md:border-none text-xs md:text-sm items-center cursor-pointer select-none hover:bg-accent-2/20 transition-colors" onClick={handleToggleStack} data-target={filter.value}>
+                        <motion.div key={index} variants={itemVariants} className={cn("px-5 py-2 flex gap-3 rounded-full md:rounded-none border border-muted-foreground/50 md:border-none text-xs md:text-sm items-center cursor-pointer select-none hover:bg-accent-2/20 transition-colors", stack?.includes(filter.value) && "bg-accent-2/20")} onClick={handleToggleStack} data-target={filter.value}>
                             {filter.icon && (
                                 <Image
                                     src={filter.icon || ""}

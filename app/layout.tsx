@@ -23,7 +23,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body
         className={cn(
           firaCode.className,
-          "min-h-dvh bg-background p-2 md:p-8 lg:p-17 transition-[padding] flex flex-col justify-center items-center overflow-hidden"
+          "min-h-dvh bg-background p-2 md:p-8 lg:p-17 transition-[padding] flex flex-col justify-center items-center"
         )}
       >
         <ThemeProvider
