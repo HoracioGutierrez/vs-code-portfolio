@@ -1,5 +1,5 @@
 import { getProjectsByFilter } from "@/features/sidebar-items/actions/getProjectsByFilter";
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence, delay } from "motion/react";
 import * as motion from "motion/react-client"
 import Image from "next/image";
 import Link from "next/link";
@@ -15,13 +15,13 @@ async function TrabajosList({ stack }: TrabajosListProps) {
     const { error, payload } = await getProjectsByFilter(stack ? stack : []);
 
     const containerVariants = {
-        show: { transition: { staggerChildren: 0.1 } },
+        show: { transition: { staggerChildren: 0.1, delayChildren: 0.7 } },
         hide: { transition: { staggerChildren: 0.1, staggerDirection: -1 } },
     }
 
     const itemVariants = {
-        show: { x: 0, opacity: 1 },
-        hide: { x: 50, opacity: 0 },
+        show: { x: 0, opacity: 1, display: "block" },
+        hide: { x: 50, opacity: 0, display: "none" },
         exit: { x: 50, opacity: 0 },
     }
 
@@ -32,7 +32,7 @@ async function TrabajosList({ stack }: TrabajosListProps) {
     }
 
     return (
-        <motion.div initial="hide" animate="show" exit="exit" variants={containerVariants} className="w-full h-full grid grid-cols-[repeat(auto-fill,minmax(min(300px,100%),1fr))] gap-5 lg:gap-10 grid-rows-[repeat(auto-fill,min(400px,100%))]">
+        <motion.div initial="hide" animate="show" exit="exit" variants={containerVariants} className="w-full h-full grid grid-cols-[repeat(auto-fill,minmax(min(300px,100%),1fr))] gap-5 lg:gap-10 grid-flow-row place-content-start">
             <AnimatePresence>
                 {payload?.map((project, index) => (
                     <motion.div key={index} variants={itemVariants} whileHover={{ scale: 1.05, transition: { type: "spring", bounce: 0.85, stiffness: 400, damping: 16 } }} className="border border-muted-foreground/50 rounded-md box-border overflow-hidden flex flex-col">
