@@ -38,21 +38,24 @@ async function TrabajosList({ stack }: TrabajosListProps) {
                     <motion.div
                         key={index}
                         variants={itemVariants}
-                        //whileHover={{ scale: 1.05, transition: { type: "spring", bounce: 0.85, stiffness: 400, damping: 16 } }}
-                        //whileHover="hover"
                         className=" flex flex-col relative"
                     >
                         <motion.div whileHover="hover" className="h-full" initial="initial">
                             <motion.div
-                                className="relative aspect-video border border-muted-foreground/50 rounded-md box-border overflow-hidden z-10"
-                            /* variants={{ hover: { aspectRatio: "initial", height: "100%", width: "100%" } }} */
+                                className="relative aspect-video border border-muted-foreground/50 rounded-md box-border overflow-hidden z-10 bg-background"
+                            >   <motion.div
+                                className="relative aspect-video"
+                                variants={{
+                                    hover: { scale: 0.9 }
+                                }}
                             >
-                                <Image
-                                    src={project.thumbnail ? `/images/trabajos/${project.thumbnail}` : "/images/thumbnail.png"}
-                                    alt={project.title}
-                                    fill
-                                    className="w-full object-cover"
-                                />
+                                    <Image
+                                        src={project.thumbnail ? `/images/trabajos/${project.thumbnail}` : "/images/thumbnail.png"}
+                                        alt={project.title}
+                                        fill
+                                        className="w-full object-cover"
+                                    />
+                                </motion.div>
                                 <motion.div
                                     className="p-5 flex flex-col gap-3 grow absolute backdrop-blur-lg bg-black/80 z-20 w-full"
                                     variants={{
@@ -62,12 +65,14 @@ async function TrabajosList({ stack }: TrabajosListProps) {
                                 >
                                     <motion.h3>{project.title}</motion.h3>
                                     <motion.p
+                                        className="text-muted-foreground text-sm"
                                         variants={{
                                             initial: { opacity: 0, x: 50 },
                                             hover: { opacity: 1, x: 0, transition: { delay: 0.1 } }
                                         }}
-                                        className="text-muted-foreground text-sm"
-                                    >{project.subtitle}</motion.p>
+                                    >
+                                        {project.subtitle}
+                                    </motion.p>
                                     <Button asChild className="bg-transparent border border-muted-foreground/50 mt-auto hover:bg-accent-2 hover:!text-primary">
                                         <Link href={`/trabajos/${project.slug}`} className="text-sm !text-muted-foreground">Ver proyecto</Link>
                                     </Button>
@@ -76,24 +81,11 @@ async function TrabajosList({ stack }: TrabajosListProps) {
                             <motion.div
                                 className="py-2 flex flex-col gap-3 grow"
                                 variants={{
-                                    initial: { y: 0, opacity: 1, transition: { delay: 0.3 } },
+                                    initial: { y: 0, opacity: 1, transition: { delay: 0.4 } },
                                     hover: { y: -200, opacity: 0 }
                                 }}
-                            /* variants={{ hover: { position: "absolute", bottom: 0, backgroundColor: "rgba(0,0,0,0.3)", backdropFilter: "blur(1.5)" } }} */
                             >
-                                <motion.h3
-
-                                >{project.title}</motion.h3>
-                                {/* <motion.p
-                                    variants={{
-                                        
-                                        initial: { opacity: 0 },
-                                        hover: { opacity: 1, transition: { delay: 0.2 } } 
-                                       
-                                    }}
-                                    className="text-muted-foreground text-sm"
-                                >{project.subtitle}</motion.p> */}
-                                {/* */}
+                                <motion.h3>{project.title}</motion.h3>
                             </motion.div>
                         </motion.div>
                     </motion.div>
