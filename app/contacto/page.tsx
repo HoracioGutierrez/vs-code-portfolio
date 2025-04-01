@@ -20,7 +20,7 @@ function ContactoPage() {
                             <ContactForm />
                         </div>
                     </Panel>
-                    <PanelResizeHandle className="w-[1px] bg-muted-foreground/50"/>
+                    <PanelResizeHandle className="w-[1px] bg-muted-foreground/50" />
                     <Panel className="w-full grid place-content-center">
                         <ContactFormText />
                     </Panel>
@@ -30,10 +30,12 @@ function ContactoPage() {
     }
 
     return (
-        <motion.div initial="hide" animate="show" exit="exit" className="flex grow p-8 flex-col gap-8">
+        <motion.div initial="hide" animate="show" exit="exit" className="flex grow p-8 flex-col">
             <MainEditorPageTitle title="Contactame" />
-            <ContactForm />
-            <ContactFormText />
+            <div className="flex flex-col gap-10">
+                <ContactForm />
+                <ContactFormText />
+            </div>
         </motion.div>
     )
 }
