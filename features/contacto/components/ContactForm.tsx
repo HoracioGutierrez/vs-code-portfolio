@@ -34,12 +34,12 @@ export default function ContactForm() {
     }
 
     const formControlVariants = {
-        show: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
+        show: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } },
     }
 
     return (
         <motion.form className="xl:max-w-xs w-full flex flex-col gap-4" action={formAction} initial="hide" animate="show" exit="exit" variants={formControlVariants}>
-            <motion.div variants={inputVariants} initial="hide" animate="show" exit="exit">
+            <motion.div variants={inputVariants}>
                 <motion.label variants={labelVariants} htmlFor="name" className="block mb-2 text-sm font-medium text-muted-foreground">_nombre:</motion.label>
                 <motion.input type="text" id="name" name="name" className="block w-full rounded-md border-0 px-3 py-1.5 text-white shadow-sm ring-1 ring-inset ring-muted-foreground/20 placeholder:text-gray-400 focus:ring-0 focus-visible:ring-0 focus:border-0 focus-visible:border-0 sm:text-sm sm:leading-6 bg-background/50" placeholder="John Doe" onChange={handleChange} />
             </motion.div>
