@@ -26,10 +26,27 @@ function MainEditor({ children }: MainEditorProps) {
     }, [])
 
     const initialAnimation = async () => {
-        animate(scope.current, { opacity: 1 }, { delay: 0.15, duration: 0.3, type: "spring" })
-        await animate(scope.current, { rotate: 0, borderRadius: "50%" }, { delay: 0.15, duration: 0.4 })
-        await animate(scope.current, { flexGrow: 1, heigth: "100%", borderRadius: "10px", aspectRatio: "initial" }, { delay: 0.15, type: "spring", bounce: 0.85, stiffness: 300, damping: 20 })
-        animate(scope.current, { width: "100%", borderRadius: "10px" }, { type: "spring", bounce: 0.85, stiffness: 500, damping: 20 })
+
+        animate(scope.current,
+            { opacity: 1 },
+            { delay: 0.15, duration: 0.3, type: "spring" }
+        )
+
+        await animate(scope.current,
+            { rotate: 0, borderRadius: "50%" },
+            { delay: 0.15, duration: 2.5 , ease : "backIn"}
+        )
+
+        await animate(scope.current,
+            { flexGrow: 1, heigth: "100%", borderRadius: "10px", aspectRatio: "initial" },
+            { delay: 0.15, type: "spring", bounce: 0.85, stiffness: 300, damping: 20 }
+        )
+
+        animate(scope.current,
+            { width: "100%", borderRadius: "10px" },
+            { type: "spring", bounce: 0.85, stiffness: 500, damping: 20 }
+        )
+
         setFinished(true)
     }
 
@@ -37,7 +54,7 @@ function MainEditor({ children }: MainEditorProps) {
         <div className="w-full grow flex justify-center items-center h-full flex-col">
             <motion.div
                 ref={scope}
-                initial={{ width: "1%", height: "1%", borderRadius: 0, rotate: 360, opacity: 0 }}
+                initial={{ width: "5%", height: "5%", borderRadius: 0, rotate: 720, opacity: 0 }}
                 className="w-full border-muted-foreground/50 bg-primary text-foreground border aspect-square flex flex-col"
             >
                 <AnimatePresence>
