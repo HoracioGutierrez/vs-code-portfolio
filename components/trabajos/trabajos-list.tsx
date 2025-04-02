@@ -20,8 +20,8 @@ async function TrabajosList({ stack }: TrabajosListProps) {
     }
 
     const itemVariants = {
-        show: { x: 0, opacity: 1, display: "block", transition: { staggerChildren: 0.3 } },
-        hide: { x: 50, opacity: 0, display: "none" },
+        show: { x: 0, opacity: 1, /* display: "block", */ transition: { staggerChildren: 0.3 } },
+        hide: { x: 50, opacity: 0, /* display: "none" */ },
         exit: { x: 50, opacity: 0, display: "none" },
     }
 
