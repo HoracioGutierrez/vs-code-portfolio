@@ -39,7 +39,7 @@ async function TrabajosList({ stack }: TrabajosListProps) {
                     variants={itemVariants}
                     className="flex relative flex-col"
                 >
-                    <motion.div whileHover="hover" className="h-full" initial="initial">
+                    <motion.div whileHover="hover" whileTap="hover" className="h-full" initial="initial">
                         <motion.div
                             className="box-border overflow-hidden relative z-10 rounded-md border aspect-video border-muted-foreground/50 bg-background min-h-[250px] w-full"
                         >
