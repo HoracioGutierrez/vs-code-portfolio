@@ -15,7 +15,7 @@ async function TrabajosList({ stack }: TrabajosListProps) {
 
     const containerVariants = {
         show: { transition: { staggerChildren: 0.1 } },
-        hide: { transition: { staggerChildren: 0.1, staggerDirection: -1, delayChildren: 20 } },
+        hide: { transition: { staggerChildren: 0.2 } },
         exit: { opacity: 0, transition: { staggerChildren: 0.1, staggerDirection: -1 } }
     }
 
