@@ -34,7 +34,7 @@ function MainEditor({ children }: MainEditorProps) {
 
         await animate(scope.current,
             { rotate: 0, borderRadius: "50%" },
-            { delay: 0.15, duration: 2.5 , ease : "backIn"}
+            { delay: 0.15, duration: 2, ease: "backIn" }
         )
 
         await animate(scope.current,
@@ -51,7 +51,7 @@ function MainEditor({ children }: MainEditorProps) {
     }
 
     return (
-        <div className="w-full grow flex justify-center items-center h-full flex-col">
+        <div className="w-full grow flex justify-center items-center h-full flex-col overflow-hidden">
             <motion.div
                 ref={scope}
                 initial={{ width: "5%", height: "5%", borderRadius: 0, rotate: 720, opacity: 0 }}
