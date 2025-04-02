@@ -63,7 +63,7 @@ function MainEditor({ children }: MainEditorProps) {
                     )}
                 </AnimatePresence>
 
-                <div className="flex overflow-hidden relative flex-col grow md:flex-row">
+                <div className="flex overflow-hidden relative flex-col grow md:flex-row max-h-[calc(100dvh_-_160px)] md:max-h-[calc(100dvh_-_200px)] lg:max-h-[calc(100dvh_-_260px)]">
                     <AnimatePresence mode="wait">
                         {(pathname.includes("/sobre-mi")) && finished && (
                             <motion.div initial="hide" animate="show" exit="exit" className="flex" key={"sobre-mi"}>
@@ -82,7 +82,7 @@ function MainEditor({ children }: MainEditorProps) {
 
                     <AnimatePresence mode="wait">
                         {finished && (
-                            <motion.div initial="hide" animate="show" exit="exit" className="flex flex-col grow">
+                            <motion.div initial="hide" animate="show" exit="exit" className="flex overflow-y-auto flex-col grow">
                                 {children}
                             </motion.div>
                         )}

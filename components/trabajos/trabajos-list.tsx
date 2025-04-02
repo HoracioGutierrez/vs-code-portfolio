@@ -14,13 +14,13 @@ async function TrabajosList({ stack }: TrabajosListProps) {
     const { error, payload } = await getProjectsByFilter(stack ? stack : []);
 
     const containerVariants = {
-        show: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
+        show: { transition: { staggerChildren: 0.15, delayChildren: 0.4 } },
         hide: { transition: { staggerChildren: 0.2 } },
         exit: { opacity: 0, transition: { staggerChildren: 0.1, staggerDirection: -1 } }
     }
 
     const itemVariants = {
-        show: { x: 0, opacity: 1, display: "block" },
+        show: { x: 0, opacity: 1, display: "block", transition: { staggerChildren: 0.3 } },
         hide: { x: 50, opacity: 0, display: "none" },
         exit: { x: 50, opacity: 0, display: "none" },
     }
@@ -39,7 +39,9 @@ async function TrabajosList({ stack }: TrabajosListProps) {
                     variants={itemVariants}
                     className="flex relative flex-col"
                 >
-                    <motion.div whileHover="hover" whileTap="hover" className="h-full" initial="initial">
+                    <motion.div whileHover="hover" whileTap="hover" className="h-full" initial="initial" animate="animate" variants={{
+                        animate: { transition: { staggerChildren: 0.3 } }
+                    }}>
                         <motion.div
                             className="box-border overflow-hidden relative z-10 rounded-md border aspect-video border-muted-foreground/50 bg-background min-h-[250px] w-full"
                         >
@@ -90,10 +92,16 @@ async function TrabajosList({ stack }: TrabajosListProps) {
                             className="flex flex-col gap-3 py-2 grow"
                             variants={{
                                 initial: { y: 0, opacity: 1, transition: { delay: 0.4 } },
-                                hover: { y: -200, opacity: 0 }
+                                hover: { y: -200, opacity: 0 },
+                                /* animate: { y: 0, opacity: 1 } */
                             }}
                         >
-                            <motion.h3>{project.title}</motion.h3>
+                            <motion.h3
+                                variants={{
+                                    /* initial: { y: 50, opacity: 0 },
+                                    animate: { y: 0, opacity: 1 }, */
+                                }}
+                            >{project.title}</motion.h3>
                         </motion.div>
                     </motion.div>
                 </motion.div>
