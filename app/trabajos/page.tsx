@@ -3,7 +3,7 @@ import { loadStackParams } from "./stackParams"
 import { SearchParams } from "nuqs/server";
 import { Suspense } from "react";
 import TrabajosList from "@/components/trabajos/trabajos-list";
-import Loading from "./loading";
+import Loading from "@/components/sobre-mi/loading";
 import { AnimatePresence } from "motion/react";
 
 type TrabajosPageProps = Readonly<{
