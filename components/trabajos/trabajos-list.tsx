@@ -16,13 +16,13 @@ async function TrabajosList({ stack }: TrabajosListProps) {
     const containerVariants = {
         show: { transition: { staggerChildren: 0.15, delayChildren: 0.4 } },
         hide: { transition: { staggerChildren: 0.2 } },
-        exit: { opacity: 0, transition: { staggerChildren: 0.1, staggerDirection: -1 } }
+        exit: { opacity: 0, transition: { staggerChildren: 0.3 } }
     }
 
     const itemVariants = {
         show: { x: 0, opacity: 1, /* display: "block", */ transition: { staggerChildren: 0.3 } },
-        hide: { x: 50, opacity: 0, /* display: "none" */ },
-        exit: { x: 50, opacity: 0, display: "none" },
+        hide: { x: 50, opacity: 0, /* display: "none"  */},
+        exit: { x: 50, opacity: 0, /* display: "none", */ transition: { staggerChildren: 0.3 } },
     }
 
     if (error) {

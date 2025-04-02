@@ -1,9 +1,14 @@
+"use client"
 import * as motion from "motion/react-client"
 import Link from "next/link"
 import DrawerButton from "./main-editor-drawer-button"
+import { usePathname } from "next/navigation"
+import { cn } from "@/lib/utils"
 
 
 function MainEditorHeader() {
+
+    const pathname = usePathname()
 
     const childVariants = {
         hide: { opacity: 0, height: "0px" },
@@ -28,31 +33,37 @@ function MainEditorHeader() {
                     horacio-gutierrez
                 </Link>
             </motion.h1>
-            <motion.div variants={linkVariants} className="items-center border-r border-muted-foreground/50 px-4 hidden md:flex">
+            <motion.div variants={linkVariants} className={cn("hidden items-center px-4 border-r transition-colors duration-300 border-muted-foreground/50 md:flex hover:bg-accent group",
+                pathname === "/trabajos" && "bg-accent"
+            )}>
                 <Link
                     href="/trabajos"
-                    className="text-muted-foreground text-sm lg:text-base"
+                    className={cn("text-sm text-muted-foreground lg:text-base group-hover:text-primary", pathname === "/trabajos" && "text-primary")}
                 >
                     _trabajos
                 </Link>
             </motion.div>
-            <motion.div variants={linkVariants} className="hidden md:flex items-center border-r border-muted-foreground/50 px-4">
+            <motion.div variants={linkVariants} className={cn("hidden items-center px-4 border-r transition-colors duration-300 border-muted-foreground/50 md:flex hover:bg-accent group",
+                pathname === "/sobre-mi" && "bg-accent"
+            )}>
                 <Link
                     href="/sobre-mi"
-                    className="text-muted-foreground text-sm lg:text-base"
+                    className={cn("text-sm text-muted-foreground lg:text-base group-hover:text-primary", pathname === "/sobre-mi" && "text-primary")}
                 >
                     _sobre-mi
                 </Link>
             </motion.div>
-            <motion.div variants={linkVariants} className="hidden md:flex items-center border-r border-muted-foreground/50 px-4">
+            <motion.div variants={linkVariants} className={cn("hidden items-center px-4 border-r transition-colors duration-300 border-muted-foreground/50 md:flex hover:bg-accent group",
+                pathname === "/contacto" && "bg-accent"
+            )}>
                 <Link
                     href="/contacto"
-                    className="text-muted-foreground text-sm lg:text-base"
+                    className={cn("text-sm text-muted-foreground lg:text-base group-hover:text-primary", pathname === "/contacto" && "text-primary")}
                 >
                     _contacto
                 </Link>
             </motion.div>
-            <DrawerButton/>
+            <DrawerButton />
         </motion.div>
     )
 }
