@@ -14,7 +14,7 @@ async function TrabajosList({ stack }: TrabajosListProps) {
     const { error, payload } = await getProjectsByFilter(stack ? stack : []);
 
     const containerVariants = {
-        show: { transition: { staggerChildren: 0.1 } },
+        show: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
         hide: { transition: { staggerChildren: 0.2 } },
         exit: { opacity: 0, transition: { staggerChildren: 0.1, staggerDirection: -1 } }
     }

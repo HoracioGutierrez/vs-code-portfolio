@@ -51,11 +51,11 @@ function MainEditor({ children }: MainEditorProps) {
     }
 
     return (
-        <div className="w-full grow flex justify-center items-center h-full flex-col overflow-hidden">
+        <div className="flex overflow-hidden flex-col justify-center items-center w-full h-full grow">
             <motion.div
                 ref={scope}
                 initial={{ width: "5%", height: "5%", borderRadius: 0, rotate: 720, opacity: 0 }}
-                className="w-full border-muted-foreground/50 bg-primary text-foreground border aspect-square flex flex-col"
+                className="flex flex-col w-full border border-muted-foreground/50 bg-primary text-foreground aspect-square"
             >
                 <AnimatePresence>
                     {finished && (
@@ -63,7 +63,7 @@ function MainEditor({ children }: MainEditorProps) {
                     )}
                 </AnimatePresence>
 
-                <div className="flex grow relative overflow-hidden flex-col md:flex-row">
+                <div className="flex overflow-hidden relative flex-col grow md:flex-row">
                     <AnimatePresence mode="wait">
                         {(pathname.includes("/sobre-mi")) && finished && (
                             <motion.div initial="hide" animate="show" exit="exit" className="flex" key={"sobre-mi"}>
@@ -80,9 +80,9 @@ function MainEditor({ children }: MainEditorProps) {
                         )}
                     </AnimatePresence>
 
-                    <AnimatePresence>
+                    <AnimatePresence mode="wait">
                         {finished && (
-                            <motion.div initial="hide" animate="show" exit="exit" className="grow flex flex-col">
+                            <motion.div initial="hide" animate="show" exit="exit" className="flex flex-col grow">
                                 {children}
                             </motion.div>
                         )}
@@ -90,7 +90,7 @@ function MainEditor({ children }: MainEditorProps) {
 
                     <AnimatePresence mode="wait">
                         {drawerOpen && finished && (
-                            <motion.div initial="hide" animate="show" exit="exit" variants={{ show: { opacity: 1 }, hide: { opacity: 0 }, exit: { opacity: 0 } }} className="grow flex flex-col absolute w-full h-full backdrop-blur-md">
+                            <motion.div initial="hide" animate="show" exit="exit" variants={{ show: { opacity: 1 }, hide: { opacity: 0 }, exit: { opacity: 0 } }} className="flex absolute flex-col w-full h-full backdrop-blur-md grow">
                                 <MainEditorDrawer />
                             </motion.div>
                         )}

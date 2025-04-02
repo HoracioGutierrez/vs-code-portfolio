@@ -4,7 +4,7 @@ export default function Loading() {
 
     const containerVariants = {
         hide: {},
-        show: { transition: { staggerChildren: 0.2 } },
+        show: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
         exit: { transition: { staggerChildren: 0.2 } }
     }
 
