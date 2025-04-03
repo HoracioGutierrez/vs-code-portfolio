@@ -51,8 +51,9 @@ function MainEditor({ children }: MainEditorProps) {
     }
 
     return (
-        <div className="flex overflow-hidden flex-col justify-center items-center w-full h-full grow">
+        <div className="flex flex-col justify-center items-center w-full h-full grow">
             <motion.div
+                id="around"
                 ref={scope}
                 initial={{ width: "5%", height: "5%", borderRadius: 0, rotate: 720, opacity: 0 }}
                 className="flex flex-col w-full border border-muted-foreground/50 bg-primary text-foreground aspect-square"
