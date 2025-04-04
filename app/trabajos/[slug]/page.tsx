@@ -13,7 +13,7 @@ async function TrabajosDetailPage({ params }: TrabajosDetailPageProps) {
     const { slug } = await params;
 
     return (
-        <motion.div initial="hide" animate="show" exit="exit" className="flex grow p-8 flex-col">
+        <motion.div initial="hide" animate="show" exit="exit" className="flex flex-col p-8 grow">
             <Suspense fallback={"Loading..."}>
                 <TrabajosDetail slug={slug} />
             </Suspense>
