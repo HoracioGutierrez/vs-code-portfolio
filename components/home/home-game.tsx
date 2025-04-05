@@ -15,7 +15,7 @@ import { Loader } from "lucide-react";
 function HomeGame() {
 
     const [newContent, setNewContent] = useState<string>("")
-    const { object, submit, error, isLoading } = useObject({
+    const { object, submit, isLoading } = useObject({
         api: '/api/codereview',
         schema: codeReviewSchema,
         initialValue: {
