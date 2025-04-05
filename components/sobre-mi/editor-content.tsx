@@ -32,7 +32,12 @@ function EditorContent({ content, type = "javascript" }: { content: string, type
     return (
         <ReactCodeMirror
             theme={customTheme}
-            className="w-full outline-none border-none"
+            onUpdate={(data)=>{
+                //console.log(data.state.doc.toString())
+                //console.log(data.state.selection.ranges[0].from)
+                //console.log(data.state.selection.ranges[0].to)
+            }}
+            className="w-full border-none outline-none"
             basicSetup={{
                 autocompletion: true,
             }}
