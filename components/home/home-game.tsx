@@ -30,11 +30,13 @@ function HomeGame() {
     const customTheme = createTheme({
         theme: "dark",
         settings: {
-            background: "var(--primary)",
+            background: "rgba(0, 0, 0, 0.5) ",
             gutterBackground: "var(--primary)",
             gutterActiveForeground: "var(--accent-3)",
             gutterForeground: "var(--muted-foreground)",
             fontSize: "16px",
+            backdropFilter: "blur(10px)",
+            
         },
         styles: [
             { tag: t.comment, color: "var(--muted-foreground)" },
@@ -68,7 +70,7 @@ greet(person());`
 
     return (
         <>
-            <div className="p-1 rounded-lg border border-muted-foreground/50">
+            <div className="p-1 rounded-lg border border-muted-foreground/50 max-h-full overflow-auto backdrop-blur-2xl">
                 <ReactCodeMirror
                     theme={customTheme}
                     onUpdate={(data) => {
@@ -92,7 +94,7 @@ greet(person());`
                         initial={{ opacity: 0, height: 0, margin: "0px" }}
                         animate={{ opacity: 1, height: "auto", margin: "16px 0px", borderColor: object.code.isValid ? "var(--accent-1)" : "var(--accent-3)", transition: { delay: 1 } }}
                         exit={{ opacity: 0, height: 0, minHeight: 0 }}
-                        className="overflow-hidden p-2 rounded border"
+                        className="overflow-auto p-2 rounded border"
                     >
                         <p>{object?.code?.message}</p>
                     </motion.div>
