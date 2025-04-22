@@ -25,21 +25,21 @@ function MainEditorFooter() {
             <motion.p variants={linkVariants} className="w-[300px] border-r border-muted-foreground/50 flex items-center justify-center">
                 Encontrame en :
             </motion.p>
-            <motion.div variants={linkVariants} className="flex items-center px-5 border-r transition-colors border-muted-foreground/50 hover:bg-accent">
-                <Link href="https://twitter.com/horagutierrez" target="_blank">
+            <motion.div variants={linkVariants} className="flex border-r transition-colors border-muted-foreground/50 hover:bg-accent">
+                <Link href="https://twitter.com/horagutierrez" target="_blank" className="flex items-center px-5">
                     <TwitterIcon className="size-4" />
                 </Link>
             </motion.div>
-            <motion.div variants={linkVariants} className="flex items-center px-5 border-r transition-colors border-muted-foreground/50 hover:bg-accent">
-                <Link href="https://instagram.com/horagutierrez" target="_blank">
+            <motion.div variants={linkVariants} className="flex border-r transition-colors border-muted-foreground/50 hover:bg-accent">
+                <Link href="https://instagram.com/horagutierrez" target="_blank" className="flex items-center px-5">
                     <InstagramIcon className="size-4" />
                 </Link>
             </motion.div>
-            <motion.div variants={linkVariants} className="flex justify-center items-center px-5 ml-auto border-l border-muted-foreground/50">
+            <motion.div variants={linkVariants} className="flex justify-center ml-auto border-l border-muted-foreground/50">
                 <Link
                     href="https://github.com/HoracioGutierrez"
                     target="_blank"
-                    className="flex gap-2 items-center"
+                    className="flex gap-2 items-center px-5"
                 >
                     <span className="hidden lg:inline">@horaciogutierrez</span>
                     <LucideGithub className="size-4" />
