@@ -1,4 +1,3 @@
-import TextWriter from "@/components/home/animated-text";
 import AnimatedTextContainer from "@/components/home/animated-text-container";
 import HomeGame from "@/components/home/home-game";
 import * as motion from "motion/react-client"
