@@ -1,3 +1,5 @@
+import TextWriter from "@/components/home/animated-text";
+import AnimatedTextContainer from "@/components/home/animated-text-container";
 import HomeGame from "@/components/home/home-game";
 import * as motion from "motion/react-client"
 import Link from "next/link";
@@ -21,7 +23,8 @@ function HomePage() {
                     <motion.h1 variants={childVariants} className="text-4xl xl:text-6xl transition-[font-size]">
                         Horacio Gutierrez
                     </motion.h1>
-                    <motion.p variants={childVariants} className="text-xl lg:text-3xl text-accent-1 font-bold transition-[font-size]">{`> Full-stack Developer`}</motion.p>
+                    {/* <motion.p variants={childVariants} className="text-xl lg:text-3xl text-accent-1 font-bold transition-[font-size]">{`> Full-stack Developer`}</motion.p> */}
+                    <AnimatedTextContainer />
                 </div>
                 <div className="">
                     {/* <motion.p className="text-sm text-muted-foreground lg:text-base" variants={childVariants}>{`// complete el juego para continuar`}</motion.p> */}
