@@ -35,7 +35,7 @@ function HomeGame() {
             gutterActiveForeground: "var(--accent-3)",
             gutterForeground: "var(--muted-foreground)",
             fontSize: "16px",
-            backdropFilter: "blur(10px)",
+            /* backdropFilter: "blur(10px)", */
             
         },
         styles: [
