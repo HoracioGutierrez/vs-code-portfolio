@@ -83,7 +83,7 @@ function MainEditor({ children }: MainEditorProps) {
 
                     <AnimatePresence mode="wait">
                         {finished && (
-                            <motion.div initial="hide" animate="show" exit="exit" className="flex overflow-y-auto overflow-x-hidden flex-col grow">
+                            <motion.div initial="hide" animate="show" exit="exit" className="flex overflow-y-auto overflow-x-hidden flex-col grow relative  mask-linear-from-transparent mask-linear-from-0% mask-linear-to-black mask-linear-to-50%">
                                 {children}
                             </motion.div>
                         )}
