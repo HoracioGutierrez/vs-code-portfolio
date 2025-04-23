@@ -9,6 +9,7 @@ import MainEditorDrawer from "./main-editor-drawer"
 import { useLayout } from "@/features/laytout/stores/useLayout"
 import MainEditorAboutSidebar from "./main-editor-about-sidebar"
 import MainEditorWorksSidebar from "./main-editor-works-sidebar"
+import { cn } from "@/lib/utils"
 
 type MainEditorProps = {
     children: React.ReactNode
@@ -83,7 +84,7 @@ function MainEditor({ children }: MainEditorProps) {
 
                     <AnimatePresence mode="wait">
                         {finished && (
-                            <motion.div initial="hide" animate="show" exit="exit" className="flex overflow-y-auto overflow-x-hidden flex-col grow relative  mask-linear-from-transparent mask-linear-from-0% mask-linear-to-black mask-linear-to-50%">
+                            <motion.div initial="hide" animate="show" exit="exit" className={cn("flex overflow-y-auto overflow-x-hidden flex-col grow relative", pathname.includes("trabajos") && "mask-linear-from-transparent mask-linear-from-0% mask-linear-to-black mask-linear-to-50%")}>
                                 {children}
                             </motion.div>
                         )}
