@@ -56,7 +56,7 @@ function MainEditor({ children }: MainEditorProps) {
                 id="around"
                 ref={scope}
                 initial={{ width: "5%", height: "5%", borderRadius: 0, rotate: 720, opacity: 0 }}
-                className="flex flex-col w-full border border-muted-foreground/50 bg-primary text-foreground aspect-square"
+                className="flex flex-col w-full border border-[#1E2D3D] bg-primary text-foreground aspect-square overflow-hidden"
             >
                 <AnimatePresence>
                     {finished && (

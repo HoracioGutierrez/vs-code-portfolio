@@ -14,7 +14,7 @@ function MainEditorAboutSidebar() {
     if (isBigEnough) {
         sidebarVariants = {
             hide: { opacity: 0, width: "0px" },
-            show: { opacity: 1, width: "300px", height: "auto" , transition : { delay : 0.3 } },
+            show: { opacity: 1, width: "300px", height: "auto", transition: { delay: 0.3 } },
             exit: { opacity: 0, width: "0px" },
         }
     } else {
@@ -36,10 +36,10 @@ function MainEditorAboutSidebar() {
     }
 
     return (
-        <motion.div initial="hide" exit="exit" animate="show" className="md:border-r border-muted-foreground/50 flex flex-col items-stretch overflow-hidden w-full" variants={sidebarVariants}>
+        <motion.div initial="hide" exit="exit" animate="show" className="md:border-r border-[#1E2D3D] flex flex-col items-stretch overflow-hidden w-full" variants={sidebarVariants}>
             <Accordion type="single" className="w-full" collapsible asChild>
                 <motion.div initial="initial" animate="animate" exit="exit" variants={sidebarItemVariants}>
-                    <AccordionItem value="work" className="w-full border-muted-foreground/50" asChild>
+                    <AccordionItem value="work" className="w-full border-[#1E2D3D]" asChild>
                         <motion.div variants={itemVariants}>
                             <AccordionTrigger className="!w-full !flex !gap-2 !p-3 !cursor-pointer !box-border !text-muted-foreground">
                                 <span>
@@ -57,7 +57,7 @@ function MainEditorAboutSidebar() {
                             </AccordionContent>
                         </motion.div>
                     </AccordionItem>
-                    <AccordionItem value="education" className="w-full border-muted-foreground/50" asChild>
+                    <AccordionItem value="education" className="w-full border-[#1E2D3D]" asChild>
                         <motion.div variants={itemVariants}>
                             <AccordionTrigger className="!w-full !flex !gap-2 !p-3 !cursor-pointer !box-border !text-muted-foreground">
                                 <span>
@@ -75,7 +75,7 @@ function MainEditorAboutSidebar() {
                             </AccordionContent>
                         </motion.div>
                     </AccordionItem>
-                    <AccordionItem value="hobbies" className="w-full !border-b border-muted-foreground/50" asChild>
+                    <AccordionItem value="hobbies" className="w-full !border-b border-[#1E2D3D]" asChild>
                         <motion.div variants={itemVariants}>
                             <AccordionTrigger className="!w-full !flex !gap-2 !p-3 !cursor-pointer !box-border !text-muted-foreground">
                                 <span>

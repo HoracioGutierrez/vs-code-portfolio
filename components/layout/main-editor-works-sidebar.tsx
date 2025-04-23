@@ -57,11 +57,11 @@ function MainEditorWorksSidebar() {
     }
 
     return (
-        <motion.div initial="hide" exit="exit" animate="show" className="md:border-r border-muted-foreground/50 flex flex-col items-stretch overflow-hidden w-full" variants={sidebarVariants}>
+        <motion.div initial="hide" exit="exit" animate="show" className="md:border-r border-[#1E2D3D] flex flex-col items-stretch overflow-hidden w-full" variants={sidebarVariants}>
             <motion.div initial="initial" animate="animate" exit="exit" variants={sidebarItemVariants} className="py-3 flex flex-wrap md:flex-col gap-3 md:gap-0 justify-center">
                 {defaultFilters.map((filter, index) => {
                     return (
-                        <motion.div key={index} variants={itemVariants} className={cn("px-5 py-2 flex gap-3 rounded-full md:rounded-none border border-muted-foreground/50 md:border-none text-xs md:text-sm items-center cursor-pointer select-none hover:bg-accent-2/20 transition-colors", stack?.includes(filter.value) && "bg-accent-2/20")} onClick={handleToggleStack} data-target={filter.value}>
+                        <motion.div key={index} variants={itemVariants} className={cn("px-5 py-2 flex gap-3 rounded-full md:rounded-none border border-[#1E2D3D] md:border-none text-xs md:text-sm items-center cursor-pointer select-none hover:bg-accent-2/20 transition-colors", stack?.includes(filter.value) && "bg-accent-2/20")} onClick={handleToggleStack} data-target={filter.value}>
                             {filter.icon && (
                                 <Image
                                     src={filter.icon || ""}

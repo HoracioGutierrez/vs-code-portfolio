@@ -43,19 +43,19 @@ function MainEditorHeader() {
             animate="show"
             exit="exit"
             variants={childVariants}
-            className="border-b h-[60px] flex overflow-hidden items-stretch border-muted-foreground/50"
+            className="border-b h-[60px] flex overflow-hidden items-stretch border-[#1E2D3D]"
         >
-            <motion.h1 className="text-muted-foreground border-r border-muted-foreground/50 flex w-[300px]" variants={linkVariants}>
+            <motion.h1 className="text-[#607B96] border-r border-[#1E2D3D] flex w-[300px] hover:text-foreground transition-colors" variants={linkVariants}>
                 <Link href="/" className="px-4 w-full flex items-center">
                     horacio-gutierrez
                 </Link>
             </motion.h1>
-            <motion.div variants={linkVariants} className={cn("hidden border-r transition-colors duration-300 border-muted-foreground/50 md:flex hover:bg-accent group",
+            <motion.div variants={linkVariants} className={cn("hidden border-r transition-colors duration-300 border-[#1E2D3D] md:flex hover:bg-accent group",
                 pathname === "/trabajos" && "bg-accent"
             )}>
                 <Link
                     href="/trabajos"
-                    className={cn("text-sm text-muted-foreground lg:text-base group-hover:text-primary px-4 flex items-center", pathname === "/trabajos" && "text-primary")}
+                    className={cn("text-sm text-[#607B96] lg:text-base group-hover:text-primary px-4 flex items-center", pathname === "/trabajos" && "text-primary")}
                 >
                     <motion.div
                         initial="initial"
@@ -69,12 +69,12 @@ function MainEditorHeader() {
                     </motion.div>
                 </Link>
             </motion.div>
-            <motion.div variants={linkVariants} className={cn("hidden border-r transition-colors duration-300 border-muted-foreground/50 md:flex hover:bg-accent group",
+            <motion.div variants={linkVariants} className={cn("hidden border-r transition-colors duration-300 border-[#1E2D3D] md:flex hover:bg-accent group",
                 pathname === "/sobre-mi" && "bg-accent"
             )}>
                 <Link
                     href="/sobre-mi"
-                    className={cn("text-sm text-muted-foreground lg:text-base group-hover:text-primary px-4 flex items-center", pathname === "/sobre-mi" && "text-primary")}
+                    className={cn("text-sm text-[#607B96] lg:text-base group-hover:text-primary px-4 flex items-center", pathname === "/sobre-mi" && "text-primary")}
                 >
                     <motion.div
                         initial="initial"
@@ -90,12 +90,12 @@ function MainEditorHeader() {
             </motion.div>
             <AnimatePresence mode="wait">
                 {!showAlternativeText && (
-                    <motion.div variants={linkVariants} className={cn("hidden border-r transition-colors duration-300 border-muted-foreground/50 md:flex hover:bg-accent group",
+                    <motion.div variants={linkVariants} className={cn("hidden border-r transition-colors duration-300 border-[#1E2D3D] md:flex hover:bg-accent group",
                         pathname === "/contacto" && "bg-accent"
                     )}>
                         <Link
                             href="/contacto"
-                            className={cn("text-sm text-muted-foreground lg:text-base group-hover:text-primary px-4 flex items-center", pathname === "/contacto" && "text-primary")}
+                            className={cn("text-sm text-[#607B96] lg:text-base group-hover:text-primary px-4 flex items-center", pathname === "/contacto" && "text-primary")}
                         >
                             <motion.div
                                 initial="initial"
