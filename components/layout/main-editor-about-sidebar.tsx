@@ -3,11 +3,20 @@ import * as motion from "motion/react-client"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion"
 import { useMedia } from "react-use"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Folder } from "lucide-react"
 
 function MainEditorAboutSidebar() {
-
+    const pathname = usePathname()
     const isBigEnough = useMedia("(min-width: 768px)")
+
+    // Determine which accordion item should be expanded by default
+    const getDefaultAccordionValue = () => {
+        if (pathname.includes('experiencia')) return 'work'
+        if (pathname.includes('education')) return 'education'
+        if (pathname.includes('hobbies')) return 'hobbies'
+        return undefined
+    }
 
     let sidebarVariants
 
@@ -37,7 +46,7 @@ function MainEditorAboutSidebar() {
 
     return (
         <motion.div initial="hide" exit="exit" animate="show" className="md:border-r border-[#1E2D3D] flex flex-col items-stretch overflow-hidden w-full" variants={sidebarVariants}>
-            <Accordion type="single" className="w-full" collapsible asChild>
+            <Accordion type="single" className="w-full" collapsible asChild defaultValue={getDefaultAccordionValue()}>
                 <motion.div initial="initial" animate="animate" exit="exit" variants={sidebarItemVariants}>
                     <AccordionItem value="work" className="w-full border-[#1E2D3D]" asChild>
                         <motion.div variants={itemVariants}>
@@ -48,10 +57,12 @@ function MainEditorAboutSidebar() {
                                 _experiencia
                             </AccordionTrigger>
                             <AccordionContent className="pb-0">
-                                <Link href="/sobre-mi/experiencia-readme" className="p-3 w-full block hover:bg-accent-1 text-muted-foreground">
+                                <Link href="/sobre-mi/experiencia-readme" 
+                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('experiencia-readme') ? 'text-primary bg-[#1E2D3D]' : 'text-muted-foreground'}`}>
                                     readme.md
                                 </Link>
-                                <Link href="/sobre-mi/experiencia" className="p-3 w-full block hover:bg-accent-1 text-muted-foreground">
+                                <Link href="/sobre-mi/experiencia" 
+                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('experiencia') && !pathname.includes('readme') ? 'text-primary bg-[#1E2D3D]' : 'text-muted-foreground'}`}>
                                     experiencia.js
                                 </Link>
                             </AccordionContent>
@@ -66,10 +77,12 @@ function MainEditorAboutSidebar() {
                                 _educacion
                             </AccordionTrigger>
                             <AccordionContent className="pb-0">
-                                <Link href="/sobre-mi/education-readme" className="p-3 w-full block hover:bg-accent-1 text-muted-foreground">
+                                <Link href="/sobre-mi/education-readme" 
+                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('education-readme') ? 'text-primary bg-[#1E2D3D]' : 'text-muted-foreground'}`}>
                                     readme.md
                                 </Link>
-                                <Link href="/sobre-mi/education" className="p-3 w-full block hover:bg-accent-1 text-muted-foreground">
+                                <Link href="/sobre-mi/education" 
+                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('education') && !pathname.includes('readme') ? 'text-primary bg-[#1E2D3D]' : 'text-muted-foreground'}`}>
                                     education.js
                                 </Link>
                             </AccordionContent>
@@ -84,10 +97,12 @@ function MainEditorAboutSidebar() {
                                 _hobbies
                             </AccordionTrigger>
                             <AccordionContent className="pb-0">
-                                <Link href="/sobre-mi/hobbies-readme" className="p-3 w-full block hover:bg-accent-1 text-muted-foreground">
+                                <Link href="/sobre-mi/hobbies-readme" 
+                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('hobbies-readme') ? 'text-primary bg-[#1E2D3D]' : 'text-muted-foreground'}`}>
                                     readme.md
                                 </Link>
-                                <Link href="/sobre-mi/hobbies" className="p-3 w-full block hover:bg-accent-1 text-muted-foreground">
+                                <Link href="/sobre-mi/hobbies" 
+                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('hobbies') && !pathname.includes('readme') ? 'text-primary bg-[#1E2D3D]' : 'text-muted-foreground'}`}>
                                     hobbies.js
                                 </Link>
                             </AccordionContent>
