@@ -13,8 +13,6 @@ type TrabajosListProps = {
 
 export default function TrabajosList({ projectPromise }: TrabajosListProps) {
   const { payload: projects, error } = use(projectPromise);
-  console.log("🚀 ~ TrabajosList ~ error:", error)
-  console.log("🚀 ~ TrabajosList ~ projects:", projects)
   return (
     <motion.div
       className={cn(

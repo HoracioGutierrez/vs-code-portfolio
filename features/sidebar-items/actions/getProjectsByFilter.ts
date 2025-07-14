@@ -14,6 +14,7 @@ export const getProjectsByFilter = async (filters: string[]) => {
       };
     }
     const filterString = filters.map((f) => `tags.cs.{${f}}`).join(",");
+    console.log("🚀 ~ getProjectsByFilter ~ filterString:", filterString)
     const result = await supabase.from("projects").select("*").or(filterString);
 
     return {
@@ -23,7 +24,7 @@ export const getProjectsByFilter = async (filters: string[]) => {
     };
   } catch (error) {
     console.log("🚀 ~ getProjectsByFilter ~ error:", error)
-    
+
     return {
       error: true,
       message: "Error al obtener proyectos",
