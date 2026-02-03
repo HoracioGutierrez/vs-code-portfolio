@@ -1,4 +1,4 @@
-import EditorContent from "./editor-content"
+import EditorContent from "../editor-content"
 
 function Experiencia() {
     

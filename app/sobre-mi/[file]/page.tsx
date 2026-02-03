@@ -15,7 +15,7 @@ export default async function Page({ params }: PageProps) {
     const Component = lazy(
         async () => {
             await new Promise((resolve) => setTimeout(resolve, 600)); // Simulate a long loading time for the componen
-            return import(`@/components/sobre-mi/${file}`)
+            return import(`@/features/sobre-mi/components/pages/${file}`)
         },
     );
 

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeProvider } from "@/features/layout/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 import { Fira_Code } from "next/font/google";
-import MainEditor from "@/components/layout/main-editor";
+import MainEditor from "@/features/layout/components/main-editor";
 import * as motion from "motion/react-client"
 import { NuqsAdapter } from 'nuqs/adapters/next'
 import "./globals.css";

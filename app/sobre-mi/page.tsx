@@ -1,4 +1,4 @@
-import MainEditorPageTitle from "@/components/layout/main-editor-page-title"
+import MainEditorPageTitle from "@/features/layout/components/main-editor-page-title"
 import * as motion from "motion/react-client"
 import Link from "next/link"
 

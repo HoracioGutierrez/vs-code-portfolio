@@ -1,4 +1,4 @@
-import TrabajosDetail from "@/components/trabajos/trabajos-detail";
+import TrabajosDetail from "@/features/trabajos/components/trabajos-detail";
 import * as motion from "motion/react-client"
 import { Suspense } from "react";
 

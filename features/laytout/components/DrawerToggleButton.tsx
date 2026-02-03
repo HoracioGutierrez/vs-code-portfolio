@@ -1,6 +1,6 @@
 "use client";
 import { Menu, X } from "lucide-react";
-import { useLayout } from "../stores/useLayout";
+import { useLayout } from "../../layout/stores/useLayout";
 import { cn } from "@/lib/utils";
 import { useAnimate } from "motion/react";
 import ContainerWithBorder from "./ContainerWithBorder";

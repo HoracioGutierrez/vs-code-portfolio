@@ -6,14 +6,11 @@ import { useEffect, useState } from "react"
 import MainEditorHeader from "./main-editor-header"
 import MainEditorFooter from "./main-editor-footer"
 import MainEditorDrawer from "./main-editor-drawer"
-import { useLayout } from "@/features/laytout/stores/useLayout"
+import { useLayout } from "@/features/layout/stores/useLayout"
 import MainEditorAboutSidebar from "./main-editor-about-sidebar"
 import MainEditorWorksSidebar from "./main-editor-works-sidebar"
 import { cn } from "@/lib/utils"
-
-type MainEditorProps = {
-    children: React.ReactNode
-}
+import { MainEditorProps } from "../types/editor"
 
 function MainEditor({ children }: MainEditorProps) {
 

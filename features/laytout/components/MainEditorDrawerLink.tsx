@@ -3,7 +3,7 @@
 import ContainerWithBorder from "./ContainerWithBorder";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { useLayout } from "../stores/useLayout";
+import { useLayout } from "../../layout/stores/useLayout";
 
 type MainEditorDrawerLinkProps = {
   link: {

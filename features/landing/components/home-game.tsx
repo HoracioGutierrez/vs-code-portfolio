@@ -4,7 +4,7 @@ import ReactCodeMirror from "@uiw/react-codemirror"
 import { tags as t } from "@lezer/highlight";
 import { EditorView } from "@codemirror/view";
 import { javascript } from "@codemirror/lang-javascript";
-import { Button } from "../../../components/ui/button";
+import { Button } from "../../ui/components/button";
 import { useState } from "react";
 import { experimental_useObject as useObject } from '@ai-sdk/react';
 import { codeReviewSchema } from "@/app/api/codereview/schema";

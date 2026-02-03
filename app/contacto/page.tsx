@@ -1,5 +1,5 @@
 "use client"
-import MainEditorPageTitle from "@/components/layout/main-editor-page-title"
+import MainEditorPageTitle from "@/features/layout/components/main-editor-page-title"
 import ContactForm from "@/features/contacto/components/ContactForm"
 import ContactFormText from "@/features/contacto/components/ContactFormText"
 import { cn } from "@/lib/utils"

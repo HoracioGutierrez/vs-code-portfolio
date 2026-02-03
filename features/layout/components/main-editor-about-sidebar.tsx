@@ -1,6 +1,6 @@
 "use client"
 import * as motion from "motion/react-client"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../ui/components/accordion"
 import { useMedia } from "react-use"
 import Link from "next/link"
 import { usePathname } from "next/navigation"

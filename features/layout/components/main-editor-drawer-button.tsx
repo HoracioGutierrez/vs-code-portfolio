@@ -1,5 +1,5 @@
 "use client"
-import { useLayout } from "@/features/laytout/stores/useLayout"
+import { useLayout } from "@/features/layout/stores/useLayout"
 import { Menu, X } from "lucide-react"
 import { useAnimate } from "motion/react"
 import * as motion from "motion/react-client"

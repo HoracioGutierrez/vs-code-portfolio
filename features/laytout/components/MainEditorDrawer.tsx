@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 import { links } from "../lib/utils";
 import MainEditorDrawerLink from "./MainEditorDrawerLink";
-import { useLayout } from "../stores/useLayout";
+import { useLayout } from "../../layout/stores/useLayout";
 import { AnimatePresence } from "motion/react";
 
 function MainEditorDrawer() {

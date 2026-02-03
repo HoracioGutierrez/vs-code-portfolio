@@ -2,7 +2,7 @@ import { getProjectsByFilter } from "@/features/sidebar-items/actions/getProject
 import * as motion from "motion/react-client"
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/components/button";
 
 type TrabajosListProps = {
     stack?: string[] | null;

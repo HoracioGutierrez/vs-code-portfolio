@@ -4,15 +4,16 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { use } from "react";
-import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { animate, AnimatePresence, motion } from "motion/react"
+import { AnimatePresence, motion } from "motion/react"
 
 type TrabajosListProps = {
   projectPromise: Promise<{ error: boolean; message: string; payload: any[] }>;
 };
 
 export default function TrabajosList({ projectPromise }: TrabajosListProps) {
-  const { payload: projects, error } = use(projectPromise);
+  
+  const { payload: projects } = use(projectPromise);
+  
   return (
     <motion.div
       className={cn(

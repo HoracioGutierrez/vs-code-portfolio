@@ -1,11 +1,5 @@
 import { create } from "zustand";
-
-type LayoutStore = {
-  showEditorContent: boolean;
-  drawerOpen: boolean;
-  setShowEditorContent: (value: boolean) => void; 
-  setDrawerOpen: (value: boolean) => void;
-}
+import { LayoutStore } from "../types/stores";
 
 export const useLayout = create<LayoutStore>((set) => ({
   showEditorContent: false,

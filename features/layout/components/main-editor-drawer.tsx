@@ -1,5 +1,5 @@
 "use client"
-import { useLayout } from "@/features/laytout/stores/useLayout"
+import { useLayout } from "@/features/layout/stores/useLayout"
 import * as motion from "motion/react-client"
 import Link from "next/link"
 

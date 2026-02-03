@@ -2,8 +2,8 @@ import * as motion from "motion/react-client"
 import { loadStackParams } from "./stackParams"
 import { SearchParams } from "nuqs/server";
 import { Suspense } from "react";
-import TrabajosList from "@/components/trabajos/trabajos-list";
-import Loading from "@/components/sobre-mi/loading";
+import TrabajosList from "@/features/trabajos/components/trabajos-list";
+import Loading from "@/features/sobre-mi/components/loading";
 import { AnimatePresence } from "motion/react";
 import { getProjectsCountByFilter } from "@/features/sidebar-items/actions/getProjectsCountByFilter";
 
