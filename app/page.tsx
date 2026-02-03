@@ -1,5 +1,5 @@
-import AnimatedTextContainer from "@/components/home/animated-text-container";
-import HomeGame from "@/components/home/home-game";
+import AnimatedTextContainer from "@/features/landing/components/animated-text-container";
+import HomeGame from "@/features/landing/components/home-game";
 import * as motion from "motion/react-client"
 import Link from "next/link";
 
@@ -17,16 +17,14 @@ function HomePage() {
     return (
         <motion.div initial="hide" animate="show" className="grid gap-8 p-3 lg:p-6 lg:grid-cols-2 grow xl:gap-20" variants={containerVariants}>
             <div className="flex flex-col gap-16 justify-self-center self-end lg:self-center xl:justify-self-end w-fit items-start lg:items-end xl:items-start">
-                <div className="">
+                <div>
                     <motion.p variants={childVariants} className="text-sm lg:text-base transition-[font-size]">Hola, soy</motion.p>
                     <motion.h1 variants={childVariants} className="text-4xl xl:text-6xl transition-[font-size]">
                         Horacio Gutierrez
                     </motion.h1>
-                    {/* <motion.p variants={childVariants} className="text-xl lg:text-3xl text-accent-1 font-bold transition-[font-size]">{`> Full-stack Developer`}</motion.p> */}
                     <AnimatedTextContainer />
                 </div>
-                <div className="">
-                    {/* <motion.p className="text-sm text-muted-foreground lg:text-base" variants={childVariants}>{`// complete el juego para continuar`}</motion.p> */}
+                <div>
                     <motion.p className="text-sm text-muted-foreground lg:text-base w-fit" variants={childVariants}>{`// podes ir a ver el código a`}</motion.p>
                     <motion.p className="flex flex-wrap gap-2 text-sm lg:text-base w-full md:w-fit md:max-w-[396px] xl:max-w-full" variants={childVariants}>
                         <span className="text-accent-1">const</span>
@@ -72,10 +70,7 @@ function HomePage() {
                         </filter>
                     </defs>
                 </svg>
-
                 <div className="max-w-[480px] lg:max-w-[600px] w-full justify-self-center  xl:justify-self-start flex flex-col gap-2 max-h-[400px] relative lg:self-center self-start">
-
-
                     <HomeGame />
                 </div>
             </div>

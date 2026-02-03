@@ -4,7 +4,7 @@ import ReactCodeMirror from "@uiw/react-codemirror"
 import { tags as t } from "@lezer/highlight";
 import { EditorView } from "@codemirror/view";
 import { javascript } from "@codemirror/lang-javascript";
-import { Button } from "../ui/button";
+import { Button } from "../../../components/ui/button";
 import { useState } from "react";
 import { experimental_useObject as useObject } from '@ai-sdk/react';
 import { codeReviewSchema } from "@/app/api/codereview/schema";
@@ -35,8 +35,6 @@ function HomeGame() {
             gutterActiveForeground: "var(--accent-3)",
             gutterForeground: "var(--muted-foreground)",
             fontSize: "16px",
-            /* backdropFilter: "blur(10px)", */
-            
         },
         styles: [
             { tag: t.comment, color: "var(--muted-foreground)" },
@@ -65,7 +63,6 @@ greet(person());`
 
     const handleCheck = () => {
         submit(newContent)
-        //submit("Messages during finals week.")
     }
 
     return (

@@ -1,19 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-
-interface TextWriterProps {
-    text: string;
-    delay?: number;
-    className?: string;
-    cursorColor?: string;
-    cursorWidth?: string;
-    cursorStyle?: string;
-    eraseOnComplete?: boolean;
-    eraseDelay?: number;
-    loop?: boolean;
-    onComplete?: () => void;
-}
+import { TextWriterProps } from "../types/components";
 
 const TextWriter: React.FC<TextWriterProps> = ({
     text,
