@@ -1,16 +1,29 @@
 "use client";
 
-import { useActionState, ChangeEvent } from "react";
+import { useActionState, ChangeEvent, useEffect, useRef } from "react";
 import { sendMessageAndSaveToDB } from "../actions/sendMessageAndSaveToDB";
 import useContactFormStore from "../stores/useContactFormStore";
 import { cn } from "@/lib/utils";
 import * as motion from "motion/react-client";
 import { ContactFormFields, FormState } from "../types";
+import { toast } from "sonner";
 
 export default function ContactForm() {
 
     const { setPropertyValue, resetForm, name, email, message } = useContactFormStore()
-    const [_state, formAction, isPending] = useActionState(handleSubmit, { error: false, payload: null, message: "" })
+    const [state, formAction, isPending] = useActionState(handleSubmit, { error: false, payload: null, message: "" })
+    const wasPendingRef = useRef(false)
+
+    useEffect(() => {
+        if (wasPendingRef.current && !isPending && state.message) {
+            if (state.error) {
+                toast.error(state.message)
+            } else {
+                toast.success(state.message)
+            }
+        }
+        wasPendingRef.current = isPending
+    }, [isPending, state.message, state.error])
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setPropertyValue(e.target.name as ContactFormFields, e.target.value)

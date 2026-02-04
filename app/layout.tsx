@@ -5,6 +5,7 @@ import { Fira_Code } from "next/font/google";
 import MainEditor from "@/features/layout/components/main-editor";
 import * as motion from "motion/react-client"
 import { NuqsAdapter } from 'nuqs/adapters/next'
+import { Toaster } from "sonner"
 import "./globals.css";
 
 const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] });
@@ -39,6 +40,21 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </motion.div>
             </MainEditor>
           </NuqsAdapter>
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              style: {
+                background: 'var(--primary)',
+                border: '1px solid #1E2D3D',
+                color: 'var(--foreground)',
+                fontFamily: 'Fira Code, monospace',
+              },
+              classNames: {
+                success: '[&>svg]:text-accent-2',
+                error: '[&>svg]:text-accent-3',
+              }
+            }}
+          />
         </ThemeProvider>
       </body>
     </html>
