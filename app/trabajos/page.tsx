@@ -1,5 +1,5 @@
 import * as motion from "motion/react-client"
-import { loadStackParams } from "./stackParams"
+import { loadStackParams } from "../../features/trabajos/utils/stackParams"
 import { SearchParams } from "nuqs/server";
 import { Suspense } from "react";
 import TrabajosList from "@/features/trabajos/components/trabajos-list";

@@ -34,7 +34,7 @@ async function TrabajosDetail({ slug }: TrabajosDetailProps) {
             <motion.p variants={itemVariants} className="mb-12 text-xs text-muted-foreground">{payload.subtitle}</motion.p>
             <div className="grid grid-cols-1 lg:grid-cols-2 grow">
                 <div className="self-end">
-                    {payload.description.split(".").map((paragraph: string, index: number) => {
+                    {payload.description.split("||").map((paragraph: string, index: number) => {
                         return (
                             <motion.p variants={itemVariants} key={index} className="mb-4 transition-colors text-muted-foreground hover:text-white">{paragraph}</motion.p>
                         )

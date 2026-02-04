@@ -10,7 +10,7 @@ export const getProjectBySlug = async (slug: string) => {
                 payload: {},
             };
         }
-        const result = await supabase.from("projects").select("*").eq("slug", slug);
+        const result = await supabase.from("portfolio_projects").select("*").eq("slug", slug);
 
         if (!result.data) {
             return {

@@ -14,7 +14,7 @@ export const sendMessageAndSaveToDB = async (data: FormData) => {
         }
 
         const supabase = await createClient()
-        const result = await supabase.from("contacto").insert({ name, email, message })
+        const result = await supabase.from("portfolio_contacto").insert({ name, email, message })
 
         return {
             error: false,
