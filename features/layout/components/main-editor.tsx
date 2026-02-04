@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "motion/react"
 import { usePathname } from "next/navigation"
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import MainEditorHeader from "./main-editor-header"
 import MainEditorFooter from "./main-editor-footer"
 import MainEditorDrawer from "./main-editor-drawer"
@@ -88,7 +88,9 @@ function MainEditor({ children }: MainEditorProps) {
                         <AnimatePresence mode="wait">
                             {pathname === "/trabajos" && (
                                 <motion.div initial="hide" animate="show" exit="exit" className="flex" key={pathname}>
-                                    <MainEditorWorksSidebar />
+                                    <Suspense fallback={null}>
+                                        <MainEditorWorksSidebar />
+                                    </Suspense>
                                 </motion.div>
                             )}
                         </AnimatePresence>
