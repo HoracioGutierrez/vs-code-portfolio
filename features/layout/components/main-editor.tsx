@@ -17,6 +17,7 @@ function MainEditor({ children }: MainEditorProps) {
     const pathname = usePathname()
     const { drawerOpen } = useLayout()
     const [borderAnimationComplete, setBorderAnimationComplete] = useState(false)
+    const [contentVisible, setContentVisible] = useState(false)
 
     return (
         <div className="flex flex-col justify-center items-center w-full h-full grow">
@@ -52,7 +53,7 @@ function MainEditor({ children }: MainEditorProps) {
                             strokeDashoffset: 0
                         }}
                         transition={{
-                            duration: 1.5,
+                            duration: 0.8,
                             ease: "easeInOut"
                         }}
                         onAnimationComplete={() => setBorderAnimationComplete(true)}
@@ -65,8 +66,15 @@ function MainEditor({ children }: MainEditorProps) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: borderAnimationComplete ? 1 : 0 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
+                    onAnimationComplete={() => borderAnimationComplete && setContentVisible(true)}
                 >
-                    <MainEditorHeader />
+                    <motion.div
+                        initial={{ y: -50 , opacity: 0 }}
+                        animate={{ y: contentVisible ? 0 : -50, opacity: contentVisible ? 1 : 0 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                    >
+                        <MainEditorHeader />
+                    </motion.div>
 
                     <div className="flex overflow-hidden relative flex-col grow md:flex-row max-h-[calc(100dvh_-_160px)] md:max-h-[calc(100dvh_-_200px)] lg:max-h-[calc(100dvh_-_260px)]">
                         <AnimatePresence mode="wait">
@@ -98,7 +106,13 @@ function MainEditor({ children }: MainEditorProps) {
                         </AnimatePresence>
                     </div>
 
-                    <MainEditorFooter />
+                    <motion.div
+                        initial={{ y: 50, opacity: 0 }}
+                        animate={{ y: contentVisible ? 0 : 50, opacity: contentVisible ? 1 : 0 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                    >
+                        <MainEditorFooter />
+                    </motion.div>
                 </motion.div>
             </div>
         </div>
