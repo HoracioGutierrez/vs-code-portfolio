@@ -5,11 +5,15 @@ import { defaultFilters } from "@/features/sidebar-items/lib/utils"
 import Image from "next/image"
 import { parseAsArrayOf, parseAsString, useQueryState } from 'nuqs'
 import { cn } from "@/lib/utils"
+import { useState, useTransition } from "react"
+import { Loader2 } from "lucide-react"
 
 function MainEditorWorksSidebar() {
 
     const isBigEnough = useMedia("(min-width: 768px)")
     const [stack, setStack] = useQueryState('stack', { ...parseAsArrayOf(parseAsString), shallow: false })
+    const [isPending, startTransition] = useTransition()
+    const [loadingItem, setLoadingItem] = useState<string | null>(null)
 
     let sidebarVariants
 
@@ -39,37 +43,47 @@ function MainEditorWorksSidebar() {
 
     const handleToggleStack = (e: React.MouseEvent<HTMLDivElement>) => {
         const target = e.currentTarget.dataset.target || ''
+        setLoadingItem(target)
 
-        if (!stack) {
-            return setStack([target])
-        }
-
-        if (stack.includes(target)) {
-            const filteredStack = stack.filter((item) => item !== target)
-            if (filteredStack.length > 0) {
-                return setStack(filteredStack)
-            } else {
-                return setStack(null)
+        startTransition(() => {
+            if (!stack) {
+                setStack([target])
+                return
             }
-        } else {
-            return setStack([...stack, target])
-        }
+
+            if (stack.includes(target)) {
+                const filteredStack = stack.filter((item) => item !== target)
+                if (filteredStack.length > 0) {
+                    setStack(filteredStack)
+                } else {
+                    setStack(null)
+                }
+            } else {
+                setStack([...stack, target])
+            }
+        })
     }
+
+    const isLoading = (value: string) => isPending && loadingItem === value
 
     return (
         <motion.div initial="hide" exit="exit" animate="show" className="md:border-r border-[#1E2D3D] flex flex-col items-stretch overflow-hidden w-full" variants={sidebarVariants}>
             <motion.div initial="initial" animate="animate" exit="exit" variants={sidebarItemVariants} className="py-3 flex flex-wrap md:flex-col gap-3 md:gap-0 justify-center">
                 {defaultFilters.map((filter, index) => {
                     return (
-                        <motion.div key={index} variants={itemVariants} className={cn("px-5 py-2 flex gap-3 rounded-full md:rounded-none border border-[#1E2D3D] md:border-none text-xs md:text-sm items-center cursor-pointer select-none hover:bg-accent-2/20 transition-colors", stack?.includes(filter.value) && "bg-accent-2/20")} onClick={handleToggleStack} data-target={filter.value}>
+                        <motion.div key={index} variants={itemVariants} className={cn("px-5 py-2 flex gap-3 rounded-full md:rounded-none border border-[#1E2D3D] md:border-none text-xs md:text-sm items-center cursor-pointer select-none hover:bg-white/5 transition-colors", stack?.includes(filter.value) && "bg-accent-2/20")} onClick={handleToggleStack} data-target={filter.value}>
                             {filter.icon && (
-                                <Image
-                                    src={filter.icon || ""}
-                                    alt={filter.label}
-                                    width={20}
-                                    height={20}
-                                    className="aspect-square"
-                                />
+                                isLoading(filter.value) ? (
+                                    <Loader2 className="w-5 h-5 animate-spin" />
+                                ) : (
+                                    <Image
+                                        src={filter.icon || ""}
+                                        alt={filter.label}
+                                        width={20}
+                                        height={20}
+                                        className="aspect-square"
+                                    />
+                                )
                             )}
                             {filter.label}
                         </motion.div>
