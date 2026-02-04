@@ -1,13 +1,5 @@
 import { create } from "zustand";
-
-type ContactFormStore = {
-    name: string
-    email: string
-    message: string
-    sendMessageAndSaveToDB: () => void
-    setPropertyValue: (property: string, value: string) => void
-    resetForm: () => void
-}
+import { ContactFormStore, ContactFormFields } from "../types/stores";
 
 const useContactFormStore = create<ContactFormStore>()((set) => ({
     name: "",
@@ -16,7 +8,7 @@ const useContactFormStore = create<ContactFormStore>()((set) => ({
     sendMessageAndSaveToDB: () => {
         console.log("sendMessageAndSaveToDB")
     },
-    setPropertyValue: (property: string, value: string) => {
+    setPropertyValue: (property: ContactFormFields, value: string) => {
         set(() => ({ [property]: value }))
     },
     resetForm: () => {

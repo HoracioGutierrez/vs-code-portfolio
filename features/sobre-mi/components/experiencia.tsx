@@ -4,7 +4,7 @@ import { javascript } from '@codemirror/lang-javascript';
 import { useCallback, useState } from 'react';
 import { createTheme } from "@uiw/codemirror-themes";
 import { tags as t } from '@lezer/highlight';
-import { EditorView } from '@codemirror/view';
+import { EditorView, ViewUpdate } from '@codemirror/view';
 
 export default function Experiencia() {
     const [value, setValue] = useState(`/**
@@ -28,7 +28,7 @@ function calculateSanityLevel(coffeeLevel) {
 }
 `);
 
-    const onChange = useCallback((val: any, viewUpdate: any) => {
+    const onChange = useCallback((val: string, viewUpdate: ViewUpdate) => {
         console.log('val:', val);
         setValue(val);
     }, []);

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, ChangeEvent } from "react";
 import { defaultFilters } from "../lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 import Form from "next/form";
@@ -15,7 +15,7 @@ export default function Trabajos() {
     setCheckedFilters(currentFilters);
   }, [searchParams]);
 
-  const handleChange = async (e: any) => {
+  const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const newSearchParams = new URLSearchParams(searchParams.toString());
     const value = e.target.value;
     const isChecked = e.target.checked;

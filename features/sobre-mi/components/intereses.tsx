@@ -4,7 +4,7 @@ import { javascript } from '@codemirror/lang-javascript';
 import { useCallback, useEffect, useState } from 'react';
 import { createTheme } from "@uiw/codemirror-themes";
 import { tags as t } from '@lezer/highlight';
-import { EditorView } from '@codemirror/view';
+import { EditorView, ViewUpdate } from '@codemirror/view';
 import { useMedia } from 'react-use';
 
 export default function Intereses() {
@@ -71,7 +71,7 @@ const githubLink = "https://github.com/HoracioGutierrez"
 
     },[isSmallScreen])
 
-    const onChange = useCallback((val: any, viewUpdate: any) => {
+    const onChange = useCallback((val: string, viewUpdate: ViewUpdate) => {
         console.log('val:', val);
         setValue(val);
     }, []);

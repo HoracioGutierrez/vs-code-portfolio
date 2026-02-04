@@ -5,14 +5,36 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ChevronRight, File, Folder } from "lucide-react";
 
+type SidebarFile = {
+  title: string;
+  href: string;
+};
+
+type SidebarFolder = {
+  name: string;
+  color: string;
+  files: SidebarFile[];
+};
+
+type AccordionCategory = {
+  folders: SidebarFolder[];
+};
+
+type AccordionItems = {
+  profesional: AccordionCategory;
+  personal: AccordionCategory;
+  hobbies: AccordionCategory;
+};
+
+type AccordionType = keyof AccordionItems;
+
 export default function SobreMi() {
   const pathname = usePathname();
   const splitedPath = pathname.split("/");
-  const mainPath = splitedPath[1]; //"sobre-mi"
-  const type = splitedPath[2]; //"personal", "profesional", "hobbies"
-  const folder = splitedPath[3]; //"bio", "intereses", "educacion" , "programacion", "experiencia", "habilidades", "proyectos" , "juegos", "viajes"
+  const type = splitedPath[2] as AccordionType | undefined;
+  const folder = splitedPath[3];
 
-  const accordionItems: any = {
+  const accordionItems: AccordionItems = {
     profesional: {
       folders: [
         {
@@ -80,7 +102,7 @@ export default function SobreMi() {
       collapsible
       id="accordion-root"
     >
-      {accordionItems[type].folders.map((folder: any) => {
+      {accordionItems[type].folders.map((folder: SidebarFolder) => {
         return (
           <Accordion.Item
             value={folder.name}
@@ -124,7 +146,7 @@ export default function SobreMi() {
                 <File className="size-4" />
                 <span>readme.md</span>
               </Link>
-              {folder.files.map((file: any) => {
+              {folder.files.map((file: SidebarFile) => {
                 return (
                   <Link
                     href={`/sobre-mi/${type}/${folder.name}${file.href}`}

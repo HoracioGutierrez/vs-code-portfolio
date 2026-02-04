@@ -2,11 +2,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-type MainCategoryLinkProps = {
-    children: React.ReactNode;
-    href: string;
-}
+import { MainCategoryLinkProps } from "../types/components";
 
 export default function MainCategoryLink({ children, href = "/" }: MainCategoryLinkProps) {
 

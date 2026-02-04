@@ -2,10 +2,7 @@ import { getProjectBySlug } from "@/features/trabajos/actions/getProjectBySlug";
 import * as motion from "motion/react-client"
 import Image from "next/image";
 import Link from "next/link";
-
-type TrabajosDetailProps = {
-    slug: string;
-}
+import { TrabajosDetailProps } from "../types/components";
 
 async function TrabajosDetail({ slug }: TrabajosDetailProps) {
 

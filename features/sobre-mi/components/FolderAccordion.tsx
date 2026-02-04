@@ -3,9 +3,9 @@ import { cn } from "@/lib/utils";
 import * as Accordion from "@radix-ui/react-accordion";
 import { ChevronRight, File, Folder } from "lucide-react";
 import Link from "next/link";
+import { FolderAccordionProps, SobreMiFile } from "../types/components";
 
-
-export default function FolderAccordion({ folder }: any) {
+export default function FolderAccordion({ folder }: FolderAccordionProps) {
     return (
         <Accordion.Root type="single" className="AccordionRoot" key={folder.folderTitle} collapsible id="accordion-root">
             <Accordion.Item value={folder.folderTitle} className="AccordionItem">
@@ -19,7 +19,7 @@ export default function FolderAccordion({ folder }: any) {
                     </Accordion.Trigger>
                 </Accordion.Header>
                 <Accordion.Content className="AccordionContent flex flex-col gap-2">
-                    {folder.files.map((file: any) => {
+                    {folder.files.map((file: SobreMiFile) => {
                         return (
                             <Link href={file.href} className="pl-10 text-muted-foreground hover:text-white flex items-center gap-2" key={file.title}>
                                 <File className="size-4" />

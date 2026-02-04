@@ -5,7 +5,7 @@ import { javascript } from '@codemirror/lang-javascript';
 import { useCallback, useEffect, useState } from 'react';
 import { tags as t } from '@lezer/highlight';
 import useContactFormStore from '../stores/useContactFormStore';
-import { EditorView } from '@codemirror/view';
+import { EditorView, ViewUpdate } from '@codemirror/view';
 
 function ContactFormText() {
 
@@ -31,7 +31,7 @@ button.addEventListener('click', () => {
 })`
     }
 
-    const onChange = useCallback((val: any, viewUpdate: any) => {
+    const onChange = useCallback((val: string, viewUpdate: ViewUpdate) => {
         setValue(val);
     }, []);
 

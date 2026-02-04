@@ -1,13 +1,10 @@
 import { create } from "zustand";
-
-type ProjectsStore = {
-    projects: any[];
-    setProjects: (projects: any[]) => void;
-};
+import { ProjectsStore } from "../types/stores";
+import { Project } from "@/features/trabajos/types/components";
 
 const useProjectsStore = create<ProjectsStore>()((set) => ({
     projects: [],
-    setProjects: (projects: any[]) => set({ projects }),
+    setProjects: (projects: Project[]) => set({ projects }),
 }));
 
 export default useProjectsStore;

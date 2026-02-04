@@ -5,12 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { use } from "react";
 import { AnimatePresence, motion } from "motion/react"
+import { TrabajosListClientProps, Project } from "../types/components";
 
-type TrabajosListProps = {
-  projectPromise: Promise<{ error: boolean; message: string; payload: any[] }>;
-};
-
-export default function TrabajosList({ projectPromise }: TrabajosListProps) {
+export default function TrabajosList({ projectPromise }: TrabajosListClientProps) {
   
   const { payload: projects } = use(projectPromise);
   

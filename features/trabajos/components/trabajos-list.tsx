@@ -3,12 +3,9 @@ import * as motion from "motion/react-client"
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../../ui/components/button";
+import { TrabajosListServerProps } from "../types/components";
 
-type TrabajosListProps = {
-    stack?: string[] | null;
-};
-
-async function TrabajosList({ stack }: TrabajosListProps) {
+async function TrabajosList({ stack }: TrabajosListServerProps) {
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
     const { error, payload } = await getProjectsByFilter(stack ? stack : []);

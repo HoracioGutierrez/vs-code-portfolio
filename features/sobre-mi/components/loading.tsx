@@ -1,8 +1,5 @@
 import * as motion from "motion/react-client"
-
-type LoadingProps = {
-    count: number;
-}
+import { LoadingProps } from "../types/components"
 
 export default function Loading({ count = 6 }: LoadingProps) {
 

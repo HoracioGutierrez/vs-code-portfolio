@@ -2,16 +2,7 @@
 import { Loader } from "lucide-react";
 import Image from "next/image";
 import { useTransition } from "react";
-
-interface FilterItemProps {
-  filter: {
-    label: string;
-    value: string;
-    icon?: string;
-  };
-  checked: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+import { FilterItemProps } from "../types/components";
 
 export function FilterItem({ filter, checked, onChange }: FilterItemProps) {
   const [isPending, startTransition] = useTransition();
