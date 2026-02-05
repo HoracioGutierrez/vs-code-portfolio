@@ -1,12 +1,57 @@
 import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client"
 import { lazy, Suspense } from "react";
+import type { Metadata } from "next";
 
 type PageProps = Readonly<{
     params: Promise<{
         file: string
     }>
 }>;
+
+const fileMetadata: Record<string, { title: string; description: string }> = {
+    experiencia: {
+        title: "Experiencia Laboral",
+        description: "Trayectoria profesional de Horacio Gutierrez como desarrollador Full-Stack.",
+    },
+    education: {
+        title: "Educacion",
+        description: "Formacion academica de Horacio Gutierrez.",
+    },
+    hobbies: {
+        title: "Hobbies",
+        description: "Intereses y hobbies de Horacio Gutierrez.",
+    },
+    "experiencia-readme": {
+        title: "Experiencia - README",
+        description: "Detalles sobre la experiencia laboral.",
+    },
+    "education-readme": {
+        title: "Educacion - README",
+        description: "Detalles sobre la educacion.",
+    },
+    "hobbies-readme": {
+        title: "Hobbies - README",
+        description: "Detalles sobre los hobbies.",
+    },
+};
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { file } = await params;
+    const meta = fileMetadata[file];
+
+    if (!meta) {
+        return {
+            title: "Seccion no encontrada",
+            description: "La seccion solicitada no fue encontrada.",
+        };
+    }
+
+    return {
+        title: meta.title,
+        description: meta.description,
+    };
+}
 
 export default async function Page({ params }: PageProps) {
 

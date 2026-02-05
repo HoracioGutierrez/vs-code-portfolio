@@ -6,6 +6,12 @@ import TrabajosList from "@/features/trabajos/components/trabajos-list";
 import Loading from "@/features/sobre-mi/components/loading";
 import { AnimatePresence } from "motion/react";
 import { getProjectsCountByFilter } from "@/features/sidebar-items/actions/getProjectsCountByFilter";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Trabajos",
+  description: "Explora los proyectos de Horacio Gutierrez. Aplicaciones web con React, Next.js, Node.js y más.",
+};
 
 type TrabajosPageProps = Readonly<{
     searchParams: Promise<SearchParams>

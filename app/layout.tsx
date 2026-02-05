@@ -11,7 +11,10 @@ import "./globals.css";
 const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Horacio Gutierrez - Portfolio",
+  title: {
+    default: "Horacio Gutierrez - Portfolio",
+    template: "%s | Horacio Gutierrez"
+  },
   description:
     "Portfolio de Horacio Gutierrez, Desarrollador Web Full-Stack en Javascript y Freelancer",
 };
@@ -20,7 +23,7 @@ type RootLayoutProps = Readonly<{ children: React.ReactNode }>;
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <body
         className={cn(
           firaCode.className,

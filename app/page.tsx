@@ -2,6 +2,12 @@ import AnimatedTextContainer from "@/features/landing/components/animated-text-c
 import HomeGame from "@/features/landing/components/home-game";
 import * as motion from "motion/react-client"
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Inicio",
+  description: "Portfolio de Horacio Gutierrez. Desarrollador Web Full-Stack especializado en React, Next.js y Node.js.",
+};
 
 function HomePage() {
 

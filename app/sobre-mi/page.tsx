@@ -1,6 +1,12 @@
 import MainEditorPageTitle from "@/features/layout/components/main-editor-page-title"
 import * as motion from "motion/react-client"
 import Link from "next/link"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sobre Mi",
+  description: "Conoce a Horacio Gutierrez: desarrollador Full-Stack con experiencia en React, Next.js y Node.js.",
+};
 
 function SobreMiPage() {
     const containerVariants = {
