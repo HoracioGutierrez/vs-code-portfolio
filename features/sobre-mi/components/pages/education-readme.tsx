@@ -4,10 +4,12 @@ function EducationReadme() {
 
     const content = `# Educación
 
-Te cuento algo sobre mi educacion; si no te gusta no te preocupes, tampoco estudié demasiado.
+Estudié Ciencias Naturales, terminé programando. La vida te lleva por caminos raros.
+
+Mi educación formal en programación fue un curso de PHP en 2012. El resto lo aprendí a los golpes, leyendo documentación y preguntándole a Stack Overflow.
 
 ## TLDR:
-tldr: fui abanderado pero me hago el humilde
+Fui abanderado pero me hago el humilde. El título no programa, pero el café sí.
 `
 
     return (
