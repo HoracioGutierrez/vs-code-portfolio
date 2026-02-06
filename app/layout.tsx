@@ -6,17 +6,17 @@ import MainEditor from "@/features/layout/components/main-editor";
 import * as motion from "motion/react-client"
 import { NuqsAdapter } from 'nuqs/adapters/next'
 import { Toaster } from "sonner"
+import { SITE_METADATA } from "@/features/shared/constants/metadata";
 import "./globals.css";
 
 const firaCode = Fira_Code({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Horacio Gutierrez - Portfolio",
-    template: "%s | Horacio Gutierrez"
+    default: SITE_METADATA.titleDefault,
+    template: SITE_METADATA.titleTemplate,
   },
-  description:
-    "Portfolio de Horacio Gutierrez, Desarrollador Web Full-Stack en Javascript y Freelancer",
+  description: SITE_METADATA.descriptionShort,
 };
 
 type RootLayoutProps = Readonly<{ children: React.ReactNode }>;

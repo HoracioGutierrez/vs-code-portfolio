@@ -1,18 +1,19 @@
 import { Mail, Phone } from "lucide-react";
 import { SocialLink } from "@/features/shared/components/SocialLink";
+import { CONTACT_INFO, CONTACT_LINKS } from "@/features/contacto/constants/contact";
 
 export default function Contacto() {
     return (
         <div className="flex flex-col gap-4">
             <SocialLink
-                href="mailto:horacio.estevez@gmail.com"
+                href={CONTACT_LINKS.email}
                 icon={Mail}
-                label="horacio.estevez@gmail.com"
+                label={CONTACT_INFO.email}
             />
             <SocialLink
-                href="tel:1135069607"
+                href={CONTACT_LINKS.phone}
                 icon={Phone}
-                label="1135069607"
+                label={CONTACT_INFO.phone}
             />
         </div>
     )

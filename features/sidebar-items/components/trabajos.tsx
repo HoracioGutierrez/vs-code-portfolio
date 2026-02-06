@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState, ChangeEvent } from "react";
-import { defaultFilters } from "../lib/utils";
+import { DEFAULT_FILTERS } from "../constants/filters";
 import { useRouter, useSearchParams } from "next/navigation";
 import Form from "next/form";
 import { FilterItem } from "./filter-item";
@@ -48,7 +48,7 @@ export default function Trabajos() {
         action=""
         className="flex flex-row flex-wrap gap-2 lg:flex-col lg:gap-3"
       >
-        {defaultFilters.map((filter) => (
+        {DEFAULT_FILTERS.map((filter) => (
           <FilterItem
             key={filter.value}
             filter={filter}

@@ -3,10 +3,12 @@ import HomeGame from "@/features/landing/components/home-game";
 import * as motion from "motion/react-client"
 import Link from "next/link";
 import type { Metadata } from "next";
+import { SOCIAL_LINKS } from "@/features/shared/constants/social-links";
+import { SITE_METADATA } from "@/features/shared/constants/metadata";
 
 export const metadata: Metadata = {
-  title: "Horacio Gutierrez | Portfolio",
-  description: "Portfolio de Horacio Gutierrez. Desarrollador Web Full-Stack especializado en React, Next.js y Node.js.",
+  title: SITE_METADATA.title,
+  description: SITE_METADATA.description,
 };
 
 function HomePage() {
@@ -37,16 +39,16 @@ function HomePage() {
                         <span className="text-accent-2">githubLink</span>
                         <span>=</span>
                         <Link
-                            href="https://github.com/HoracioGutierrez"
+                            href={SOCIAL_LINKS.github}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="break-words text-accent-3"
                         >
-                            <span className="sm:hidden">&quot;https://github.com/</span>
+                            <span className="sm:hidden">&quot;github.com/</span>
                             <br className="sm:hidden" />
                             <span className="sm:hidden">HoracioGutierrez&quot;</span>
                             <span className="hidden sm:inline">
-                                &quot;https://github.com/HoracioGutierrez&quot;
+                                &quot;{SOCIAL_LINKS.github}&quot;
                             </span>
                         </Link>
                     </motion.p>

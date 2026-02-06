@@ -1,6 +1,7 @@
 import { InstagramIcon, LucideGithub, TwitterIcon } from "lucide-react"
 import * as motion from "motion/react-client"
 import Link from "next/link"
+import { SOCIAL_LINKS } from "@/features/shared/constants/social-links"
 
 function MainEditorFooter() {
 
@@ -26,22 +27,22 @@ function MainEditorFooter() {
                 Encontrame en :
             </motion.p>
             <motion.div variants={linkVariants} className="flex border-r transition-colors border-border-editor hover:bg-accent">
-                <Link href="https://twitter.com/horagutierrez" target="_blank" className="flex items-center px-5 text-[#607B96] hover:text-primary transition-colors">
+                <Link href={SOCIAL_LINKS.twitter} target="_blank" className="flex items-center px-5 text-[#607B96] hover:text-primary transition-colors">
                     <TwitterIcon className="size-4" />
                 </Link>
             </motion.div>
             <motion.div variants={linkVariants} className="flex border-r transition-colors border-border-editor hover:bg-accent">
-                <Link href="https://instagram.com/horagutierrez" target="_blank" className="flex items-center px-5 text-[#607B96] hover:text-primary transition-colors">
+                <Link href={SOCIAL_LINKS.instagram} target="_blank" className="flex items-center px-5 text-[#607B96] hover:text-primary transition-colors">
                     <InstagramIcon className="size-4" />
                 </Link>
             </motion.div>
             <motion.div variants={linkVariants} className="flex justify-center ml-auto border-l border-border-editor hover:bg-accent">
                 <Link
-                    href="https://github.com/HoracioGutierrez"
+                    href={SOCIAL_LINKS.github}
                     target="_blank"
                     className="flex gap-2 items-center px-5 text-[#607B96] hover:text-primary transition-colors"
                 >
-                    <span className="hidden lg:inline">@horaciogutierrez</span>
+                    <span className="hidden lg:inline">{SOCIAL_LINKS.githubUsername}</span>
                     <LucideGithub className="size-4" />
                 </Link>
             </motion.div>
