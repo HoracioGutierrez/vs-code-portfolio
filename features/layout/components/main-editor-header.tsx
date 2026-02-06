@@ -1,5 +1,6 @@
 "use client"
 import * as motion from "motion/react-client"
+import Image from "next/image"
 import Link from "next/link"
 import DrawerButton from "./main-editor-drawer-button"
 import { usePathname } from "next/navigation"
@@ -45,9 +46,10 @@ function MainEditorHeader() {
             variants={childVariants}
             className="border-b h-[60px] flex overflow-hidden items-stretch border-border-editor"
         >
-            <motion.h1 className="text-[#607B96] border-r border-border-editor flex w-[300px] hover:text-foreground transition-colors" variants={linkVariants}>
-                <Link href="/" className="px-4 w-full flex items-center">
-                    horacio-gutierrez
+            <motion.h1 className="text-[#607B96] border-r border-border-editor flex md:w-75 hover:text-foreground transition-colors" variants={linkVariants}>
+                <Link href="/" className="px-4 w-full flex items-center gap-2">
+                    <Image src="/logo-hg.svg" alt="HG logo" width={20} height={16} className="invert" />
+                    <span className="hidden md:inline">horacio-gutierrez</span>
                 </Link>
             </motion.h1>
             <motion.div variants={linkVariants} className={cn("hidden border-r transition-colors duration-300 border-border-editor md:flex hover:bg-accent group",

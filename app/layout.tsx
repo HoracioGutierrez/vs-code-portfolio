@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     template: SITE_METADATA.titleTemplate,
   },
   description: SITE_METADATA.descriptionShort,
+   icons : {
+    icon: "/logo-hg.svg",
+   }
 };
 
 type RootLayoutProps = Readonly<{ children: React.ReactNode }>;
