@@ -1,10 +1,39 @@
 "use client"
 import * as motion from "motion/react-client"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../ui/components/accordion"
-import Link from "next/link"
+import { Accordion } from "../../ui/components/accordion"
 import { usePathname } from "next/navigation"
-import { Folder } from "lucide-react"
 import { useSidebarVariants } from "../hooks/useSidebarVariants"
+import { AccordionSection } from "./AccordionSection"
+
+const sections = [
+    {
+        value: "work",
+        title: "_experiencia",
+        folderColor: "accent-1" as const,
+        links: [
+            { href: "/sobre-mi/experiencia-readme", label: "readme.md", matchPath: "experiencia-readme" },
+            { href: "/sobre-mi/experiencia", label: "experiencia.js", matchPath: "experiencia", excludeMatch: "readme" },
+        ],
+    },
+    {
+        value: "education",
+        title: "_educacion",
+        folderColor: "accent-2" as const,
+        links: [
+            { href: "/sobre-mi/education-readme", label: "readme.md", matchPath: "education-readme" },
+            { href: "/sobre-mi/education", label: "education.js", matchPath: "education", excludeMatch: "readme" },
+        ],
+    },
+    {
+        value: "hobbies",
+        title: "_hobbies",
+        folderColor: "accent-3" as const,
+        links: [
+            { href: "/sobre-mi/hobbies-readme", label: "readme.md", matchPath: "hobbies-readme" },
+            { href: "/sobre-mi/hobbies", label: "hobbies.js", matchPath: "hobbies", excludeMatch: "readme" },
+        ],
+    },
+];
 
 function MainEditorAboutSidebar() {
     const pathname = usePathname()
@@ -21,66 +50,17 @@ function MainEditorAboutSidebar() {
         <motion.div initial="hide" exit="exit" animate="show" className="md:border-r border-border-editor flex flex-col items-stretch overflow-hidden w-full" variants={sidebarVariants}>
             <Accordion type="single" className="w-full" collapsible asChild defaultValue={getDefaultAccordionValue()}>
                 <motion.div initial="initial" animate="animate" exit="exit" variants={sidebarItemVariants}>
-                    <AccordionItem value="work" className="w-full border-border-editor" asChild>
-                        <motion.div variants={itemVariants}>
-                            <AccordionTrigger className="!w-full !flex !gap-2 !p-3 !cursor-pointer !box-border !text-muted-foreground">
-                                <span>
-                                    <Folder className="fill-accent-1 stroke-0" />
-                                </span>
-                                _experiencia
-                            </AccordionTrigger>
-                            <AccordionContent className="pb-0">
-                                <Link href="/sobre-mi/experiencia-readme" 
-                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('experiencia-readme') ? 'text-primary bg-border-editor' : 'text-muted-foreground'}`}>
-                                    readme.md
-                                </Link>
-                                <Link href="/sobre-mi/experiencia" 
-                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('experiencia') && !pathname.includes('readme') ? 'text-primary bg-border-editor' : 'text-muted-foreground'}`}>
-                                    experiencia.js
-                                </Link>
-                            </AccordionContent>
-                        </motion.div>
-                    </AccordionItem>
-                    <AccordionItem value="education" className="w-full border-border-editor" asChild>
-                        <motion.div variants={itemVariants}>
-                            <AccordionTrigger className="!w-full !flex !gap-2 !p-3 !cursor-pointer !box-border !text-muted-foreground">
-                                <span>
-                                    <Folder className="fill-accent-2 stroke-0" />
-                                </span>
-                                _educacion
-                            </AccordionTrigger>
-                            <AccordionContent className="pb-0">
-                                <Link href="/sobre-mi/education-readme" 
-                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('education-readme') ? 'text-primary bg-border-editor' : 'text-muted-foreground'}`}>
-                                    readme.md
-                                </Link>
-                                <Link href="/sobre-mi/education" 
-                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('education') && !pathname.includes('readme') ? 'text-primary bg-border-editor' : 'text-muted-foreground'}`}>
-                                    education.js
-                                </Link>
-                            </AccordionContent>
-                        </motion.div>
-                    </AccordionItem>
-                    <AccordionItem value="hobbies" className="w-full !border-b border-border-editor" asChild>
-                        <motion.div variants={itemVariants}>
-                            <AccordionTrigger className="!w-full !flex !gap-2 !p-3 !cursor-pointer !box-border !text-muted-foreground">
-                                <span>
-                                    <Folder className="fill-accent-3 stroke-0" />
-                                </span>
-                                _hobbies
-                            </AccordionTrigger>
-                            <AccordionContent className="pb-0">
-                                <Link href="/sobre-mi/hobbies-readme" 
-                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('hobbies-readme') ? 'text-primary bg-border-editor' : 'text-muted-foreground'}`}>
-                                    readme.md
-                                </Link>
-                                <Link href="/sobre-mi/hobbies" 
-                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('hobbies') && !pathname.includes('readme') ? 'text-primary bg-border-editor' : 'text-muted-foreground'}`}>
-                                    hobbies.js
-                                </Link>
-                            </AccordionContent>
-                        </motion.div>
-                    </AccordionItem>
+                    {sections.map((section, index) => (
+                        <AccordionSection
+                            key={section.value}
+                            value={section.value}
+                            title={section.title}
+                            folderColor={section.folderColor}
+                            links={section.links}
+                            itemVariants={itemVariants}
+                            isLast={index === sections.length - 1}
+                        />
+                    ))}
                 </motion.div>
             </Accordion>
         </motion.div>

@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import * as motion from "motion/react-client";
 import { ContactFormFields, FormState } from "../types";
 import { toast } from "sonner";
+import { FormField } from "./FormField";
 
 export default function ContactForm() {
 
@@ -53,18 +54,36 @@ export default function ContactForm() {
 
     return (
         <motion.form className="xl:max-w-xs w-full flex flex-col gap-4" action={formAction} initial="hide" animate="show" exit="exit" variants={formControlVariants}>
-            <motion.div variants={inputVariants}>
-                <motion.label variants={labelVariants} htmlFor="name" className="block mb-2 text-sm font-medium text-muted-foreground">_nombre:</motion.label>
-                <motion.input type="text" id="name" name="name" className="block w-full rounded-md border-0 px-3 py-1.5 text-white shadow-sm ring-1 ring-inset ring-muted-foreground/20 placeholder:text-gray-400 focus:ring-0 focus-visible:ring-0 focus:border-0 focus-visible:border-0 sm:text-sm sm:leading-6 bg-background/50" placeholder="John Doe" onChange={handleChange} />
-            </motion.div>
-            <motion.div variants={inputVariants}>
-                <motion.label variants={labelVariants} htmlFor="email" className="block mb-2 text-sm font-medium text-muted-foreground">_email:</motion.label>
-                <motion.input type="email" id="email" name="email" className="block w-full rounded-md border-0 px-3 py-1.5 text-white shadow-sm ring-1 ring-inset ring-muted-foreground/20 placeholder:text-gray-400 focus:ring-0 focus-visible:ring-0 focus:border-0 focus-visible:border-0 sm:text-sm sm:leading-6 bg-background/50" placeholder="johndoe@gmail.com" onChange={handleChange} />
-            </motion.div>
-            <motion.div variants={inputVariants}>
-                <motion.label variants={labelVariants} htmlFor="message" className="block mb-2 text-sm font-medium text-muted-foreground">_mensaje:</motion.label>
-                <motion.textarea id="message" name="message" className="block w-full rounded-md border-0 px-3 py-1.5 text-white shadow-sm ring-1 ring-inset ring-muted-foreground/20 placeholder:text-gray-400 focus:ring-0 focus-visible:ring-0 focus:border-0 focus-visible:border-0 sm:text-sm sm:leading-6 resize-none min-h-[140px] bg-background/50" placeholder="johndoe@gmail.com" onChange={handleChange} />
-            </motion.div>
+            <FormField
+                id="name"
+                name="name"
+                label="_nombre:"
+                type="text"
+                placeholder="John Doe"
+                onChange={handleChange}
+                inputVariants={inputVariants}
+                labelVariants={labelVariants}
+            />
+            <FormField
+                id="email"
+                name="email"
+                label="_email:"
+                type="email"
+                placeholder="johndoe@gmail.com"
+                onChange={handleChange}
+                inputVariants={inputVariants}
+                labelVariants={labelVariants}
+            />
+            <FormField
+                id="message"
+                name="message"
+                label="_mensaje:"
+                type="textarea"
+                placeholder="johndoe@gmail.com"
+                onChange={handleChange}
+                inputVariants={inputVariants}
+                labelVariants={labelVariants}
+            />
             <motion.button variants={inputVariants} className={cn("!bg-muted-foreground/30 !py-2.5 !px-3 !rounded-lg !w-fit !cursor-pointer", isDisabled && "!text-muted-foreground !cursor-not-allowed")} disabled={isDisabled}>{isPending ? "enviando..." : "enviar-mensaje"}</motion.button>
         </motion.form>
     )
