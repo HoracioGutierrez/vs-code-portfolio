@@ -1,34 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VS Code Portfolio
 
-## Getting Started
+Portfolio personal con tema Visual Studio Code, desarrollado por **Horacio Gutierrez**.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| Capa | Tecnologias |
+|------|-------------|
+| **Framework** | Next.js 15 (App Router, Server Components, Turbopack) |
+| **UI** | React 19, Tailwind CSS 4, Radix UI, Framer Motion, GSAP |
+| **State** | Zustand, nuqs (URL search params) |
+| **Backend** | Supabase (PostgreSQL + Auth via SSR cookies) |
+| **AI** | Vercel AI SDK, Google Gemini 1.5 Flash, OpenAI |
+| **Editor** | CodeMirror 6 (syntax highlighting + tema custom) |
+| **Validacion** | Zod |
+| **Deploy** | Vercel |
+
+## Arquitectura
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                          VERCEL                                 │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │                   Next.js 15 App Router                   │  │
+│  │                                                           │  │
+│  │  ┌─────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │  │
+│  │  │  Home    │  │ Trabajos │  │ Sobre mi │  │ Contacto │  │  │
+│  │  │ (landing)│  │ [slug]   │  │ [file]   │  │  (form)  │  │  │
+│  │  └────┬────┘  └────┬─────┘  └──────────┘  └────┬─────┘  │  │
+│  │       │             │                           │         │  │
+│  │       ▼             │                           │         │  │
+│  │  ┌──────────┐       │                           │         │  │
+│  │  │ AI Code  │       │                           │         │  │
+│  │  │ Review   │       │                           │         │  │
+│  │  │ Game     │       │                           │         │  │
+│  │  └────┬─────┘       │                           │         │  │
+│  │       │             │                           │         │  │
+│  │       ▼             ▼                           ▼         │  │
+│  │  ┌────────────────────────────────────────────────────┐   │  │
+│  │  │              Server Actions + Services             │   │  │
+│  │  │         (action → service → data layers)           │   │  │
+│  │  └───────────────────────┬────────────────────────────┘   │  │
+│  └──────────────────────────┼────────────────────────────────┘  │
+│                             │                                   │
+└─────────────────────────────┼───────────────────────────────────┘
+                              │
+              ┌───────────────┼───────────────┐
+              ▼               ▼               ▼
+     ┌──────────────┐ ┌─────────────┐ ┌─────────────┐
+     │   Supabase   │ │ Google AI   │ │  OpenAI     │
+     │  PostgreSQL  │ │ Gemini 1.5  │ │  (API)      │
+     │  + Auth SSR  │ │ Flash       │ │             │
+     └──────────────┘ └─────────────┘ └─────────────┘
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estructura del Proyecto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/                          # Rutas (App Router)
+├── api/codereview/           # Endpoint AI code review
+├── sobre-mi/[file]/          # Secciones bio dinamicas
+├── contacto/                 # Formulario de contacto
+├── trabajos/[slug]/          # Detalle de proyectos
+└── layout.tsx                # Layout raiz con ThemeProvider
 
-## Learn More
+features/                     # Feature-based architecture
+├── landing/                  # Home: animaciones + AI game
+├── layout/                   # Sistema de layout VS Code
+│   ├── components/           # Editor, header, footer, sidebar
+│   ├── stores/               # useLayout (Zustand)
+│   └── hooks/                # Hooks reutilizables
+├── sidebar-items/            # Filtro y listado de proyectos
+├── sobre-mi/                 # Secciones: educacion, experiencia, hobbies
+├── trabajos/                 # Detalle de trabajos
+├── contacto/                 # Form + preview de codigo en vivo
+├── shared/                   # Utilidades, tipos y constantes compartidas
+└── ui/                       # Componentes base (Radix + shadcn/ui)
 
-To learn more about Next.js, take a look at the following resources:
+supabase/                     # Clientes Supabase (server + client)
+lib/                          # Utilidades y temas CodeMirror
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Cada feature sigue el patron **action → service → data**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Data**: queries directas a Supabase
+- **Service**: logica de negocio
+- **Action**: server actions con respuesta tipada (`ActionResponse<T>`)
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **UI VS Code**: layout completo con header, sidebar, editor, footer y bordes animados
+- **Trabajos**: showcase de proyectos con filtro por tecnologia (nuqs + Supabase)
+- **Sobre mi**: acordeon de carpetas con educacion, experiencia y hobbies
+- **Contacto**: formulario dual-panel con preview de codigo en vivo (CodeMirror)
+- **AI Code Review**: juego interactivo con Gemini que revisa codigo y responde en espanol rioplatense
+- **Animaciones**: Framer Motion + GSAP para transiciones y textos animados
+- **Dark mode**: soporte completo via next-themes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Variables de Entorno
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+GOOGLE_GENERATIVE_AI_API_KEY=
+OPENAI_API_KEY=
+```
+
+## Desarrollo
+
+```bash
+# Instalar dependencias
+npm install
+
+# Servidor de desarrollo (Turbopack)
+npm run dev
+
+# Build de produccion
+npm run build
+
+# Lint
+npm run lint
+```
