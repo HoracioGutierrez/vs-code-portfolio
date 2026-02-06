@@ -1,7 +1,5 @@
 "use client"
-import createTheme from "@uiw/codemirror-themes";
 import ReactCodeMirror from "@uiw/react-codemirror"
-import { tags as t } from "@lezer/highlight";
 import { EditorView } from "@codemirror/view";
 import { javascript } from "@codemirror/lang-javascript";
 import { Button } from "../../ui/components/button";
@@ -11,6 +9,7 @@ import { codeReviewSchema } from "@/app/api/codereview/schema";
 import * as motion from "motion/react-client"
 import { AnimatePresence } from "motion/react";
 import { Loader } from "lucide-react";
+import { transparentTheme } from "@/lib/themes/codemirror";
 
 function HomeGame() {
 
@@ -25,26 +24,6 @@ function HomeGame() {
                 message: "",
             }
         }
-    });
-
-    const customTheme = createTheme({
-        theme: "dark",
-        settings: {
-            background: "rgba(0, 0, 0, 0.5) ",
-            gutterBackground: "var(--primary)",
-            gutterActiveForeground: "var(--accent-3)",
-            gutterForeground: "var(--muted-foreground)",
-            fontSize: "16px",
-        },
-        styles: [
-            { tag: t.comment, color: "var(--muted-foreground)" },
-            { tag: t.variableName, color: "var(--accent-2)" },
-            { tag: t.string, color: "var(--accent-3)" },
-            { tag: t.keyword, color: "var(--accent-1)" },
-            { tag: t.heading, color: "var(--accent-2)" },
-            { tag: t.list, color: "var(--accent-3)" },
-            { tag: t.tagName, color: "var(--accent-1)" },
-        ],
     });
 
     const content = `//Arregla el codigo de abajo para que funcione correctamente.
@@ -69,7 +48,7 @@ greet(person());`
         <>
             <div className="p-1 rounded-lg border border-muted-foreground/50 max-h-full overflow-auto backdrop-blur-2xl">
                 <ReactCodeMirror
-                    theme={customTheme}
+                    theme={transparentTheme}
                     onUpdate={(data) => {
                         setNewContent(data.state.doc.toString())
                     }}

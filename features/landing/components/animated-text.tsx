@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
 import { TextWriterProps } from "../types/components";
 
-const TextWriter: React.FC<TextWriterProps> = ({
+function TextWriter({
     text,
     delay = 0.05,
     className = "",
@@ -14,7 +14,7 @@ const TextWriter: React.FC<TextWriterProps> = ({
     eraseDelay = 2000,
     loop = false,
     onComplete,
-}) => {
+}: TextWriterProps) {
     const [displayText, setDisplayText] = useState("");
     const textRef = useRef<HTMLSpanElement>(null);
 
@@ -87,6 +87,6 @@ const TextWriter: React.FC<TextWriterProps> = ({
             />
         </span>
     );
-};
+}
 
 export default TextWriter;

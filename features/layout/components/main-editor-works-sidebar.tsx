@@ -1,5 +1,4 @@
 "use client"
-import { useMedia } from "react-use"
 import * as motion from "motion/react-client"
 import { defaultFilters } from "@/features/sidebar-items/lib/utils"
 import Image from "next/image"
@@ -7,39 +6,14 @@ import { parseAsArrayOf, parseAsString, useQueryState } from 'nuqs'
 import { cn } from "@/lib/utils"
 import { useState, useTransition } from "react"
 import { Loader2 } from "lucide-react"
+import { useSidebarVariants } from "../hooks/useSidebarVariants"
 
 function MainEditorWorksSidebar() {
 
-    const isBigEnough = useMedia("(min-width: 768px)")
+    const { sidebarVariants, sidebarItemVariants, itemVariants } = useSidebarVariants({ staggerChildren: 0.05 })
     const [stack, setStack] = useQueryState('stack', { ...parseAsArrayOf(parseAsString), shallow: false })
     const [isPending, startTransition] = useTransition()
     const [loadingItem, setLoadingItem] = useState<string | null>(null)
-
-    let sidebarVariants
-
-    if (isBigEnough) {
-        sidebarVariants = {
-            hide: { opacity: 0, width: "0px" },
-            show: { opacity: 1, width: "300px", height: "auto", transition: { delay: 0.3 } },
-            exit: { opacity: 0, width: "0px" },
-        }
-    } else {
-        sidebarVariants = {
-            hide: { opacity: 0, height: "0px" },
-            show: { opacity: 1, height: "auto", width: "100%" },
-            exit: { opacity: 0, height: "0px" },
-        }
-    }
-
-    const sidebarItemVariants = {
-        animate: { transition: { staggerChildren: 0.05, delayChildren: 0.3 } }
-    }
-
-    const itemVariants = {
-        initial: { opacity: 0, y: 20 },
-        animate: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: 20 },
-    }
 
     const handleToggleStack = (e: React.MouseEvent<HTMLDivElement>) => {
         const target = e.currentTarget.dataset.target || ''

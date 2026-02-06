@@ -1,47 +1,20 @@
 "use client"
 import * as motion from "motion/react-client"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../ui/components/accordion"
-import { useMedia } from "react-use"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Folder } from "lucide-react"
+import { useSidebarVariants } from "../hooks/useSidebarVariants"
 
 function MainEditorAboutSidebar() {
     const pathname = usePathname()
-    const isBigEnough = useMedia("(min-width: 768px)")
+    const { sidebarVariants, sidebarItemVariants, itemVariants } = useSidebarVariants()
 
-    // Determine which accordion item should be expanded by default
     const getDefaultAccordionValue = () => {
         if (pathname.includes('experiencia')) return 'work'
         if (pathname.includes('education')) return 'education'
         if (pathname.includes('hobbies')) return 'hobbies'
         return undefined
-    }
-
-    let sidebarVariants
-
-    if (isBigEnough) {
-        sidebarVariants = {
-            hide: { opacity: 0, width: "0px" },
-            show: { opacity: 1, width: "300px", height: "auto", transition: { delay: 0.3 } },
-            exit: { opacity: 0, width: "0px" },
-        }
-    } else {
-        sidebarVariants = {
-            hide: { opacity: 0, height: "0px" },
-            show: { opacity: 1, height: "auto", width: "100%" },
-            exit: { opacity: 0, height: "0px" },
-        }
-    }
-
-    const sidebarItemVariants = {
-        animate: { transition: { staggerChildren: 0.15, delayChildren: 0.3 } }
-    }
-
-    const itemVariants = {
-        initial: { opacity: 0, y: 20 },
-        animate: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: 20 },
     }
 
     return (
