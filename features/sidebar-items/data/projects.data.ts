@@ -1,5 +1,6 @@
 import { createClient } from "@/supabase/server";
 import { Project, ProjectFilterParams } from "../types/data";
+import { throwIfError, buildTagFilterString } from "@/features/shared/lib/supabase";
 
 /**
  * Capa Data (Repository) para proyectos.
@@ -20,17 +21,17 @@ export const projectsData = {
         .from("portfolio_projects")
         .select("*");
 
-      if (error) throw error;
+      throwIfError(error);
       return data || [];
     }
 
-    const filterString = tags.map((tag) => `tags.cs.{${tag}}`).join(",");
+    const filterString = buildTagFilterString(tags);
     const { data, error } = await supabase
       .from("portfolio_projects")
       .select("*")
       .or(filterString);
 
-    if (error) throw error;
+    throwIfError(error);
     return data || [];
   },
 
@@ -47,17 +48,17 @@ export const projectsData = {
         .from("portfolio_projects")
         .select("*", { count: "exact", head: true });
 
-      if (error) throw error;
+      throwIfError(error);
       return count || 0;
     }
 
-    const filterString = tags.map((tag) => `tags.cs.{${tag}}`).join(",");
+    const filterString = buildTagFilterString(tags);
     const { count, error } = await supabase
       .from("portfolio_projects")
       .select("*", { count: "exact", head: true })
       .or(filterString);
 
-    if (error) throw error;
+    throwIfError(error);
     return count || 0;
   },
 };

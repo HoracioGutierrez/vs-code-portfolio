@@ -1,5 +1,6 @@
 import { createClient } from "@/supabase/server";
 import { Project } from "../types/components";
+import { throwIfError } from "@/features/shared/lib/supabase";
 
 /**
  * Capa Data (Repository) para operaciones de un solo proyecto.
@@ -17,7 +18,7 @@ export const projectData = {
       .select("*")
       .eq("slug", slug);
 
-    if (error) throw error;
+    throwIfError(error);
 
     // Retorna null si no hay datos o hay múltiples resultados
     if (!data || data.length !== 1) {

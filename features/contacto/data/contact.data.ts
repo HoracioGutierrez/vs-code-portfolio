@@ -1,5 +1,6 @@
 import { createClient } from "@/supabase/server";
 import { ContactMessage, ContactRecord } from "../types/data";
+import { throwIfError } from "@/features/shared/lib/supabase";
 
 /**
  * Capa Data (Repository) para mensajes de contacto.
@@ -18,7 +19,7 @@ export const contactData = {
       .select()
       .single();
 
-    if (error) throw error;
+    throwIfError(error);
     return data;
   },
 };
