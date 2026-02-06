@@ -1,20 +1,5 @@
 import { useMedia } from "react-use";
-
-export interface SidebarVariants {
-    hide: { opacity: number; width?: string; height?: string };
-    show: { opacity: number; width?: string; height?: string; transition?: { delay: number } };
-    exit: { opacity: number; width?: string; height?: string };
-}
-
-export interface SidebarItemVariants {
-    animate: { transition: { staggerChildren: number; delayChildren: number } };
-}
-
-export interface ItemVariants {
-    initial: { opacity: number; y: number };
-    animate: { opacity: number; y: number };
-    exit: { opacity: number; y: number };
-}
+import type { Variants } from "motion/react";
 
 interface UseSidebarVariantsOptions {
     staggerChildren?: number;
@@ -22,9 +7,9 @@ interface UseSidebarVariantsOptions {
 }
 
 interface UseSidebarVariantsReturn {
-    sidebarVariants: SidebarVariants;
-    sidebarItemVariants: SidebarItemVariants;
-    itemVariants: ItemVariants;
+    sidebarVariants: Variants;
+    sidebarItemVariants: Variants;
+    itemVariants: Variants;
     isBigEnough: boolean;
 }
 
@@ -32,7 +17,7 @@ export function useSidebarVariants(options: UseSidebarVariantsOptions = {}): Use
     const { staggerChildren = 0.15, delayChildren = 0.3 } = options;
     const isBigEnough = useMedia("(min-width: 768px)");
 
-    const sidebarVariants: SidebarVariants = isBigEnough
+    const sidebarVariants: Variants = isBigEnough
         ? {
             hide: { opacity: 0, width: "0px" },
             show: { opacity: 1, width: "300px", height: "auto", transition: { delay: 0.3 } },
@@ -44,11 +29,11 @@ export function useSidebarVariants(options: UseSidebarVariantsOptions = {}): Use
             exit: { opacity: 0, height: "0px" },
         };
 
-    const sidebarItemVariants: SidebarItemVariants = {
+    const sidebarItemVariants: Variants = {
         animate: { transition: { staggerChildren, delayChildren } },
     };
 
-    const itemVariants: ItemVariants = {
+    const itemVariants: Variants = {
         initial: { opacity: 0, y: 20 },
         animate: { opacity: 1, y: 0 },
         exit: { opacity: 0, y: 20 },
