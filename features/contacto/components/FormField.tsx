@@ -10,6 +10,7 @@ interface FormFieldProps {
     label: string;
     type?: "text" | "email" | "textarea";
     placeholder?: string;
+    required?: boolean;
     onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
     inputVariants: Variants;
     labelVariants: Variants;
@@ -23,6 +24,7 @@ export function FormField({
     label,
     type = "text",
     placeholder,
+    required = false,
     onChange,
     inputVariants,
     labelVariants,
@@ -43,6 +45,8 @@ export function FormField({
                     className={`${baseInputClasses} resize-none min-h-35`}
                     placeholder={placeholder}
                     onChange={onChange}
+                    required={required}
+                    aria-required={required}
                 />
             ) : (
                 <motion.input
@@ -52,6 +56,8 @@ export function FormField({
                     className={baseInputClasses}
                     placeholder={placeholder}
                     onChange={onChange}
+                    required={required}
+                    aria-required={required}
                 />
             )}
         </motion.div>

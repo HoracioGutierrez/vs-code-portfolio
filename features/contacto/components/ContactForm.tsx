@@ -60,6 +60,7 @@ export default function ContactForm() {
                 label="_nombre:"
                 type="text"
                 placeholder="John Doe"
+                required
                 onChange={handleChange}
                 inputVariants={inputVariants}
                 labelVariants={labelVariants}
@@ -70,6 +71,7 @@ export default function ContactForm() {
                 label="_email:"
                 type="email"
                 placeholder="johndoe@gmail.com"
+                required
                 onChange={handleChange}
                 inputVariants={inputVariants}
                 labelVariants={labelVariants}
@@ -79,7 +81,8 @@ export default function ContactForm() {
                 name="message"
                 label="_mensaje:"
                 type="textarea"
-                placeholder="johndoe@gmail.com"
+                placeholder="Tu mensaje..."
+                required
                 onChange={handleChange}
                 inputVariants={inputVariants}
                 labelVariants={labelVariants}

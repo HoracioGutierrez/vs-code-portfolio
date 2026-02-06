@@ -39,6 +39,7 @@ function HomePage() {
                         <Link
                             href="https://github.com/HoracioGutierrez"
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="break-words text-accent-3"
                         >
                             <span className="sm:hidden">&quot;https://github.com/</span>
@@ -52,7 +53,7 @@ function HomePage() {
                 </div>
             </div>
             <div className="relative flex justify-center lg:justify-start overflow-hidden">
-                <svg width="864" height="784" viewBox="0 0 864 784" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 left-0 w-full h-full animate-spin duration-[10s]">
+                <svg width="864" height="784" viewBox="0 0 864 784" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 left-0 w-full h-full animate-spin duration-[10s]" aria-hidden="true" role="presentation">
                     <g opacity="0.4" filter="url(#filter0_f_64_1236)">
                         <path d="M673.469 258.482L689.984 477.861L655.759 582.726L485.295 609.598L413.003 448.57L297.588 487.343L184.059 311.368L174 177.746L452.567 174.828L523.099 285.846L673.469 258.482Z" fill="#43D9AD" />
                     </g>
@@ -64,7 +65,7 @@ function HomePage() {
                         </filter>
                     </defs>
                 </svg>
-                <svg width="868" height="831" viewBox="0 0 868 831" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 left-0 w-full h-full animate-spin duration-[10s] direction-alternate-reverse">
+                <svg width="868" height="831" viewBox="0 0 868 831" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 left-0 w-full h-full animate-spin duration-[10s] direction-alternate-reverse" aria-hidden="true" role="presentation">
                     <g opacity="0.4" filter="url(#filter0_f_64_1235)">
                         <path d="M477.946 656.519L264.032 605.132L174.663 540.469L201.226 369.957L376.649 350.391L375.041 228.647L577.309 174.392L707.602 205.691L625.165 471.797L497.892 504.987L477.946 656.519Z" fill="#4D5BCE" />
                     </g>
