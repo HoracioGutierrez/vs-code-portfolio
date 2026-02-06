@@ -1,5 +1,3 @@
-import { ApiResponse } from "@/features/shared/types/common";
-
 // Tipo de proyecto desde Supabase
 export type Project = {
   id: number;
@@ -24,7 +22,3 @@ export type TrabajosListServerProps = {
   stack?: string[] | null;
 };
 
-// Props para TrabajosList.tsx (client component con use())
-export type TrabajosListClientProps = {
-  projectPromise: Promise<ApiResponse<Project[]>>;
-};
