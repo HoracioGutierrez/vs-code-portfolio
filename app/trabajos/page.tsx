@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import TrabajosList from "@/features/trabajos/components/trabajos-list";
 import Loading from "@/features/sobre-mi/components/loading";
 import { AnimatePresence } from "motion/react";
-import { getProjectsCountByFilter } from "@/features/sidebar-items/actions/getProjectsCountByFilter";
+import { getProjectsCountByFilter } from "@/features/sidebar-items/actions/projects.action";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

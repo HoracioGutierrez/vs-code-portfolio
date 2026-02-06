@@ -1,5 +1,5 @@
 import TrabajosDetail from "@/features/trabajos/components/trabajos-detail";
-import { getProjectBySlug } from "@/features/trabajos/actions/getProjectBySlug";
+import { getProjectBySlug } from "@/features/trabajos/actions/project.action";
 import * as motion from "motion/react-client"
 import { Suspense } from "react";
 import type { Metadata } from "next";

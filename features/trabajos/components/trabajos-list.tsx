@@ -1,4 +1,4 @@
-import { getProjectsByFilter } from "@/features/sidebar-items/actions/getProjectsByFilter";
+import { getProjectsByFilter } from "@/features/sidebar-items/actions/projects.action";
 import * as motion from "motion/react-client"
 import Image from "next/image";
 import Link from "next/link";
