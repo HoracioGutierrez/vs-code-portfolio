@@ -5,23 +5,7 @@ import { AccordionContent, AccordionItem, AccordionTrigger } from "../../ui/comp
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Folder } from "lucide-react";
-import type { Variants } from "motion/react";
-
-interface AccordionLink {
-    href: string;
-    label: string;
-    matchPath: string;
-    excludeMatch?: string;
-}
-
-interface AccordionSectionProps {
-    value: string;
-    title: string;
-    folderColor: "accent-1" | "accent-2" | "accent-3";
-    links: AccordionLink[];
-    itemVariants: Variants;
-    isLast?: boolean;
-}
+import type { AccordionLink, AccordionSectionProps } from "../types/editor";
 
 const folderColorClasses = {
     "accent-1": "fill-accent-1",

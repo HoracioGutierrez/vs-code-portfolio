@@ -1,17 +1,6 @@
 import { useMedia } from "react-use";
 import type { Variants } from "motion/react";
-
-interface UseSidebarVariantsOptions {
-    staggerChildren?: number;
-    delayChildren?: number;
-}
-
-interface UseSidebarVariantsReturn {
-    sidebarVariants: Variants;
-    sidebarItemVariants: Variants;
-    itemVariants: Variants;
-    isBigEnough: boolean;
-}
+import type { UseSidebarVariantsOptions, UseSidebarVariantsReturn } from "../types/editor";
 
 export function useSidebarVariants(options: UseSidebarVariantsOptions = {}): UseSidebarVariantsReturn {
     const { staggerChildren = 0.15, delayChildren = 0.3 } = options;

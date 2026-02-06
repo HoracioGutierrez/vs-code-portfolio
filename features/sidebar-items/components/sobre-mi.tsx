@@ -4,29 +4,7 @@ import * as Accordion from "@radix-ui/react-accordion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ChevronRight, File, Folder } from "lucide-react";
-
-type SidebarFile = {
-  title: string;
-  href: string;
-};
-
-type SidebarFolder = {
-  name: string;
-  color: string;
-  files: SidebarFile[];
-};
-
-type AccordionCategory = {
-  folders: SidebarFolder[];
-};
-
-type AccordionItems = {
-  profesional: AccordionCategory;
-  personal: AccordionCategory;
-  hobbies: AccordionCategory;
-};
-
-type AccordionType = keyof AccordionItems;
+import type { AccordionItems, AccordionType, SidebarFile, SidebarFolder } from "../types/components";
 
 export default function SobreMi() {
   const pathname = usePathname();

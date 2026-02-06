@@ -1,7 +1,8 @@
 import createTheme from "@uiw/codemirror-themes";
 import { tags as t } from "@lezer/highlight";
+import type { ThemeVariant } from "../types/codemirror";
 
-export type ThemeVariant = "default" | "transparent";
+export type { ThemeVariant };
 
 const baseStyles = [
     { tag: t.comment, color: "var(--muted-foreground)" },

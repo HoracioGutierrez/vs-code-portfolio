@@ -11,3 +11,26 @@ export type FilterItemProps = {
   checked: boolean;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
+
+export type SidebarFile = {
+  title: string;
+  href: string;
+};
+
+export type SidebarFolder = {
+  name: string;
+  color: string;
+  files: SidebarFile[];
+};
+
+export type AccordionCategory = {
+  folders: SidebarFolder[];
+};
+
+export type AccordionItems = {
+  profesional: AccordionCategory;
+  personal: AccordionCategory;
+  hobbies: AccordionCategory;
+};
+
+export type AccordionType = keyof AccordionItems;
