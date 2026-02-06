@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, ChangeEvent, useEffect, useRef } from "react";
-import { sendMessageAndSaveToDB } from "../actions/sendMessageAndSaveToDB";
+import { sendMessageAndSaveToDB } from "../actions/contact.action";
 import useContactFormStore from "../stores/useContactFormStore";
 import { cn } from "@/lib/utils";
 import * as motion from "motion/react-client";

@@ -28,8 +28,7 @@ function gitGud() {
 }
 `);
 
-    const onChange = useCallback((val: string, viewUpdate: ViewUpdate) => {
-        console.log('val:', val);
+    const onChange = useCallback((val: string, _viewUpdate: ViewUpdate) => {
         setValue(val);
     }, []);
 

@@ -22,8 +22,7 @@ export default function Secundaria() {
 const schoolYear = "2000-2006"
 `);
 
-    const onChange = useCallback((val: string, viewUpdate: ViewUpdate) => {
-        console.log('val:', val);
+    const onChange = useCallback((val: string, _viewUpdate: ViewUpdate) => {
         setValue(val);
     }, []);
 
