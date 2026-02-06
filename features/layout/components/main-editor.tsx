@@ -42,7 +42,7 @@ function MainEditor({ children }: MainEditorProps) {
                         rx="1"
                         ry="1"
                         fill="none"
-                        stroke="#1E2D3D"
+                        stroke="var(--border-editor)"
                         strokeWidth="0.15"
                         pathLength="1"
                         initial={{

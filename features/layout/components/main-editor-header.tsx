@@ -43,14 +43,14 @@ function MainEditorHeader() {
             animate="show"
             exit="exit"
             variants={childVariants}
-            className="border-b h-[60px] flex overflow-hidden items-stretch border-[#1E2D3D]"
+            className="border-b h-[60px] flex overflow-hidden items-stretch border-border-editor"
         >
-            <motion.h1 className="text-[#607B96] border-r border-[#1E2D3D] flex w-[300px] hover:text-foreground transition-colors" variants={linkVariants}>
+            <motion.h1 className="text-[#607B96] border-r border-border-editor flex w-[300px] hover:text-foreground transition-colors" variants={linkVariants}>
                 <Link href="/" className="px-4 w-full flex items-center">
                     horacio-gutierrez
                 </Link>
             </motion.h1>
-            <motion.div variants={linkVariants} className={cn("hidden border-r transition-colors duration-300 border-[#1E2D3D] md:flex hover:bg-accent group",
+            <motion.div variants={linkVariants} className={cn("hidden border-r transition-colors duration-300 border-border-editor md:flex hover:bg-accent group",
                 pathname === "/trabajos" && "bg-accent"
             )}>
                 <Link
@@ -69,7 +69,7 @@ function MainEditorHeader() {
                     </motion.div>
                 </Link>
             </motion.div>
-            <motion.div variants={linkVariants} className={cn("hidden border-r transition-colors duration-300 border-[#1E2D3D] md:flex hover:bg-accent group",
+            <motion.div variants={linkVariants} className={cn("hidden border-r transition-colors duration-300 border-border-editor md:flex hover:bg-accent group",
                 pathname === "/sobre-mi" && "bg-accent"
             )}>
                 <Link
@@ -90,7 +90,7 @@ function MainEditorHeader() {
             </motion.div>
             <AnimatePresence mode="wait">
                 {!showAlternativeText && (
-                    <motion.div variants={linkVariants} className={cn("hidden border-r transition-colors duration-300 border-[#1E2D3D] md:flex hover:bg-accent group",
+                    <motion.div variants={linkVariants} className={cn("hidden border-r transition-colors duration-300 border-border-editor md:flex hover:bg-accent group",
                         pathname === "/contacto" && "bg-accent"
                     )}>
                         <Link

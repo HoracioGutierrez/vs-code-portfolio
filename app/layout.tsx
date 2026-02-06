@@ -48,7 +48,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             toastOptions={{
               style: {
                 background: 'var(--primary)',
-                border: '1px solid #1E2D3D',
+                border: '1px solid var(--border-editor)',
                 color: 'var(--foreground)',
                 fontFamily: 'Fira Code, monospace',
               },

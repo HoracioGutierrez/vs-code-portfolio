@@ -20,7 +20,7 @@ function ContactoPage() {
                             <ContactForm />
                         </div>
                     </Panel>
-                    <PanelResizeHandle className="w-[1px] bg-[#1E2D3D]" />
+                    <PanelResizeHandle className="w-[1px] bg-border-editor" />
                     <Panel className="w-full grid place-content-center">
                         <ContactFormText />
                     </Panel>

@@ -29,6 +29,7 @@
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
+  --color-border-editor: var(--border-editor);
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-chart-1: var(--chart-1);
@@ -76,6 +77,8 @@
     --accent-1: #4d5bce;
     --accent-2: #43d9ad;
     --accent-3: #e99287;
+
+    --border-editor: #1E2D3D;
   }
 
   .dark {

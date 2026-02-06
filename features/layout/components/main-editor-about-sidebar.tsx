@@ -45,10 +45,10 @@ function MainEditorAboutSidebar() {
     }
 
     return (
-        <motion.div initial="hide" exit="exit" animate="show" className="md:border-r border-[#1E2D3D] flex flex-col items-stretch overflow-hidden w-full" variants={sidebarVariants}>
+        <motion.div initial="hide" exit="exit" animate="show" className="md:border-r border-border-editor flex flex-col items-stretch overflow-hidden w-full" variants={sidebarVariants}>
             <Accordion type="single" className="w-full" collapsible asChild defaultValue={getDefaultAccordionValue()}>
                 <motion.div initial="initial" animate="animate" exit="exit" variants={sidebarItemVariants}>
-                    <AccordionItem value="work" className="w-full border-[#1E2D3D]" asChild>
+                    <AccordionItem value="work" className="w-full border-border-editor" asChild>
                         <motion.div variants={itemVariants}>
                             <AccordionTrigger className="!w-full !flex !gap-2 !p-3 !cursor-pointer !box-border !text-muted-foreground">
                                 <span>
@@ -58,17 +58,17 @@ function MainEditorAboutSidebar() {
                             </AccordionTrigger>
                             <AccordionContent className="pb-0">
                                 <Link href="/sobre-mi/experiencia-readme" 
-                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('experiencia-readme') ? 'text-primary bg-[#1E2D3D]' : 'text-muted-foreground'}`}>
+                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('experiencia-readme') ? 'text-primary bg-border-editor' : 'text-muted-foreground'}`}>
                                     readme.md
                                 </Link>
                                 <Link href="/sobre-mi/experiencia" 
-                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('experiencia') && !pathname.includes('readme') ? 'text-primary bg-[#1E2D3D]' : 'text-muted-foreground'}`}>
+                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('experiencia') && !pathname.includes('readme') ? 'text-primary bg-border-editor' : 'text-muted-foreground'}`}>
                                     experiencia.js
                                 </Link>
                             </AccordionContent>
                         </motion.div>
                     </AccordionItem>
-                    <AccordionItem value="education" className="w-full border-[#1E2D3D]" asChild>
+                    <AccordionItem value="education" className="w-full border-border-editor" asChild>
                         <motion.div variants={itemVariants}>
                             <AccordionTrigger className="!w-full !flex !gap-2 !p-3 !cursor-pointer !box-border !text-muted-foreground">
                                 <span>
@@ -78,17 +78,17 @@ function MainEditorAboutSidebar() {
                             </AccordionTrigger>
                             <AccordionContent className="pb-0">
                                 <Link href="/sobre-mi/education-readme" 
-                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('education-readme') ? 'text-primary bg-[#1E2D3D]' : 'text-muted-foreground'}`}>
+                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('education-readme') ? 'text-primary bg-border-editor' : 'text-muted-foreground'}`}>
                                     readme.md
                                 </Link>
                                 <Link href="/sobre-mi/education" 
-                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('education') && !pathname.includes('readme') ? 'text-primary bg-[#1E2D3D]' : 'text-muted-foreground'}`}>
+                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('education') && !pathname.includes('readme') ? 'text-primary bg-border-editor' : 'text-muted-foreground'}`}>
                                     education.js
                                 </Link>
                             </AccordionContent>
                         </motion.div>
                     </AccordionItem>
-                    <AccordionItem value="hobbies" className="w-full !border-b border-[#1E2D3D]" asChild>
+                    <AccordionItem value="hobbies" className="w-full !border-b border-border-editor" asChild>
                         <motion.div variants={itemVariants}>
                             <AccordionTrigger className="!w-full !flex !gap-2 !p-3 !cursor-pointer !box-border !text-muted-foreground">
                                 <span>
@@ -98,11 +98,11 @@ function MainEditorAboutSidebar() {
                             </AccordionTrigger>
                             <AccordionContent className="pb-0">
                                 <Link href="/sobre-mi/hobbies-readme" 
-                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('hobbies-readme') ? 'text-primary bg-[#1E2D3D]' : 'text-muted-foreground'}`}>
+                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('hobbies-readme') ? 'text-primary bg-border-editor' : 'text-muted-foreground'}`}>
                                     readme.md
                                 </Link>
                                 <Link href="/sobre-mi/hobbies" 
-                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('hobbies') && !pathname.includes('readme') ? 'text-primary bg-[#1E2D3D]' : 'text-muted-foreground'}`}>
+                                      className={`p-3 w-full block hover:bg-accent-1 ${pathname.includes('hobbies') && !pathname.includes('readme') ? 'text-primary bg-border-editor' : 'text-muted-foreground'}`}>
                                     hobbies.js
                                 </Link>
                             </AccordionContent>

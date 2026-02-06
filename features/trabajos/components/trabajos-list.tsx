@@ -40,7 +40,7 @@ async function TrabajosList({ stack }: TrabajosListServerProps) {
                         animate: { transition: { staggerChildren: 0.3 } }
                     }}>
                         <motion.div
-                            className="box-border overflow-hidden relative z-10 rounded-md border aspect-video border-[#1E2D3D] bg-background min-h-[250px] w-full"
+                            className="box-border overflow-hidden relative z-10 rounded-md border aspect-video border-border-editor bg-background min-h-[250px] w-full"
                         >
                             <motion.div
                                 className="relative w-full h-full"
@@ -79,7 +79,7 @@ async function TrabajosList({ stack }: TrabajosListServerProps) {
                                         hover: { opacity: 1, y: 0, transition: { delay: 0.2 } }
                                     }}
                                 >
-                                    <Button asChild className="bg-transparent border border-[#1E2D3D] mt-auto hover:bg-accent-2 hover:!text-primary">
+                                    <Button asChild className="bg-transparent border border-border-editor mt-auto hover:bg-accent-2 hover:!text-primary">
                                         <Link href={`/trabajos/${project.slug}`} className="text-sm !text-[#607B96]">Ver proyecto</Link>
                                     </Button>
                                 </motion.div>

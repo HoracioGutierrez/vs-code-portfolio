@@ -20,22 +20,22 @@ function MainEditorFooter() {
             animate="show"
             exit="exit"
             variants={childVariants}
-            className="border-t h-[60px] flex overflow-hidden items-stretch border-[#1E2D3D]"
+            className="border-t h-[60px] flex overflow-hidden items-stretch border-border-editor"
         >
-            <motion.p variants={linkVariants} className="w-[300px] border-r border-[#1E2D3D] flex items-center justify-center text-[#607B96]">
+            <motion.p variants={linkVariants} className="w-[300px] border-r border-border-editor flex items-center justify-center text-[#607B96]">
                 Encontrame en :
             </motion.p>
-            <motion.div variants={linkVariants} className="flex border-r transition-colors border-[#1E2D3D] hover:bg-accent">
+            <motion.div variants={linkVariants} className="flex border-r transition-colors border-border-editor hover:bg-accent">
                 <Link href="https://twitter.com/horagutierrez" target="_blank" className="flex items-center px-5 text-[#607B96] hover:text-primary transition-colors">
                     <TwitterIcon className="size-4" />
                 </Link>
             </motion.div>
-            <motion.div variants={linkVariants} className="flex border-r transition-colors border-[#1E2D3D] hover:bg-accent">
+            <motion.div variants={linkVariants} className="flex border-r transition-colors border-border-editor hover:bg-accent">
                 <Link href="https://instagram.com/horagutierrez" target="_blank" className="flex items-center px-5 text-[#607B96] hover:text-primary transition-colors">
                     <InstagramIcon className="size-4" />
                 </Link>
             </motion.div>
-            <motion.div variants={linkVariants} className="flex justify-center ml-auto border-l border-[#1E2D3D] hover:bg-accent">
+            <motion.div variants={linkVariants} className="flex justify-center ml-auto border-l border-border-editor hover:bg-accent">
                 <Link
                     href="https://github.com/HoracioGutierrez"
                     target="_blank"
