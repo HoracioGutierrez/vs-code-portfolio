@@ -1,10 +1,5 @@
 import { projectData } from "../data/project.data";
-import { Project } from "../types/components";
-
-export type FetchBySlugResult = {
-  project: Project | null;
-  reason?: string;
-};
+import { FetchBySlugResult } from "../types/services";
 
 /**
  * Capa Service para operaciones de un solo proyecto.
