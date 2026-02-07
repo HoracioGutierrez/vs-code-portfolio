@@ -21,18 +21,3 @@ export type NavigationLink = {
   href: string;
 };
 
-// Patrón para respuestas de API/server actions
-export type ApiResponse<T> = {
-  error: boolean;
-  message: string;
-  payload: T;
-};
-
-// Tipo para callbacks de CodeMirror onChange
-// ViewUpdate viene de @codemirror/view
-export type CodeMirrorOnChange = (value: string, viewUpdate: unknown) => void;
-
-// Tipos de eventos comunes de React
-export type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
-export type TextAreaChangeEvent = React.ChangeEvent<HTMLTextAreaElement>;
-export type FormEvent = React.FormEvent<HTMLFormElement>;

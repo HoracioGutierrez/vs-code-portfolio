@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { TrabajosDetailProps } from "../types/components";
 
+export const PARAGRAPH_DELIMITER = "||";
+
 async function TrabajosDetail({ slug }: TrabajosDetailProps) {
 
     const { error, payload } = await getProjectBySlug(slug);
@@ -31,7 +33,7 @@ async function TrabajosDetail({ slug }: TrabajosDetailProps) {
             <motion.p variants={itemVariants} className="mb-12 text-xs text-muted-foreground">{payload.subtitle}</motion.p>
             <div className="grid grid-cols-1 lg:grid-cols-2 grow">
                 <div className="self-end">
-                    {payload.description.split("||").map((paragraph: string, index: number) => {
+                    {payload.description.split(PARAGRAPH_DELIMITER).map((paragraph: string, index: number) => {
                         return (
                             <motion.p variants={itemVariants} key={index} className="mb-4 transition-colors text-muted-foreground hover:text-white">{paragraph}</motion.p>
                         )
@@ -50,29 +52,9 @@ async function TrabajosDetail({ slug }: TrabajosDetailProps) {
                 <motion.div
                     variants={itemVariants}
                     className="grid relative grid-cols-1 justify-self-center self-end w-full aspect-video lg:justify-self-end"
-                    /* whileHover="hover"
-                    initial="initial" */
                 >
-                   {/*  <motion.div
-                        className="relative col-start-1 row-start-1 justify-self-center w-full aspect-1/2 max-w-3xs max-h-[450px] self-center"
-                        variants={{
-                            initial: { rotateY: 180, opacity: 0, transition: {} },
-                            hover: { rotateY: 0, opacity: 1, transition: { delay: 0.5, duration: 0.7, ease: "backOut" } }
-                        }}
-                    >
-                        <Image
-                            src={"/images/trabajos/" + payload.slug + "/mobile.png"}
-                            alt={payload.title}
-                            fill
-                            className="object-cover w-full"
-                        />
-                    </motion.div> */}
                     <motion.div
                         className="relative col-start-1 row-start-1 justify-self-center self-center w-full aspect-video"
-                        /* variants={{
-                            initial: { rotateY: 0, opacity: 1, transition: {} },
-                            hover: { rotateY: 180, opacity: 0, transition: { duration: 0.7, ease: "backOut" } }
-                        }} */
                     >
                         <Image
                             src={"/images/trabajos/" + payload.slug + "/laptop.png"}

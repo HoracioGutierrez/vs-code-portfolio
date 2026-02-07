@@ -3,6 +3,7 @@ import { getProjectBySlug } from "@/features/trabajos/actions/project.action";
 import * as motion from "motion/react-client"
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import { PARAGRAPH_DELIMITER } from "@/features/trabajos/components/trabajos-detail";
 
 type TrabajosDetailPageProps = {
     params: Promise<{
@@ -25,7 +26,7 @@ export async function generateMetadata({
 
     return {
         title: payload.title,
-        description: payload.subtitle || payload.description?.split("||")[0],
+        description: payload.subtitle || payload.description?.split(PARAGRAPH_DELIMITER)[0],
     };
 }
 
