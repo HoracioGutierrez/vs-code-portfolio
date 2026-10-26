@@ -8,6 +8,7 @@ export type Project = {
   thumbnail: string | null;
   url: string;
   tags: string[];
+  display_order?: number;
   created_at?: string;
   updated_at?: string;
 };

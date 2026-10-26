@@ -19,7 +19,8 @@ export const projectsData = {
     if (!tags.length || includeAll) {
       const { data, error } = await supabase
         .from("portfolio_projects")
-        .select("*");
+        .select("*")
+        .order("display_order", { ascending: true });
 
       throwIfError(error);
       return data || [];
@@ -29,7 +30,8 @@ export const projectsData = {
     const { data, error } = await supabase
       .from("portfolio_projects")
       .select("*")
-      .or(filterString);
+      .or(filterString)
+      .order("display_order", { ascending: true });
 
     throwIfError(error);
     return data || [];
