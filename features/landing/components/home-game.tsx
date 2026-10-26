@@ -14,7 +14,8 @@ import { transparentTheme } from "@/lib/themes/codemirror";
 function HomeGame() {
 
     const [newContent, setNewContent] = useState<string>("")
-    const { object, submit, isLoading } = useObject({
+    const [validationError, setValidationError] = useState<string>("")
+    const { object, submit, error, isLoading } = useObject({
         api: '/api/codereview',
         schema: codeReviewSchema,
         initialValue: {
@@ -41,8 +42,16 @@ function greet(person) {
 greet(person());`
 
     const handleCheck = () => {
+        if (!newContent.trim()) {
+            setValidationError("Escribí o corregí el código antes de verificarlo.")
+            return
+        }
+        setValidationError("")
         submit(newContent)
     }
+
+    const displayMessage = validationError || error?.message || object?.code?.message
+    const displayIsValid = !validationError && !error && object?.code?.isValid
 
     return (
         <>
@@ -65,14 +74,14 @@ greet(person());`
                 />
             </div>
             <AnimatePresence>
-                {object?.code?.message && (
+                {displayMessage && (
                     <motion.div
                         initial={{ opacity: 0, height: 0, margin: "0px" }}
-                        animate={{ opacity: 1, height: "auto", margin: "16px 0px", borderColor: object.code.isValid ? "var(--accent-1)" : "var(--accent-3)", transition: { delay: 1 } }}
+                        animate={{ opacity: 1, height: "auto", margin: "16px 0px", borderColor: displayIsValid ? "var(--accent-1)" : "var(--accent-3)", transition: { delay: 1 } }}
                         exit={{ opacity: 0, height: 0, minHeight: 0 }}
                         className="overflow-auto p-2 rounded border"
                     >
-                        <p>{object?.code?.message}</p>
+                        <p>{displayMessage}</p>
                     </motion.div>
                 )}
             </AnimatePresence>
